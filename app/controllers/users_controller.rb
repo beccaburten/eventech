@@ -1,13 +1,16 @@
 class UsersController < ApplicationController
 
+    def authenticate_user(email)
+        User.find_by_email(email)
+    end
+
     def create
         @user = User.new(user_params)
         if @user.save
             login!(@user)
-            render : ###JBUILDER GOES HERE??
+            render :user ###THIS RENDERS MY USER INFO
         else
-            flash.now[:errors] = @user.errors.full_messages
-            render :new ###JBUILDER GOES HERE
+            render @user.errors.full_messages 
         end
     end
 

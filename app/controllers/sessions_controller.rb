@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
     before_action :ensure_logged_in, only: [:destroy]
+    before_action :authenticate_user, [:create]
 
     def create
         @user = User.find_by_credentials(
@@ -13,6 +14,8 @@ class SessionsController < ApplicationController
             render @user.errors.full_messages, status: 404
         end
     end
+
+   
 
     def destroy
         logout!

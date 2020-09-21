@@ -12,6 +12,11 @@ class User < ApplicationRecord
         user && user.is_password?(password) ? user : nil
     end
 
+    def self.find_by_email(email) #CHECKS FOR USER PRESENCE
+        user = User.find_by(email: email)
+        user ? true : false
+    end
+
     def is_password?(pw)
         BCrypt::Password.new(self.password_digest).is_password?(pw)
     end
