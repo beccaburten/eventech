@@ -5,7 +5,7 @@ import React from "react";
 class LoginForm extends React.Component {
     constructor(props){
         super(props);
-        this.state = {email: [this.props.email], password: ''};
+        this.state = { password: '' };
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
@@ -19,24 +19,30 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        let errorsArray = this.props.errors;
-        if (this.props.errors.session) {
-            errorsArray = this.props.errors.session.map(error => <p> {error} </p>)
-        };
-        return(
+        // let errorsArray = this.props.errors;
+        // if (this.props.errors.session) {
+        //     errorsArray = this.props.errors.session.map(error => <p> {error} </p>)
+        // };
+        return (
             <div className='session'>
                 <h1 className='form-header'>Welcome back</h1>
                 <h3>Please enter your password to log in.</h3>
-                {errorsArray}
+                {/* {errorsArray} */}
                 <form className='session-form'>
-                    <label>Email address
-                                <input
+                    <div id="floatLabel" className="float-label">
+                        <label htmlFor="floatEmail">Email address</label>
+                        <input id="floatEmail"
                             type="text"
-                            value={this.state.email}
-                            onChange={this.handleChange}
-                            readonly />
-                    </label>
-                    <input type="password" value={this.state.password} />
+                            value={this.props.email}
+                            readOnly />
+                    </div>
+                    <div id="floatLabel" className="float-label">
+                        <label htmlFor="floatPW">Password</label>
+                        <input id="floatPW"
+                            type="password"
+                            value={this.state.password}
+                            onChange={this.handleChange} />
+                    </div>
                     <button onClick={this.handleClick}>Log In</button>
                 </form>
             </div>

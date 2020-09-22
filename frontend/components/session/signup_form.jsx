@@ -19,13 +19,13 @@ class SignupForm extends React.Component {
         if (this.state.email !== this.props.email) {
             return `Email address doesn't match. Please try again`;
         } else {
-            return null
+            return ``;
         }
     }
 
     validPW() {
         if (this.state.password.length < 8) {
-            return `Password must be at least 8 characters.`;
+            return `Your password must be at least 8 characters`;
         } else {
             return null
         }
@@ -55,33 +55,37 @@ class SignupForm extends React.Component {
                             value={this.props.email}
                             readOnly />
                     </div>
-                    
-                    <label>Confirm email
-                            <input
+                    <div id="floatLabel" className="float-label">
+                        <label htmlFor="origEmail">Confirm email</label>
+                        <input id="origEmail"
                             type="text"
                             value={this.state.email}
-                            // onChange={this.confirmEmail} 
-                            onChange={this.update('email')} />
-                    </label>
+                            onChange={this.update('email')} />  
+                    </div>
                     <p>{this.confirmEmail()}</p>
-                    <label>First Name
-                            <input
-                            type="text"
-                            value={this.state.fname}
-                            onChange={this.update('fname')} />
-                    </label>
-                    <label>Last Name
-                            <input
-                            type="text"
-                            value={this.state.lname}
-                            onChange={this.update('lname')} />
-                    </label>
-                    <label>Password
-                            <input
+                    <div className="name">
+                        <div id="floatName" className="float-name">
+                            <label htmlFor="floatFName">First Name</label>
+                            <input id="floatFName"
+                                type="text"
+                                value={this.state.fname}
+                                onChange={this.update('fname')} />
+                        </div>
+                        <div id="floatName" className="float-name">
+                            <label htmlFor="floatLName">Last Name</label>
+                            <input id="floatLName"
+                                type="text"
+                                value={this.state.lname}
+                                onChange={this.update('lname')} />
+                        </div>
+                    </div>
+                    <div id="floatLabel" className="float-label">
+                        <label htmlFor="floatPW">Password</label>
+                        <input id="floatPW"
                             type="password"
                             value={this.state.password}
                             onChange={this.update('password')} />
-                    </label>
+                    </div>
                     <p>{this.validPW()}</p>
                     <button onClick={this.handleClick}>Sign Up</button>
                 </form>

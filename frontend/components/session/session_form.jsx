@@ -23,7 +23,7 @@ class SessionForm extends React.Component {
     }
 
     demoLogin(e) {
-        ///
+        this.setState({ email: 'demo_user@gmail.com', verified: 'true'})
     }
 
     render() {
@@ -51,8 +51,8 @@ class SessionForm extends React.Component {
                         </div>
         
                         <button onClick={this.handleClick}>Get Started</button>
-                        or
-                        <button onClick={this.demoLogin}>Demo Login</button>
+                        <p>or</p>
+                        <button className='demo' onClick={this.demoLogin}>Continue as Demo User</button>
                     </form>
                 </div>
             )

@@ -55,7 +55,6 @@ export const signup = (user) => (dispatch) => {
 };
 
 export const checkForUser = (email, object) => () => {
-    debugger;
     return SessionApiUtil.checkForUser(email)
         .done(() => object.setState({ verified: 'true' }))
             .fail(() => object.setState({ verified: 'false' }))

@@ -11,8 +11,22 @@
 
 .form-header {
     font-size: 24px;
+    color: #1E0A3C;
     font-weight: 700;
 }
+
+.session h3 {
+    color: #6f7287;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+p {
+    color: #39364f;
+    font-size: 14px;
+    margin: 3px 0 3px 0;
+}
+
 
 .session-form {
     display: flex;
@@ -21,10 +35,33 @@
 }
 
 .session-form button {
+    font-family: inherit;
+    border: 0;
+    padding: 12px 0px 12px 0px;
     background-color: #D1410c;
+    transition: background-color 1s;
+    border-radius: 4px;
+    font-weight: 400;
     color: white;
-    min-width: 165px;
+    min-width: 370px;
     margin: 10px;
+}
+
+.session-form button.demo {
+    background-color: #0080ff;
+}
+.session-form button.demo:hover {
+    cursor: pointer;
+    background-color: #349aff;
+    transition: background-color 1s;
+    transition-timing-function: ease-out;
+}
+
+.session-form button:hover {
+    cursor: pointer;
+    background-color: #f55b23;
+    transition: background-color 1s;
+    transition-timing-function: ease-out;
 }
 
 
@@ -34,18 +71,20 @@
 .float-label {
   border: solid 1px #ccc;
   padding: 0 8px 0 8px;
+  margin: 10px;
   position: relative;
   border-radius: 3px;
-  min-width: 450px;
+  min-width: 350px;
   width: 30%;
   align-items: center;
 }
 
-.float-label > input {
+.session-form input {
   border: none;
-  font-size: 16px;
+  color: #39364f;
+  font-size: 14px;
   outline: 0;
-  padding: 30px 0 10px;
+  padding: 20px 0 10px;
   border-radius: 10px;
 }
 
@@ -53,16 +92,40 @@
 label {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin-top: 8px;
     // margin-bottom: 15px;
     font-size: 12px;
     color: grey;
     position: absolute;
-    transform-origin: top left;
-    transform: translate(0, 16px) scale(1);
-    transition: all .1s ease-in-out;
+    // transform-origin: top left;
+    // transform: translate(0, 16px) scale(1);
+    // transition: all .1s ease-in-out;
 }
 
-.float-label.active label {
-  transform: translate(0, 4px) scale(.75);
+// .float-label.active label {
+//   transform: translate(0, 4px) scale(.75);
+// }
+
+.name {
+    display: flex;
+    flex-direction: row;
+}
+
+.float-name {
+  border: solid 1px #ccc;
+  padding: 0 8px 0 8px;
+  margin: 0px 8px 0px 8px;
+  position: relative;
+  border-radius: 3px;
+  min-width: 160px;
+  width: 30%;
+  align-items: center;
+}
+
+.float-name > input {
+  border: none;
+  font-size: 16px;
+  outline: 0;
+  padding: 20px 0 10px;
+  border-radius: 10px;
 }
