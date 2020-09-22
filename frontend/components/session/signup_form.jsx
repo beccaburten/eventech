@@ -88,3 +88,47 @@ class SignupForm extends React.Component {
 }
 
 export default SignupForm;
+
+
+// return (
+//     <div className='session'>
+//         <h1 className='form-header'>Welcome</h1>
+//         <h3>Create an account.</h3>
+//         <form className='session-form'>
+//             <label>Email address
+//                             <input
+//                     type="text"
+//                     value={this.props.email}
+//                     readOnly />
+//             </label>
+//             <label>Confirm email
+//                             <input
+//                     type="text"
+//                     value={this.state.signup.email}
+//                     // onChange={this.confirmEmail} 
+//                     onChange={this.update('email')} />
+//             </label>
+//             {/* <p>{this.state.error}</p> */}
+//             <label>First Name
+//                             <input
+//                     type="text"
+//                     value={this.state.signup.fname}
+//                     onChange={this.update('fname')} />
+//             </label>
+//             <label>Last Name
+//                             <input
+//                     type="text"
+//                     value={this.state.signup.lname}
+//                     onChange={this.update('lname')} />
+//             </label>
+//             <label>Password
+//                             <input
+//                     type="password"
+//                     value={this.state.signup.password}
+//                     onChange={this.update('password')} />
+//             </label>
+//             <button onClick={this.handleClick}>Sign Up</button>
+//         </form>
+//     </div>
+// )
+//     }

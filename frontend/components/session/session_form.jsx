@@ -41,12 +41,15 @@ class SessionForm extends React.Component {
                     <h1 className='form-header'>Sign up or log in</h1>
                     <form className='session-form'>
                         <br></br> 
-                        <label>Email address
-                            <input 
+
+                        <div id="floatLabel" className="float-label">
+                            <label htmlFor="floatEmail">Email address</label>
+                            <input id="floatEmail" 
                                 type="text" 
                                 value={this.state.email}
-                                onChange={this.handleChange}/>
-                        </label>
+                                onChange={this.handleChange} />
+                        </div>
+        
                         <button onClick={this.handleClick}>Get Started</button>
                         or
                         <button onClick={this.demoLogin}>Demo Login</button>
@@ -58,3 +61,21 @@ class SessionForm extends React.Component {
 }
 
 export default SessionForm;
+
+
+
+// <div className='session'>
+//     <h1 className='form-header'>Sign up or log in</h1>
+//     <form className='session-form'>
+//         <br></br>
+//         <label>Email address
+//                             <input
+//                 type="text"
+//                 value={this.state.email}
+//                 onChange={this.handleChange} />
+//         </label>
+//         <button onClick={this.handleClick}>Get Started</button>
+//                         or
+//                         <button onClick={this.demoLogin}>Demo Login</button>
+//     </form>
+// </div>
