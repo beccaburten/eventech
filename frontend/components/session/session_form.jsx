@@ -1,48 +1,59 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-
+import SignupForm from './signup_form'
+import LoginForm from './login_form'
 //this will be my entry sign-in, https://www.eventbrite.com/signin/
 
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            email: "",
-            password: ""
-        };
+        this.state = { email: '' , verified: null};
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleClick(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.checkForUser(user);
+        if (this.props.checkForUser(this.state.email)) { 
+            //this method change state to trigger re-render
+            // but can I use the boolean return value to change local state of an arbitrary key 'verified' and trigger a re-render that way? 
+            this.setState({verified: true});
+        }
+    
     }
 
-    update(field) {
-        return (e) => this.setState({[field]: e.target.value});  
+    handleChange(e) {
+        this.setState({ email: e.target.value});  
+    }
+
+    demoLogin(e) {
+        ///
     }
 
     render() {
-        const {formType} = this.props;
-     
-        // let errorsArray = this.props.errors;
-        // if (this.props.errors.session) {
-        //  errorsArray = this.props.errors.session.map(error => <p> {error} </p>)
-        // };
+        if (verified === true) {
+            return (
+                <LoginForm email={this.state.email} />
+            )
+        } else if (verified === false) {
+            return (
+                <SignupForm email={this.state.email} />
+            )
+        }
         return (
-            <form>
+            <div>
                 <h1>Sign up or log in</h1>
-                {/* <p className='error-message'>{errorsArray}</p> */}
-                <br></br> 
-                <label>Email address
-                    <input 
-                        type="text" 
-                        value={this.state.email}
-                        onChange={this.update('email')}/>
-                </label>
-                <button onClick={this.handleClick}>Get Started</button>
-            </form>
+                <form>
+                    <br></br> 
+                    <label>Email address
+                        <input 
+                            type="text" 
+                            value={this.state.email}
+                            onChange={this.handleChange}/>
+                    </label>
+                    <button onClick={this.handleClick}>Get Started</button>
+                    or
+                    <button onClick={this.demoLogin}>Demo Login</button>
+                </form>
+            </div>
         );
     }
 }
