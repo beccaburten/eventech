@@ -1,7 +1,9 @@
 import React from "react";
 import { Route, Switch } from 'react-router-dom';
-import SessionFormContainer from "./session/session_form_container"
 import { AuthRoute } from "../util/auth_route_util"
+import SessionFormContainer from "./session/session_form_container"
+import SignupFormContainer from "./session/signup_form_container"
+import LoginFormContainer from "./session/login_form_container"
 
 const App = () => (
     <div>

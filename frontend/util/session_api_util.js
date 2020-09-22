@@ -11,7 +11,7 @@ export const checkForUser = (email) => {
         method: "GET",
         url: '/api/users/auth', 
         data: { email } 
-        //does this email go in as my argument? taken from params?
+        //does this email go in as my argument as taken from params in the body / form input ?
     })
 }
 

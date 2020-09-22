@@ -56,6 +56,7 @@ export const signup = (user) => (dispatch) => {
 
 export const checkForUser = (email) => (dispatch) => {
     return SessionApiUtil.checkForUser(email)
+}
         // .then((bool) => dispatch(authenticateUser(bool)))
         // need to change state to trigger re-render
         /// ...but what part of state changes with true/false

@@ -37,28 +37,26 @@ class SessionForm extends React.Component {
             return (
                 <SignupForm email={this.state.email} />
             )
+        } else {
+            return (
+                <div>
+                    <h1>Sign up or log in</h1>
+                    <form className='session-form'>
+                        <br></br> 
+                        <label>Email address
+                            <input 
+                                type="text" 
+                                value={this.state.email}
+                                onChange={this.handleChange}/>
+                        </label>
+                        <button onClick={this.handleClick}>Get Started</button>
+                        or
+                        <button onClick={this.demoLogin}>Demo Login</button>
+                    </form>
+                </div>
+            )
         }
-        return (
-            <div>
-                <h1>Sign up or log in</h1>
-                <form>
-                    <br></br> 
-                    <label>Email address
-                        <input 
-                            type="text" 
-                            value={this.state.email}
-                            onChange={this.handleChange}/>
-                    </label>
-                    <button onClick={this.handleClick}>Get Started</button>
-                    or
-                    <button onClick={this.demoLogin}>Demo Login</button>
-                </form>
-            </div>
-        );
     }
 }
-
-//Redirect the user to the / route if they are logged in. ??? 
-// isn't this protected routes????
 
 export default SessionForm;

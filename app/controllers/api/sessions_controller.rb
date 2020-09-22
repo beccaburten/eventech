@@ -15,8 +15,6 @@ class SessionsController < ApplicationController
         end
     end
 
-   
-
     def destroy
         logout!
         render ['Logout successful'] ##just data being sent

@@ -1,53 +1,94 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React from "react";
 
-//this will be my entry sign-in, https://www.eventbrite.com/signin/
+//requires access to user's input email
 
-class SessionForm extends React.Component {
+class SignupForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            email: "",
-            password: ""
-        };
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = { email: '', fname: '', lname: '', password: '' };
+        this.handleClick = this.handleClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleClick(e) {
-        e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.checkForUser(user);
+        this.props.signup(this.state);
     }
 
-    update(field) {
-        return (e) => this.setState({ [field]: e.target.value });
+    handleChange(e) {
+        this.setState({ password: e.target.value });
+    }
+
+    confirmEmail(e) {
+        if (this.state.email !== this.props.email) {
+            return this.props.errors = [`Email address doesn't match. Please try again
+`]
+        }
+    }
+
+    update(field){
+        if (field === 'password') {
+            return (e) => {
+                let input = e.target.value
+                this.setState({ [field]: input })
+                if (input.length < 8) {
+                    this.props.errors = ['Password msut be at least 8 characters.']
+                }
+            }
+        } else {
+            return (e) => (
+                this.setState({[field]: e.target.value})
+            )
+        }
     }
 
     render() {
-        const { formType } = this.props;
-
-        // let errorsArray = this.props.errors;
-        // if (this.props.errors.session) {
-        //  errorsArray = this.props.errors.session.map(error => <p> {error} </p>)
-        // };
+        const { email } = this.props;
+        let errorsArray = this.props.errors;
+        if (this.props.errors.session) {
+            errorsArray = this.props.errors.session.map(error => <p> {error} </p>)
+        };
         return (
-            <form>
-                <h1>Sign up or log in</h1>
-                {/* <p className='error-message'>{errorsArray}</p> */}
-                <br></br>
-                <label>Email address
-                    <input
-                        type="text"
-                        value={this.state.email}
-                        onChange={this.update('email')} />
-                </label>
-                <button onClick={this.handleClick}>Get Started</button>
-            </form>
-        );
+            <div>
+                <h1>Welcome</h1>
+                <h3>Create an account.</h3>
+                {errorsArray}
+                <form className='signup-form'>
+                    <label>Email address
+                            <input
+                            type="text"
+                            value={this.props.email}
+                            onChange={this.handleChange}
+                            readonly />
+                    </label>
+                    <label>Confirm email
+                            <input
+                            type="text"
+                            value={this.state.email}
+                            onChange={this.confirmEmail} />
+                    </label>
+                    <label>First Name
+                            <input
+                            type="text"
+                            value={this.state.fname}
+                            onChange={this.update('fname')} />
+                    </label>
+                    <label>Last Name
+                            <input
+                            type="text"
+                            value={this.state.fname}
+                            onChange={this.update('lname')} />
+                    </label>
+                    <label>Password
+                            <input
+                            type="password"
+                            value={this.state.password}
+                            onChange={this.update('password')} />
+                    </label>
+                    <button onClick={this.handleClick}>Log In</button>
+                </form>
+            </div>
+        )
     }
 }
 
-//Redirect the user to the / route if they are logged in. ??? 
-// isn't this protected routes????
-
-export default SessionForm;
+export default SignupForm;
