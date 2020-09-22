@@ -11,10 +11,10 @@ const App = () => (
             <h1>Eventech</h1>
         </header>
         <Switch>
-            <Route exact path="/" component={SplashContainer} />
+            <Route exact path="/" component={SessionFormContainer} />
             <AuthRoute exact path="/signin" component={SessionFormContainer} />
-            <AuthRoute path="/signup" component={SignUpFormContainer} />
-            <AuthRoute path="/login" component={LogInFormContainer} />
+            <AuthRoute path="/signin/signup" component={SignupFormContainer} />
+            <AuthRoute path="/signin/login" component={LoginFormContainer} />
         </Switch>
     </div>
 );

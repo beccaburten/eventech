@@ -6,18 +6,16 @@ import LoginForm from './login_form'
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
+        //let verified = '';
         this.state = { email: '' , verified: null};
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleClick(e) {
         e.preventDefault();
-        if (this.props.checkForUser(this.state.email)) { 
-            //this method change state to trigger re-render
-            // but can I use the boolean return value to change local state of an arbitrary key 'verified' and trigger a re-render that way? 
-            this.setState({verified: true});
-        }
-    
+        this.props.checkForUser(this.state.email, this)
+        // this is designed to setState of {verified} to true or false string
     }
 
     handleChange(e) {
@@ -29,11 +27,11 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        if (verified === true) {
+        if (this.state.verified === 'true') {
             return (
                 <LoginForm email={this.state.email} />
             )
-        } else if (verified === false) {
+        } else if (this.state.verified === 'false') {
             return (
                 <SignupForm email={this.state.email} />
             )

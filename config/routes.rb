@@ -6,7 +6,7 @@
 #                  api_user GET    /api/users/:id(.:format)                                                                 api/users#show {:format=>:json}
 #                           PATCH  /api/users/:id(.:format)                                                                 api/users#update {:format=>:json}
 #                           PUT    /api/users/:id(.:format)                                                                 api/users#update {:format=>:json}
-#            api_users_auth GET    /api/users/auth(.:format)                                                                api/users#authenticate {:format=>:json}
+#          api_authenticate GET    /api/authenticate(.:format)                                                              api/users#authenticate {:format=>:json}
 #               api_session DELETE /api/session(.:format)                                                                   api/sessions#destroy {:format=>:json}
 #                           POST   /api/session(.:format)                                                                   api/sessions#create {:format=>:json}
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do 
     resources :users, only: [:create, :show, :update]
-    get 'users/auth', to: 'users#authenticate'
+    get 'authenticate', to: 'users#authenticate'
     
     resource :session, only: [:create, :destroy]
   end

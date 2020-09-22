@@ -54,9 +54,19 @@ export const signup = (user) => (dispatch) => {
     )
 };
 
-export const checkForUser = (email) => (dispatch) => {
+export const checkForUser = (email, object) => () => {
+    debugger;
     return SessionApiUtil.checkForUser(email)
+        .done(() => object.setState({ verified: 'true' }))
+            .fail(() => object.setState({ verified: 'false' }))
+        // .then(() => object.setState({verified: 'true'}),
+        //     () => object.setState({ verified: 'false' }))
 }
+
+//thing I was missing: binding to object by passing obj as an arg
+// can setState within the callback here now that obj is passed in
+
+
         // .then((bool) => dispatch(authenticateUser(bool)))
         // need to change state to trigger re-render
         /// ...but what part of state changes with true/false

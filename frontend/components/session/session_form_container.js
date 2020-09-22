@@ -8,7 +8,7 @@ const mSTP = (state) => ({
 });
 
 const mDTP = (dispatch) => ({
-    checkForUser: (email) => dispatch(checkForUser(email))
+    checkForUser: (email, obj) => dispatch(checkForUser(email, obj))
 })
 
 export default connect(mSTP, mDTP)(SessionForm);

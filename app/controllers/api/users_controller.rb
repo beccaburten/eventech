@@ -1,8 +1,12 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
 
-    def authenticate(email)
-        user = User.find_by_email(email) #can I access email from body params of input???
-        user ? render ['true'] : render ['false'] #returns json?
+    def authenticate
+        user = User.find_by_email(params[:email]) #params access body params of input???
+        if user
+            render json: ['true'], status: 200 
+        else 
+            render json: ['false'], status: 404 #data isn't used but status will allow for a fail callback
+        end
     end
 
     def create

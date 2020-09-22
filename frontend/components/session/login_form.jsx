@@ -19,12 +19,11 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        const {email} = this.props;
         let errorsArray = this.props.errors;
         if (this.props.errors.session) {
             errorsArray = this.props.errors.session.map(error => <p> {error} </p>)
         };
-        return() {
+        return(
             <div>
                 <h1>Welcome back</h1>
                 <h3>Please enter your password to log in.</h3>
@@ -41,7 +40,7 @@ class LoginForm extends React.Component {
                     <button onClick={this.handleClick}>Log In</button>
                 </form>
             </div>
-        }
+        )
     }
 }
 

@@ -9,10 +9,11 @@ export const signup = (user) => {
 export const checkForUser = (email) => {
     return $.ajax({
         method: "GET",
-        url: '/api/users/auth', 
+        url: '/api/authenticate', 
         data: { email } 
         //does this email go in as my argument as taken from params in the body / form input ?
     })
+    //GET requests don't have bodies but can access query string params
 }
 
 export const login = (user) => (
