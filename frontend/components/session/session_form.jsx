@@ -37,8 +37,8 @@ class SessionForm extends React.Component {
             )
         } else {
             return (
-                <div>
-                    <h1>Sign up or log in</h1>
+                <div className='session'>
+                    <h1 className='form-header'>Sign up or log in</h1>
                     <form className='session-form'>
                         <br></br> 
                         <label>Email address

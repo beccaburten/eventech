@@ -24,11 +24,11 @@ class LoginForm extends React.Component {
             errorsArray = this.props.errors.session.map(error => <p> {error} </p>)
         };
         return(
-            <div>
-                <h1>Welcome back</h1>
+            <div className='session'>
+                <h1 className='form-header'>Welcome back</h1>
                 <h3>Please enter your password to log in.</h3>
                 {errorsArray}
-                <form className='login-form'>
+                <form className='session-form'>
                     <label>Email address
                                 <input
                             type="text"
