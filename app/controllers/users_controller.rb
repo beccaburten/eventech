@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
-    def authenticate_user(email)
-        User.find_by_email(email)
+    def authenticate(email)
+        user = User.find_by_email(email) #can I access email from body params of input???
+        user ? render ['true'] : render ['false'] #returns json?
     end
 
     def create

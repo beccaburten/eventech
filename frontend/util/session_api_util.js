@@ -9,8 +9,9 @@ export const signup = (user) => {
 export const checkForUser = (email) => {
     return $.ajax({
         method: "GET",
-        url: "/...", //<<<what goes here? how do I hit my UserController??
-        data: { email }
+        url: '/api/users/auth', 
+        data: { email } 
+        //does this email go in as my argument? taken from params?
     })
 }
 
