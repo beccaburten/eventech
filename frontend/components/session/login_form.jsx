@@ -11,9 +11,9 @@ class LoginForm extends React.Component {
     }
     
     handleClick(e) {
-        this.props.login(this.state);
-        const { history } = this.props;
-        history.push('/');
+        this.props.login(this.state)
+            // const { history } = this.props;
+            // history.push('/');
     }
 
     handleChange(e) {
@@ -21,10 +21,9 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        // let errorsArray = this.props.errors;
-        // if (this.props.errors.session) {
-        //     errorsArray = this.props.errors.session.map(error => <p> {error} </p>)
-        // };
+        const errors = this.props.errors.map((err, i) => (
+            <p key="i" className="errors">{err}</p>
+        ));
         return (
             <div>
             <img className='logo' src={window.eventechURL} />
@@ -32,7 +31,6 @@ class LoginForm extends React.Component {
                 <img className='user-icon' src={window.userIconURL} />
                 <h1 className='form-header'>Welcome back</h1>
                 <h3>Please enter your password to log in.</h3>
-                {/* {errorsArray} */}
                 <form className='session-form'>
                     <div id="floatLabel" className="float-label">
                         <label htmlFor="floatEmail">Email address</label>
@@ -48,6 +46,7 @@ class LoginForm extends React.Component {
                             value={this.state.password}
                             onChange={this.handleChange} />
                     </div>
+                    <div className="errors">{errors}</div> 
                     <button onClick={this.handleClick}>Log In</button>
                 </form>
             </div>

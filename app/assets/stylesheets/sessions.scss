@@ -11,6 +11,7 @@
 
 .form-header {
     font-size: 24px;
+    letter-spacing: 0.5px;
     color: #1E0A3C;
     font-weight: 700;
 }
@@ -18,7 +19,7 @@
 .session h3 {
     color: #6f7287;
     // font-size: 18px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
 }
 
@@ -38,7 +39,7 @@ p {
 .session-form button {
     font-family: inherit;
     border: 0;
-    padding: 12px 0px 12px 0px;
+    padding: 15px 0px 15px 0px;
     background-color: #D1410c;
     transition: background-color 0.5s;
     border-radius: 4px;
@@ -103,6 +104,14 @@ input:focus + #floatLabel {
   outline: 0;
   padding: 20px 0 10px;
   border-radius: 10px;
+  width: 350px;
+}
+
+#floatLName {
+    width: 150px;
+}
+#floatFName {
+    width: 150px;
 }
 
 //Email address
@@ -138,11 +147,16 @@ label {
   min-width: 160px;
   width: 30%;
   align-items: center;
+  &:hover {
+      border: solid 1px rgb(150, 149, 149);
+      transition: border 0.5s;
+      transition-timing-function: ease-out;
+  }
 }
 
 .float-name > input {
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   outline: 0;
   padding: 20px 0 10px;
   border-radius: 10px;
@@ -156,3 +170,15 @@ label {
     height: 50px;
 }
 
+.errors {
+    font-weight: 100;
+    color: rgb(184, 7, 7);
+    align-items: left;
+    list-style: none;
+}
+
+.login-redirect {
+    text-decoration: none;
+    font-size: 14px;
+    color: #0080ff;
+}

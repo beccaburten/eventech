@@ -12,10 +12,12 @@ class Nav extends React.Component {
         const { currentUserId } = this.props;
         if (currentUserId !== null) {
             return (
-                <nav className='nav-bar'>
-                    <a href="/"><img className='logo' src={window.eventechURL} /></a>
-                    <Dropdown logout={this.props.logout} />
-                </nav>
+                <ul className='nav-bar'>
+                    <li><a href="/"><img className='logo' src={window.eventechURL} /></a></li>
+                    <li><a href="/">Future Search Bar</a></li>
+                    <li><a href="about.asp">Likes</a></li>
+                    <li><Dropdown logout={this.props.logout} /></li>
+                </ul>
             )
         } else {
             return (

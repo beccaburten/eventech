@@ -12,9 +12,12 @@ class SignupForm extends React.Component {
     }
 
     handleClick(e) {
-        this.props.signup(this.state);
-        const { history } = this.props;
-        history.push('/');
+        let errors = this.requiredFields(); 
+        if (errors.length < 1) {
+            this.props.signup(this.state);
+            const { history } = this.props;
+            history.push('/');
+        }
     }
 
     confirmEmail() {
@@ -33,6 +36,16 @@ class SignupForm extends React.Component {
             return null
         }
     }
+
+    requiredFields() {
+        let requiredFields = {};
+        if (this.state.fname === '') { requiredFields['fname'] = ['First name is required.'] }
+        if (this.state.lname === '') { requiredFields['lname'] = ['Last name is required.'] }
+        if (this.state.password === '') { requiredFields['pw'] = ['Password is required.'] }
+        return requiredFields;
+    }
+    
+
     update(field){
         return (e) => (
             this.setState({[field]: e.target.value})
@@ -40,11 +53,7 @@ class SignupForm extends React.Component {
     }
 
     render() {
-        // let errorsArray; //= this.props.errors;
-        // if (this.props.errors) { //check if there are any errors
-        //     errorsArray = this.props.errors.map(error => <p> {error} </p>)
-        // };
-
+        let missingField = this.requiredFields();
         return (
             <div>
             <img className='logo' src={window.eventechURL} />
@@ -67,21 +76,27 @@ class SignupForm extends React.Component {
                             value={this.state.email}
                             onChange={this.update('email')} />  
                     </div>
-                    <p>{this.confirmEmail()}</p>
+                    <p className="errors">{this.confirmEmail()}</p>
                     <div className="name">
-                        <div id="floatName" className="float-name">
-                            <label htmlFor="floatFName">First Name</label>
-                            <input id="floatFName"
-                                type="text"
-                                value={this.state.fname}
-                                onChange={this.update('fname')} />
+                        <div>
+                            <div className="float-name">
+                                <label htmlFor="floatFName">First Name</label>
+                                    <input id="floatFName"
+                                    type="text"
+                                    value={this.state.fname}
+                                    onChange={this.update('fname')} />
+                            </div>
+                            <p className="errors">{missingField['fname']}</p>
                         </div>
-                        <div id="floatName" className="float-name">
-                            <label htmlFor="floatLName">Last Name</label>
-                            <input id="floatLName"
-                                type="text"
-                                value={this.state.lname}
-                                onChange={this.update('lname')} />
+                        <div>
+                            <div className="float-name">
+                                <label htmlFor="floatLName">Last Name</label>
+                                    <input id="floatLName"
+                                    type="text"
+                                    value={this.state.lname}
+                                    onChange={this.update('lname')} />
+                            </div>
+                            <p className="errors">{missingField['lname']}</p>
                         </div>
                     </div>
                     <div id="floatLabel" className="float-label">
@@ -91,9 +106,10 @@ class SignupForm extends React.Component {
                             value={this.state.password}
                             onChange={this.update('password')} />
                     </div>
-                    <p>{this.validPW()}</p>
+                    <p className="errors">{missingField['pw']}</p>
+                    <p className="errors">{this.validPW()}</p>
                     <button onClick={this.handleClick}>Sign Up</button>
-                    <Link to='/signin'>Log In Instead</Link>
+                    <Link className="login-redirect" to='/signin'>Log In Instead</Link>
                 </form>
             </div>
             </div>

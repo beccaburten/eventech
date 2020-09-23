@@ -9,8 +9,6 @@ export default (state = _nullUser, action) => {
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             return Object.assign({}, {id: action.currentUser.id});
-        case RECEIVE_SESSION_ERRORS:
-            return action.errors;
         case LOGOUT_CURRENT_USER:
             return _nullUser;
         default:

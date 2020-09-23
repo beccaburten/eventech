@@ -10,9 +10,9 @@ class Api::SessionsController < ApplicationController
             params[:user][:password])
         if @user
             login!(@user)
-            render "api/users/show"  #Redirects to users/show.json.jbuilder
+            render "api/users/show", status: 200  #Redirects to users/show.json.jbuilder
         else
-            render @user.errors.full_messages, status: 404
+            render json: ['Incorrect password'], status: 404
         end
     end
 

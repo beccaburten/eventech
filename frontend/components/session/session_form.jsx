@@ -11,11 +11,14 @@ class SessionForm extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.demoLogin = this.demoLogin.bind(this);
+        this.isValidEmail = this.isValidEmail.bind(this);
     }
 
     handleClick(e) {
-        e.preventDefault();
-        this.props.checkForUser(this.state.email, this)
+        if (this.isValidEmail(this.state.email) === null) {
+            e.preventDefault();
+            this.props.checkForUser(this.state.email, this)
+        }
         // this is designed to setState of {verified} to true or false string
     }
 
@@ -25,6 +28,19 @@ class SessionForm extends React.Component {
 
     demoLogin() {
         this.props.login({ email: 'demo_user@gmail.com', password: 'demologin'});
+    }
+
+    isValidEmail(email) {
+        if (email.length < 2) return null;
+        let arr = email.split('@');
+        if (arr.length < 2) {
+            return ['Please enter a valid email address'];
+        };
+        if (arr[1].split('.').length < 2) {
+            return ['Please enter a valid email address'];
+        } else {
+            return null;
+        };
     }
 
     render() {
@@ -47,11 +63,12 @@ class SessionForm extends React.Component {
                         <br></br> 
                         <div id="floatLabel" className="float-label">
                             <input id="floatEmail" 
-                                type="text" 
+                                type="email" required
                                 value={this.state.email}
                                 onChange={this.handleChange} />
                             <label htmlFor="floatEmail">Email address</label>
                         </div>
+                        <div className="errors">{this.isValidEmail(this.state.email)}</div>
                         <button onClick={this.handleClick}>Get Started</button>
                         <p>or</p>
                         <button className='demo' onClick={this.demoLogin}>Continue as Demo User</button>
