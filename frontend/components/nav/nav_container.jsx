@@ -12,21 +12,25 @@ class Nav extends React.Component {
         const { currentUserId } = this.props;
         if (currentUserId !== null) {
             return (
-                <ul className='nav-bar'>
-                    <li><a href="/"><img className='logo' src={window.eventechURL} /></a></li>
-                    <li><a href="/">Future Search Bar</a></li>
-                    <li><a href="about.asp">Likes</a></li>
-                    <li><Dropdown logout={this.props.logout} /></li>
-                </ul>
+                <nav className='nav-bar'>
+                    <ul className='nav-bar'>
+                        <li><Link to="/"><img className='logo' src={window.eventechURL} /></Link></li>
+                        <li><Link to="/">Create Event</Link></li>
+                        <li><Link to="/">Likes</Link></li>
+                        <li><Link to="/">Tickets</Link></li>
+                        <li><Dropdown logout={this.props.logout} /></li>
+                    </ul>
+                </nav>
             )
         } else {
             return (
-                <nav className='nav-bar'>
-                    <a href="/"><img className='logo' src={window.eventechURL} /></a>
-                    <Link to="/">Search?(pending)</Link>
-                    <Link to="/">Create Event(pending)</Link>
-                    <Link className="signin" to='/signin'>Sign In</Link>
-                </nav>
+                <ul className='nav-bar'>
+                    <li><a href="/"><img className='logo' src={window.eventechURL} /></a></li>
+                    <li><Link to="/">Organize</Link></li>
+                    <li><Link to="/">Help</Link></li>
+                    <li><Link to="/">Create Event</Link></li>
+                    <li><Link className="signin" to='/signin'>Sign In</Link></li>
+                </ul>
             )
         }
     }
@@ -41,4 +45,5 @@ const mDTP = (dispatch) => ({
 });
 
 export default connect(mSTP, mDTP)(Nav); //NavContainer
+
 

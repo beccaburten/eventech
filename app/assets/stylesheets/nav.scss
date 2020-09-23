@@ -5,6 +5,28 @@
     position: fixed;
     top: 0;
     font-family: 'Roboto', sans-serif;
+     list-style-type: none;
+    margin: 0;
+    padding: 0;
+      overflow: hidden;
+
+}
+
+.nav-bar li {
+    //display: inline;
+    float: left;
+    padding: 30px 15px 30px 12px;
+    justify-content: space-between;
+}
+
+li Link {
+    text-align: center;
+  padding: 14px 16px;
+      text-decoration: none;
+}
+
+li Link:hover {
+    background-color: #ebeaee;
 }
 
 .signin {
@@ -14,7 +36,6 @@
     text-decoration: none;
     position: fixed;
     right: 0;
-    padding: 30px 15px 30px 12px;
 }
 
 .logo {

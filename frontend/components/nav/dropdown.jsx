@@ -16,12 +16,12 @@ class Dropdown extends React.Component {
     render() {
         return (
             <ul id="profile-dropdown">
-                        <li>...</li>
-                        <li>...</li>
-                        <li>...</li>
-                        <li>...</li>
-                        <li>...</li>
-                        <button onClick={this.handleClick}>Log Out</button>
+                <div className="profile-icon">
+                    <i className="far fa-user-circle"></i>
+                </div>
+                <li className="logout-button">
+                <button onClick={this.handleClick}>Log Out</button>
+                </li>
             </ul>
 
         )

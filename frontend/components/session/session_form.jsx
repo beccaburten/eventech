@@ -50,7 +50,7 @@ class SessionForm extends React.Component {
             )
         } else if (this.state.verified === 'false') {
             return (
-                <SignupFormContainer email={this.state.email} />
+                <SignupFormContainer email={this.state.email} changeForm={()=>this.setState({verified: null})}/>
             )
         } else {
             return (
@@ -61,7 +61,7 @@ class SessionForm extends React.Component {
                     <h1 className='form-header'>Sign up or log in</h1>
                     <form className='session-form'>
                         <br></br> 
-                        <div id="floatLabel" className="float-label">
+                        <div id="floatLabel" className={ this.isValidEmail(this.state.email) ? 'error-label' : 'float-label' } >
                             <input id="floatEmail" 
                                 type="email" required
                                 value={this.state.email}
