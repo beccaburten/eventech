@@ -1,6 +1,6 @@
 class Api::SessionsController < ApplicationController
 
-    before_action :ensure_logged_in, only: [:destroy]
+    # before_action :ensure_logged_in, only: [:destroy]
     # before_action :authenticate_user, [:create]
     # ^^ using protected frontend routes instead?
 
@@ -18,6 +18,7 @@ class Api::SessionsController < ApplicationController
 
     def destroy
         logout!
-        render ['Logout successful'] ##just data being sent
+        #redirect_to root_url
+        render json: ['Logout successful'] ##just data being sent
     end
 end

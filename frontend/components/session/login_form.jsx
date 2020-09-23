@@ -26,6 +26,8 @@ class LoginForm extends React.Component {
         //     errorsArray = this.props.errors.session.map(error => <p> {error} </p>)
         // };
         return (
+            <div>
+            <img className='logo' src={window.eventechURL} />
             <div className='session'>
                 <h1 className='form-header'>Welcome back</h1>
                 <h3>Please enter your password to log in.</h3>
@@ -47,6 +49,7 @@ class LoginForm extends React.Component {
                     </div>
                     <button onClick={this.handleClick}>Log In</button>
                 </form>
+            </div>
             </div>
         )
     }

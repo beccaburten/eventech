@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 //requires access to user's input email
 
@@ -45,11 +46,13 @@ class SignupForm extends React.Component {
         // };
 
         return (
+            <div>
+            <img className='logo' src={window.eventechURL} />
             <div className='session'>
+                <img className='user-icon' src={window.userIconURL} />
                 <h1 className='form-header'>Welcome</h1>
                 <h3>Create an account.</h3>
                 <form className='session-form'>
-
                     <div id="floatLabel" className="float-label">
                         <label htmlFor="floatEmail">Email address</label>
                         <input id="floatEmail"
@@ -90,7 +93,9 @@ class SignupForm extends React.Component {
                     </div>
                     <p>{this.validPW()}</p>
                     <button onClick={this.handleClick}>Sign Up</button>
+                    <Link to='/signin'>Log In Instead</Link>
                 </form>
+            </div>
             </div>
         )
     }

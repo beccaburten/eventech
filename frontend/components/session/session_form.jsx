@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
         this.state = { email: '' , verified: null};
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
     }
 
     handleClick(e) {
@@ -22,8 +23,8 @@ class SessionForm extends React.Component {
         this.setState({ email: e.target.value});  
     }
 
-    demoLogin(e) {
-        this.setState({ email: 'demo_user@gmail.com', verified: 'true'})
+    demoLogin() {
+        this.props.login({ email: 'demo_user@gmail.com', password: 'demologin'});
     }
 
     render() {
@@ -37,7 +38,10 @@ class SessionForm extends React.Component {
             )
         } else {
             return (
+                <div>
+                <img className='logo' src={window.eventechURL} />
                 <div className='session'>
+                    <img className='e' src={window.eURL} />
                     <h1 className='form-header'>Sign up or log in</h1>
                     <form className='session-form'>
                         <br></br> 
@@ -54,6 +58,7 @@ class SessionForm extends React.Component {
                         <p>or</p>
                         <button className='demo' onClick={this.demoLogin}>Continue as Demo User</button>
                     </form>
+                </div>
                 </div>
             )
         }

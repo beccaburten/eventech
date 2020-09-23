@@ -4,10 +4,24 @@
     <title>Eventech</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">  <body>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">  
+    
+    <script type="text/javascript">
+      window.eventechURL = "<%= image_url('eventech.png') %>"
+    </script>
+    <script type="text/javascript">
+      window.eURL = "<%= image_url('e.png') %>"
+    </script>
+    <script type="text/javascript">
+      window.userIconURL = "<%= image_url('user_icon.png') %>"
+    </script>
+
+    <%= favicon_link_tag asset_path('favicon-32x32.png') %>
+
+  </head>
+  <body>
     <%= yield %>
   </body>
 </html>

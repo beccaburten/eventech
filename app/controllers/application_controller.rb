@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
         !!current_user
     end
 
-    def ensure_logged_in
-        render #SOMEJBUILDER >> unless logged_in?
-    end
+    # def ensure_logged_in
+    #     render #SOMEJBUILDER >> unless logged_in?
+    # end
 
     def login!(user)
         session[:session_token] = user.reset_session_token!
