@@ -1,7 +1,8 @@
 class Api::SessionsController < ApplicationController
 
     before_action :ensure_logged_in, only: [:destroy]
-    before_action :authenticate_user, [:create]
+    # before_action :authenticate_user, [:create]
+    # ^^ using protected frontend routes instead?
 
     def create
         @user = User.find_by_credentials(

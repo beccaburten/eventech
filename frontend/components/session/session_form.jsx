@@ -1,6 +1,6 @@
 import React from 'react';
-import SignupForm from './signup_form'
-import LoginForm from './login_form'
+import SignupFormContainer from './signup_form_container'
+import LoginFormContainer from './login_form_container'
 //this will be my entry sign-in, https://www.eventbrite.com/signin/
 
 class SessionForm extends React.Component {
@@ -29,11 +29,11 @@ class SessionForm extends React.Component {
     render() {
         if (this.state.verified === 'true') {
             return (
-                <LoginForm email={this.state.email} />
+                <LoginFormContainer email={this.state.email} />
             )
         } else if (this.state.verified === 'false') {
             return (
-                <SignupForm email={this.state.email} />
+                <SignupFormContainer email={this.state.email} />
             )
         } else {
             return (

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     let preloadedState = undefined;
     if (window.currentUser) {
         preloadedState = {
-            session: { currentUser: window.currentUser }
+            session: { id: window.currentUser.id }
         };
     } 
     const store = configureStore(preloadedState);

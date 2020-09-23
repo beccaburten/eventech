@@ -12,6 +12,8 @@ class SignupForm extends React.Component {
 
     handleClick(e) {
         this.props.signup(this.state);
+        const { history } = this.props;
+        history.push('/');
     }
 
     confirmEmail() {

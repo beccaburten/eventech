@@ -5,13 +5,15 @@ import React from "react";
 class LoginForm extends React.Component {
     constructor(props){
         super(props);
-        this.state = { password: '' };
+        this.state = { email: [this.props.email], password: '' };
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
     
     handleClick(e) {
         this.props.login(this.state);
+        const { history } = this.props;
+        history.push('/');
     }
 
     handleChange(e) {
