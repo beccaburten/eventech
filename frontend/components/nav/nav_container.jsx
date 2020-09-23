@@ -13,15 +13,17 @@ class Nav extends React.Component {
         if (currentUserId !== null) {
             return (
                 <nav className='nav-bar'>
-                    <img className='logo' src={window.eventechURL} />
+                    <a href="/"><img className='logo' src={window.eventechURL} /></a>
                     <Dropdown logout={this.props.logout} />
                 </nav>
             )
         } else {
             return (
                 <nav className='nav-bar'>
-                    <img className='logo' src={window.eventechURL} />
-                    <Link to='/signin'>Sign In</Link>
+                    <a href="/"><img className='logo' src={window.eventechURL} /></a>
+                    <Link to="/">Search?(pending)</Link>
+                    <Link to="/">Create Event(pending)</Link>
+                    <Link className="signin" to='/signin'>Sign In</Link>
                 </nav>
             )
         }

@@ -45,15 +45,13 @@ class SessionForm extends React.Component {
                     <h1 className='form-header'>Sign up or log in</h1>
                     <form className='session-form'>
                         <br></br> 
-
                         <div id="floatLabel" className="float-label">
-                            <label htmlFor="floatEmail">Email address</label>
                             <input id="floatEmail" 
                                 type="text" 
                                 value={this.state.email}
                                 onChange={this.handleChange} />
+                            <label htmlFor="floatEmail">Email address</label>
                         </div>
-        
                         <button onClick={this.handleClick}>Get Started</button>
                         <p>or</p>
                         <button className='demo' onClick={this.demoLogin}>Continue as Demo User</button>

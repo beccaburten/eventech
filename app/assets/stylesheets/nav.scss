@@ -1,5 +1,25 @@
 .nav-bar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.signin {
+    color: #2e2a35;;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    position: fixed;
+    right: 0;
+    padding: 30px 15px 30px 12px;
+}
+
+.logo {
+    padding: 20px 12px 30px 10px;
+}
+.signin:hover {
+    background-color: #ebeaee;
 }

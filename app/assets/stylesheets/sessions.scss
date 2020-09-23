@@ -40,7 +40,7 @@ p {
     border: 0;
     padding: 12px 0px 12px 0px;
     background-color: #D1410c;
-    transition: background-color 1s;
+    transition: background-color 0.5s;
     border-radius: 4px;
     font-weight: 400;
     color: white;
@@ -54,14 +54,14 @@ p {
 .session-form button.demo:hover {
     cursor: pointer;
     background-color: #349aff;
-    transition: background-color 1s;
+    transition: background-color 0.5s;
     transition-timing-function: ease-out;
 }
 
 .session-form button:hover {
     cursor: pointer;
     background-color: #f55b23;
-    transition: background-color 1s;
+    transition: background-color 0.5s;
     transition-timing-function: ease-out;
 }
 
@@ -71,6 +71,7 @@ p {
 //div container
 .float-label {
   border: solid 1px #ccc;
+  transition: border 0.5s;
   padding: 0 8px 0 8px;
   margin: 10px;
   position: relative;
@@ -78,6 +79,21 @@ p {
   min-width: 350px;
   width: 30%;
   align-items: center;
+  &:hover {
+      border: solid 1px rgb(150, 149, 149);
+      transition: border 0.5s;
+      transition-timing-function: ease-out;
+  }
+}
+
+input:focus + label {
+    color: #0066cc;
+}
+//CANT GET THE BORDER TO CHANGE TO BLUE :(
+input:focus + #floatLabel {
+    border: solid 3px #0066cc;
+    transition: border 0.5s;
+    transition-timing-function: ease-out;
 }
 
 .session-form input {
@@ -98,6 +114,7 @@ label {
     font-size: 12px;
     color: grey;
     position: absolute;
+    top: 0;
     // transform-origin: top left;
     // transform: translate(0, 16px) scale(1);
     // transition: all .1s ease-in-out;
@@ -136,6 +153,6 @@ label {
 }
 
 .user-icon {
-    height: 70px;
+    height: 50px;
 }
 
