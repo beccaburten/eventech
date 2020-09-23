@@ -66,6 +66,12 @@ p {
     transition-timing-function: ease-out;
 }
 
+.session-form #login-redirect {
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #0080ff;
+}
 
 // HOW TO: https://itnext.io/how-to-build-a-floating-label-input-field-f9b21669fe2f#:~:text=Labels%20provide%20accessibility%20and%20focus,for%20attribute%20to%20the%20label.&text=Without%20styling%2C%20the%20label%20will,be%20inside%20the%20input%20field.
 
@@ -105,6 +111,7 @@ input:focus + #floatLabel {
   padding: 20px 0 10px;
   border-radius: 10px;
   width: 350px;
+  margin-top: 2px;
 }
 
 #floatLName {
@@ -177,12 +184,13 @@ label {
     list-style: none;
 }
 
-.login-redirect {
-    text-decoration: none;
-    font-size: 14px;
-    color: #0080ff;
+.name-errors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    width: 350px;
 }
-
 
 //need some type of disabled styling
 // #disabled {

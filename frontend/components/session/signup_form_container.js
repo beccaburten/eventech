@@ -9,7 +9,7 @@ const mSTP = (state) => ({
 });
 
 const mDTP = (dispatch) => ({
-    processForm: (user) => dispatch(signup(user))
+    signup: (user) => dispatch(signup(user))
 })
 
 export default withRouter(connect(mSTP, mDTP)(SignupForm));

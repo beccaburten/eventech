@@ -1,24 +1,34 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 //requires access to user's input email
 
 class SignupForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { user: { email: '', fname: '', lname: '', password: '' }, errors: {}};
-        this.handleClick = this.handleClick.bind(this);
-        this.handleBlur = this.handleBlur.bind(this);
-        // this.confirmEmail = this.confirmEmail.bind(this);
+        this.state = { user: { email: '', fname: '', lname: '', password: '' }, errors: {} };
+        this.handleSignUp = this.handleSignUp.bind(this);
+        this.checkErrors = this.checkErrors.bind(this);
     }
 
-    handleClick(e) {
-        // let errors = this.requiredFields(); 
-        // if (errors.length < 1) {
-            this.props.signup(this.state.user);
-            const { history } = this.props;
-            history.push('/');
-        //  }
+    checkErrors() {
+        let newErrors = {};
+        Object.keys(this.state.user).forEach(field => {
+            if (this.state.user[field] === '') {
+                newErrors[field] = `${field} is required`;
+            }
+        });
+        if (Object.keys(newErrors).length > 0) {
+            this.setState({ errors: newErrors });
+        } else {
+            this.handleSignUp();
+        }
+    }
+
+    handleSignUp() {
+        this.props.signup(this.state.user);
+        const { history } = this.props;
+        history.push('/');
     }
 
     confirmEmail() {
@@ -38,26 +48,20 @@ class SignupForm extends React.Component {
         }
     }
 
-    update(field){
+    update(field) {
         return (e) => {
             let newUser = Object.assign({}, this.state.user);
             newUser[field] = e.target.value;
-            this.setState({user: newUser})
+            this.setState({ user: newUser })
         }
     }
 
-    handleBlur(field){
-        // debugger;
+    handleBlur(field) {
         return (e) => {
-            // debugger;
             let newState = Object.assign({}, this.state.errors);
-            let newField;
-            if (field === 'fname') {
-                newField = 'First name'
-            }
             if (this.state.user[field] === '') {
-                newState[field] = `${newField} is required`
-                this.setState({errors: newState})
+                newState[field] = `${field} is required`
+                this.setState({ errors: newState })
             } else if (this.state.errors[field]) {
                 newState[field] = ''
                 this.setState({ errors: newState })
@@ -68,64 +72,68 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div>
-            <img className='logo' src={window.eventechURL} />
-            <div className='session'>
-                <img className='user-icon' src={window.userIconURL} />
-                <h1 className='form-header'>Welcome</h1>
-                <h3>Create an account.</h3>
-                <form className='session-form'>
-                    <div id="floatLabel" className="float-label">
-                        <label htmlFor="floatEmail">Email address</label>
-                        <input id="floatEmail"
-                            type="text"
-                            value={this.props.email}
-                            readOnly />
-                    </div>
-                    <div id="floatLabel" className="float-label">
-                        <label htmlFor="origEmail">Confirm email</label>
-                        <input id="origEmail"
-                            type="text"
+                <img className='logo' src={window.eventechURL} />
+                <div className='session'>
+                    <img className='user-icon' src={window.userIconURL} />
+                    <h1 className='form-header'>Welcome</h1>
+                    <h3>Create an account.</h3>
+                    <form className='session-form'>
+                        <div id="floatLabel" className="float-label">
+                            <label htmlFor="floatEmail">Email address</label>
+                            <input id="floatEmail"
+                                type="text"
+                                value={this.props.email}
+                                readOnly />
+                        </div>
+                        <div id="floatLabel" className="float-label">
+                            <label htmlFor="origEmail">Confirm email</label>
+                            <input id="origEmail"
+                                type="text"
                                 value={this.state.user.email}
-                            onChange={this.update('email')} />  
-                    </div>
-                    <p className="errors">{this.confirmEmail()}</p>
-                    <div className="name">
-                        <div>
-                            <div className="float-name">
-                                <label htmlFor="floatFName">First Name</label>
+                                onChange={this.update('email')} />
+                        </div>
+                        <p className="errors">{this.confirmEmail()}</p>
+                        <div className="name">
+                            <div>
+                                <div className="float-name">
+                                    <label htmlFor="floatFName">First Name</label>
                                     <input id="floatFName"
-                                    type="text"
+                                        type="text"
                                         value={this.state.user.fname}
-                                    onChange={this.update('fname')} 
-                                    onBlur={this.handleBlur('fname').bind(this)}/>
+                                        onChange={this.update('fname')} 
+                                        onBlur={this.handleBlur('fname').bind(this)}/>
+                                </div>
                             </div>
-                        </div>
-                        <p className="errors">{this.state.errors['fname']}</p>
-                        <div>
-                            <div className="float-name">
-                                <label htmlFor="floatLName">Last Name</label>
+                            <div>
+                                <div className="float-name">
+                                    <label htmlFor="floatLName">Last Name</label>
                                     <input id="floatLName"
-                                    type="text"
+                                        type="text"
                                         value={this.state.user.lname}
-                                    onChange={this.update('lname')} 
-                                    onBlur={this.handleBlur('Last name')}/>
+                                        onChange={this.update('lname')} 
+                                        onBlur={this.handleBlur('lname').bind(this)}/>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="floatLabel" className="float-label">
-                        <label htmlFor="floatPW">Password</label>
-                        <input id="floatPW"
-                            type="password"
+                        <div className="name-errors">
+                            <p className="errors">{this.state.errors.fname ? 'First name is required' : ''}</p>
+                            <p className="errors">{this.state.errors.lname ? 'Last name is required' : ''}</p>
+                        </div>
+
+                        <div id="floatLabel" className="float-label">
+                            <label htmlFor="floatPW">Password</label>
+                            <input id="floatPW"
+                                type="password"
                                 value={this.state.user.password}
-                            onChange={this.update('password')} 
-                            onBlur={this.handleBlur('Password')}/>
-                    </div>
-                    <p className="errors">{this.validPW()}</p>
-                    <button onClick={this.handleClick}>Sign Up</button>
-                    {/* <Link className="login-redirect" to='/signin'>Log In Instead</Link> */}
-                        <button className="login-redirect" onClick={this.props.changeForm}>Log In Instead</button>
-                </form>
-            </div>
+                                onChange={this.update('password')} 
+                                onBlur={this.handleBlur('password').bind(this)}/>
+                        </div>
+                        <p className="errors">{this.state.errors.password ? 'Password is required' : ''}</p>   
+                        <p className="errors">{this.validPW()}</p>
+                        <button onClick={this.checkErrors}>Sign Up</button>
+                        <button id="login-redirect" onClick={this.props.changeForm}>Log In Instead</button>
+                    </form>
+                </div>
             </div>
         )
     }
