@@ -25,8 +25,6 @@ class LoginForm extends React.Component {
             <p key="i" className="errors">{err}</p>
         ));
         return (
-            <div>
-            <img className='logo' src={window.eventechURL} />
             <div className='session'>
                 <img className='user-icon' src={window.userIconURL} />
                 <h1 className='form-header'>Welcome back</h1>
@@ -49,7 +47,6 @@ class LoginForm extends React.Component {
                     <div className="errors">{errors}</div> 
                     <button onClick={this.handleClick}>Log In</button>
                 </form>
-            </div>
             </div>
         )
     }

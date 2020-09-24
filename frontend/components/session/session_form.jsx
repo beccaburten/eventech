@@ -54,26 +54,23 @@ class SessionForm extends React.Component {
             )
         } else {
             return (
-                <div>
-                <img className='logo' src={window.eventechURL} />
                 <div className='session'>
                     <img className='e' src={window.eURL} />
                     <h1 className='form-header'>Sign up or log in</h1>
                     <form className='session-form'>
                         <br></br> 
                         <div id="floatLabel" className={ this.isValidEmail(this.state.email) ? 'error-label' : 'float-label' } >
+                            <label htmlFor="floatEmail">Email address</label>
                             <input id="floatEmail" 
                                 type="email" required
                                 value={this.state.email}
                                 onChange={this.handleChange} />
-                            <label htmlFor="floatEmail">Email address</label>
                         </div>
                         <div className="errors">{this.isValidEmail(this.state.email)}</div>
                         <button onClick={this.handleClick}>Get Started</button>
                         <p>or</p>
                         <button className='demo' onClick={this.demoLogin}>Continue as Demo User</button>
                     </form>
-                </div>
                 </div>
             )
         }

@@ -7,11 +7,12 @@ import Footer from './footer/footer';
 
 const App = () => (
     <div>
-        <header>
+        <div>
+            <NavContainer />
             <Footer />
-        </header>
+        </div>
         <Switch>
-            <Route exact path="/" component={NavContainer} />
+            {/* <Route exact path="/" component={NavContainer} /> */}
             <AuthRoute path="/signin" component={SessionFormContainer} />
         </Switch>
     </div>

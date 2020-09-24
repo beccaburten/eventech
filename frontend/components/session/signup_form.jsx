@@ -72,7 +72,6 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div>
-                <img className='logo' src={window.eventechURL} />
                 <div className='session'>
                     <img className='user-icon' src={window.userIconURL} />
                     <h1 className='form-header'>Welcome</h1>
