@@ -10,10 +10,11 @@ class Api::UsersController < ApplicationController
     end
 
     def create
+        # debugger
         @user = User.new(user_params)
         if @user.save
             login!(@user)
-            render :user ###THIS RENDERS MY USER INFO
+            render :show ###THIS RENDERS MY USER INFO
         else
             render @user.errors.full_messages 
         end
@@ -22,7 +23,7 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:email, :password)
+        params.require(:user).permit(:email, :password, :fname, :lname)
     end
 
 end

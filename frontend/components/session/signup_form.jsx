@@ -11,7 +11,8 @@ class SignupForm extends React.Component {
         this.checkErrors = this.checkErrors.bind(this);
     }
 
-    checkErrors() {
+    checkErrors(e) {
+        e.preventDefault();
         let newErrors = {};
         Object.keys(this.state.user).forEach(field => {
             if (this.state.user[field] === '') {
@@ -27,8 +28,8 @@ class SignupForm extends React.Component {
 
     handleSignUp() {
         this.props.signup(this.state.user);
-        const { history } = this.props;
-        history.push('/');
+        // const { history } = this.props;
+        // history.push('/');
     }
 
     confirmEmail() {
