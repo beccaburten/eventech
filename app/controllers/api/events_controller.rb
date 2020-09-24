@@ -8,7 +8,9 @@ class Api::EventsController < ApplicationController
     def create
         @event = Event.new(event_params)
         if @event.save!
+            Organizers.new({event_id: @event.id, user_id: current_user.id})
             render :show
+
         else
             render @event.errors.full_messages
         end
@@ -42,7 +44,7 @@ class Api::EventsController < ApplicationController
         params.require(:event)
         .permit(:title, :date, :start_time, :end_time, :category_id, :company_id, :registration_type, :promo_pic, :url)
     end
-    
+
 end
 
 #    api_events GET    /api/events(.:format)            api/events#index {:format=>:json}

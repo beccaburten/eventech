@@ -29,5 +29,6 @@ demo.save!
 #CATEGORIES
 
 #EVENTS
+aa = Event.new({title: 'App Academy Info Session', date: DateTime.new(2020,9,24,9), start_time: DateTime.new(2020,9,24,9), end_time: DateTime.new(2020,9,24,11), category_id: 1, company_id: 1, registration_type: 'free', promo_pic: 'n/a', url: 'appacademy.io'})
 
 #POLYMORPHIC -- USER 2 EVENT

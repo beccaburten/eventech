@@ -7,7 +7,12 @@ class User < ApplicationRecord
 
     before_validation :ensure_session_token
 
-    belongs_to :userable, polymorphic: true
+    # belongs_to :userable, polymorphic: true
+    #User.userable(event_id)
+
+    # def organized 
+    #     self.where
+    # end
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
