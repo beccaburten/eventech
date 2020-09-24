@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_170743) do
+ActiveRecord::Schema.define(version: 2020_09_24_194822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "date", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
+    t.integer "category_id", null: false
+    t.integer "company_id"
+    t.string "registration_type", null: false
+    t.string "promo_pic"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_events_on_category_id"
+    t.index ["title"], name: "index_events_on_title"
+  end
+
+  create_table "userables", force: :cascade do |t|
+    t.integer "userable_id", null: false
+    t.integer "event_id", null: false
+    t.string "userable_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_userables_on_event_id"
+    t.index ["userable_id"], name: "index_userables_on_userable_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
