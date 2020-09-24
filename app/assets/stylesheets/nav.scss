@@ -15,7 +15,7 @@
 }
 
 .signin {
-    color: #2e2a35;;
+    color: #2e2a35;
     font-size: 15px;
     font-weight: 400;
     text-decoration: none;
@@ -27,27 +27,28 @@
     background-color: #F8F7FA;
 }
 
-//IF LOGGED IN vvvvvv
 
 
-.nav-bar-main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: space-between;
-    font-family: 'Roboto', sans-serif;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    // padding: 10px 30px 10px 30px;
-    color: #39364F;
-}
+//////////LOGGED IN NAV
 
-.nav-bar-main div {
+
+// .nav-bar-main {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     align-content: space-between;
+//     font-family: 'Roboto', sans-serif;
+//     position: absolute;
+//     top: 0;
+//     width: 100%;
+//     color: #39364F;
+// }
+
+.nav-bar div {
     font-size: 15px;
     font-weight: 400;
     text-align: center;
-    padding: 30px 20px 30px 20px;
+    padding: 20px 20px 30px 20px;
 }
 
 .nav-links {
@@ -58,18 +59,56 @@
 
 .link {
    text-decoration: none;
-   padding: 30px 15px 30px 15px;
+//    color: #6F7287;
+    color: #39364F;
+   font-weight: 400;
+   margin-top: 10px;
 }
 
-.link:hover {
-   background-color: #F8F7FA;
+.link-selector {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 15px 30px 15px;
+    &:hover {
+        background-color: #F8F7FA;
+   }
 }
 
+#create-event {
+    color: #3659E3;
+}
 
-/////////
+.fa-ticket-alt {
+    transform: rotate(90deg);
+}
+//////////SEARCHBAR 
+
+.search-bar {
+    background-color: #F8F7FA;
+    width: 250px;
+    opacity: 0.5;
+}
+
+.search-input {
+    border: hidden;
+    outline: none;
+    background-color: #F8F7FA;
+}
+
+//////////DROPDOWN 
+
+.fa-user-circle {
+    font-size: 35px;
+}
 
 .dropdown-icon {
-    padding: 30px 15px 30px 15px;
+    position: absolute;
+    right: 10px;
+    top: 3px;
+     &:hover {
+        background-color:  #F8F7FA;
+    }
 }
 
 .dropdown {
@@ -78,18 +117,21 @@
 
 .dropdown:hover .dropdown-list {
     display: block;
-    top: 40px;
-    right: 5px;
 }
 
 .dropdown-list {
     display: none;
     position: absolute;
-    width: 100px;
+    top: 80px;
+    right: 10px;
+    // width: 100px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, .1);
 }
 
 .logout {
-    padding: 10px;
+    padding: 10px 20px 10px 20px;
+    margin: 10px;
+    white-space: nowrap;
     transition: .5s background-color;
 }
 

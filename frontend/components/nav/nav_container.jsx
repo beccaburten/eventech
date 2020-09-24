@@ -27,14 +27,29 @@ class Nav extends React.Component {
         const { currentUserId } = this.props;
         if (currentUserId !== null) {
             return (
-                <nav className='nav-bar-main'>
+                <nav className='nav-bar'>
                     <div className='logo'>
                         <a href="/"><img className='logo' src={window.eventechURL} /></a>
                     </div>
+                    <div className="search">
+                        <div className="search-bar">
+                            <i className="fas fa-search"></i>
+                            <input type="text" className="search-input" placeholder="Search"></input>
+                        </div>
+                    </div>
                     <div className="nav-links">
-                        <div><Link className="link" to="/">Create Event</Link></div>
-                        <div><Link className="link" to="/">Likes</Link></div>
-                        <div><Link className="link" to="/">Tickets</Link></div>
+                        <div className="link-selector" id="create-event">
+                            <i className="fas fa-plus"></i>
+                            <Link className="link" to="/" id="create-event">Create Event</Link>
+                        </div>
+                        <div className="link-selector">
+                            <i className="far fa-heart"></i>
+                            <Link className="link" to="/">Likes</Link>
+                        </div>
+                        <div className="link-selector">
+                            <i className="fas fa-ticket-alt"></i>
+                            <Link className="link" to="/">Tickets</Link>
+                        </div>
                     </div>             
                     <div className="dropdown">
                         <div className="dropdown-icon">
