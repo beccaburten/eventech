@@ -24,6 +24,7 @@ class LoginForm extends React.Component {
         const errors = this.props.errors.map((err, i) => (
             <p key="i" className="errors">{err}</p>
         ));
+        debugger;
         return (
             <div className='session'>
                 <img className='user-icon' src={window.userIconURL} />

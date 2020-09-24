@@ -40,19 +40,19 @@ export const logout = () => dispatch => {
             .then(() => dispatch(logoutCurrentUser()))
 };
   
-// export const signup = (user) => (dispatch) => {
-//     return SessionApiUtil.signup(user)
-//         .then(user => dispatch(receiveCurrentUser(user)),
-//             errors => dispatch(receiveSessionErrors(errors.responseJSON))
-//     )
-// };
-
 export const signup = (user) => (dispatch) => {
     return SessionApiUtil.signup(user)
         .then(user => dispatch(receiveCurrentUser(user)),
-            errors => dispatch(receiveSessionErrors(errors))
+            errors => dispatch(receiveSessionErrors(errors.responseJSON))
     )
 };
+
+// export const signup = (user) => (dispatch) => {
+//     return SessionApiUtil.signup(user)
+//         .then(user => dispatch(receiveCurrentUser(user)),
+//             errors => dispatch(receiveSessionErrors(errors))
+//     )
+// };
 
 export const checkForUser = (email, object) => () => {
     return SessionApiUtil.checkForUser(email)
