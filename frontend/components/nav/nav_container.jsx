@@ -28,11 +28,14 @@ class Nav extends React.Component {
         if (currentUserId !== null) {
             return (
                 <nav className='nav-bar-main'>
-                    <div className='logo'><a href="/"><img className='logo' src={window.eventechURL} /></a></div>
-                    <div><Link className="link" to="/">Create Event</Link></div>
-                    <div><Link className="link" to="/">Likes</Link></div>
-                    <div><Link className="link" to="/">Tickets</Link></div>
-                    {/* <div onFocus={this.whenFocusOrBlur} onBlur={this.whenFocusOrBlur}>   */}
+                    <div className='logo'>
+                        <a href="/"><img className='logo' src={window.eventechURL} /></a>
+                    </div>
+                    <div className="nav-links">
+                        <div><Link className="link" to="/">Create Event</Link></div>
+                        <div><Link className="link" to="/">Likes</Link></div>
+                        <div><Link className="link" to="/">Tickets</Link></div>
+                    </div>             
                     <div className="dropdown">
                         <div className="dropdown-icon">
                             <i className="far fa-user-circle"></i>
