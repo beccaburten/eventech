@@ -11,6 +11,7 @@ class LoginForm extends React.Component {
     }
     
     handleClick(e) {
+        e.preventDefault();
         this.props.login(this.state)
             // const { history } = this.props;
             // history.push('/');
@@ -24,7 +25,7 @@ class LoginForm extends React.Component {
         const errors = this.props.errors.map((err, i) => (
             <p key="i" className="errors">{err}</p>
         ));
-        debugger;
+        // debugger;
         return (
             <div className='session'>
                 <img className='user-icon' src={window.userIconURL} />

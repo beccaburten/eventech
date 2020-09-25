@@ -6,7 +6,6 @@ import LoginFormContainer from './login_form_container'
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        //let verified = '';
         this.state = { email: '' , verified: null};
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -15,29 +14,31 @@ class SessionForm extends React.Component {
     }
 
     handleClick(e) {
-        if (this.isValidEmail(this.state.email) === null) {
-            e.preventDefault();
+        e.preventDefault();
+        if (this.isValidEmail(this.state.email) === 'pending') {
+            this.setState( {email: '     '});
+        } else if (this.isValidEmail(this.state.email) === null) {
             this.props.checkForUser(this.state.email, this)
-        }
-        // this is designed to setState of {verified} to true or false string
+        } 
     }
 
     handleChange(e) {
         this.setState({ email: e.target.value});  
     }
 
-    demoLogin() {
+    demoLogin(e) {
+        e.preventDefault();
         this.props.login({ email: 'demo_user@gmail.com', password: 'demologin'});
     }
 
     isValidEmail(email) {
-        if (email.length < 2) return null;
+        if (email.length < 5) return 'pending';
         let arr = email.split('@');
         if (arr.length < 2) {
-            return ['Please enter a valid email address'];
+            return 'invalid';
         };
         if (arr[1].split('.').length < 2) {
-            return ['Please enter a valid email address'];
+            return 'invalid';
         } else {
             return null;
         };
@@ -59,14 +60,14 @@ class SessionForm extends React.Component {
                     <h1 className='form-header'>Sign up or log in</h1>
                     <form className='session-form'>
                         <br></br> 
-                        <div id="floatLabel" className={ this.isValidEmail(this.state.email) ? 'error-label' : 'float-label' } >
+                        <div id="floatLabel" className={this.isValidEmail(this.state.email) === 'invalid' ? 'error-label' : 'float-label' } >
                             <label htmlFor="floatEmail">Email address</label>
                             <input id="floatEmail" 
                                 type="email" required
                                 value={this.state.email}
                                 onChange={this.handleChange} />
                         </div>
-                        <div className="errors">{this.isValidEmail(this.state.email)}</div>
+                        <div className="errors">{this.isValidEmail(this.state.email) === 'invalid' ? 'Please enter a valid email address' : null}</div>
                         <button onClick={this.handleClick}>Get Started</button>
                         <p>or</p>
                         <button className='demo' onClick={this.demoLogin}>Continue as Demo User</button>

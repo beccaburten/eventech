@@ -21,6 +21,8 @@ class Event < ApplicationRecord
     validates :title, :date, :start_time, :end_time, :category_id, :registration_type, :organizer_id, presence: true
     validates :title, uniqueness: true
 
+    has_one_attached :photo #AWS
+
     belongs_to :organizer,
         primary_key: :id,
         foreign_key: :organizer_id,
