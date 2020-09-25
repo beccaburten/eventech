@@ -1,5 +1,4 @@
 # eventech
 
 fun features:
-- custom auth routing
-- polymorphic association with users & events (organizers v attendees)
+- custom auth routing: user emails are checked before routing to login or signup page

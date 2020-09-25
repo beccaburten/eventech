@@ -25,8 +25,8 @@ class User < ApplicationRecord
 
     has_many :organized_events,
         primary_key: :id,
-        foreign_key: :user_id,
-        class_name: :OrganizedEvent
+        foreign_key: :organizer_id,
+        class_name: :Event
 
     has_many :registrations,
         primary_key: :id,
@@ -36,10 +36,7 @@ class User < ApplicationRecord
     has_many :events_attending,
         through: :registrations,
         source: :registered
-
-    has_many :events_organized,
-        through: :organized_events,
-        source: :organized
+        
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
