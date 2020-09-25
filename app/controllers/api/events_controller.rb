@@ -8,7 +8,7 @@ class Api::EventsController < ApplicationController
     def create
         @event = Event.new(event_params)
         if @event.save!
-            Organizers.new({event_id: @event.id, user_id: current_user.id})
+            Organization.new({event_id: @event.id, user_id: current_user.id})
             render :show
 
         else

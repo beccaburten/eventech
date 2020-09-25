@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  fname           :string           not null
+#  lname           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  job_title       :string
+#  company_id      :integer
+#  github          :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class User < ApplicationRecord
     validates :email, :password_digest, presence: true
     validates :email, uniqueness: true
@@ -7,12 +23,23 @@ class User < ApplicationRecord
 
     before_validation :ensure_session_token
 
-    # belongs_to :userable, polymorphic: true
-    #User.userable(event_id)
+    has_many :organized_events,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :OrganizedEvent
 
-    # def organized 
-    #     self.where
-    # end
+    has_many :registrations,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Registration
+
+    has_many :events_attending,
+        through: :registrations,
+        source: :registered
+
+    has_many :events_organized,
+        through: :organized_events,
+        source: :organized
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
