@@ -3,16 +3,18 @@
     flex-direction: row;
     justify-content: space-between;
     font-family: 'Roboto', sans-serif;
-    position: absolute;
+
+    position: fixed !important;
+    z-index: 2;
+    background-color: white;
     left: 0;
     top: 0;
     width: 100%;
-    background-color: white;
     // box-sizing: border-box;
 }
 
 .logo {
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 .signin {
@@ -49,7 +51,8 @@
     font-size: 15px;
     font-weight: 400;
     text-align: center;
-    padding: 20px 20px 30px 20px;
+    padding: 20px 20px 10px 20px;
+    // padding: 20px 20px 30px 20px;
 }
 
 .nav-links {

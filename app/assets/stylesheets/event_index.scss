@@ -2,7 +2,87 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 1 200px;
+    width: inherit;
+    justify-content: center;
+    align-content: flex-start;
+    margin-top: 200px;
+    margin-bottom: 75px;  
+}
 
+.grid-item {
+    margin: 20px;
+    font-family: 'Roboto', sans-serif;
+    width: 250px;
+    height: 300px;
+    text-align: center;
+    transition: box-shadow 0.5s;
+    box-shadow: 0 3px 30px 10px rgba(0, 0, 0, .05);
+    // flex: 1 1 20em;
+
+    position: relative;
+
+    &:hover {
+        cursor: pointer;
+        transition: box-shadow 0.5s;
+        box-shadow: 0 3px 30px 15px rgba(0, 0, 0, .1);
+   }
+}
+
+.ev-idx-text {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px 24px 16px; 
+    box-sizing: border-box;
+}
+
+.promo {
+    width: inherit;
+    height: 50%;
+}
+
+#event-date {
+    margin-bottom: 4px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #D03E09;
+}
+
+
+#event-title {
+    font-weight: 700;
+    font-size: 16px;
+    color: #39364F;
+}
+
+.grid-item .fa-heart {
+    display: block;
+    color: #4B4D63;
+    font-weight: 500;
+    height: 20px;
+    z-index: 1;
+    padding: 10px 10px 5px 10px;
+    margin-right: 5px;
+    border: 2px solid #DBDAE3;
+    border-radius: 50%;
+    transition: background-color 0.5s;
+
+    position: absolute;
+    top: 44%;
+    right: 0;
+    background-color: white;
+
+    &:hover {
+        transition: background-color 0.5s;
+        background-color: #F8F7FA;
+   }
+}
+
+
+// using CSS Grid instead of flex wrap
 // .grid-container {
 //     display: inline-grid;
 //     grid-gap: 25px;
@@ -21,43 +101,3 @@
 //     text-align: center;
 //     box-shadow: 0 3px 4px rgba(0, 0, 0, .1);
 // }
-
-.grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: inherit;
-    justify-content: center;
-    margin-top: 200px;
-    margin-bottom: 75px;
-}
-
-.grid-item {
-    margin: 20px;
-    font-family: 'Roboto', sans-serif;
-    width: 250px;
-    height: 300px;
-    text-align: center;
-    box-shadow: 0 3px 4px rgba(0, 0, 0, .1);
-}
-
-.text {
-    display: flex;
-    flex-direction: column;
-}
-
-#event-date {
-    font-weight: 400;
-    font-size: 12px;
-    color: #D03E09;
-}
-
-.promo {
-    width: inherit;
-}
-
-#event-title {
-    font-weight: 700;
-    font-size: 14px;
-    color: #39364F;
-}
-

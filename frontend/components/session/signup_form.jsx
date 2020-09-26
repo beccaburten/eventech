@@ -131,7 +131,8 @@ class SignupForm extends React.Component {
                         <p className="errors">{this.state.errors.password ? 'Password is required' : ''}</p>   
                         <p className="errors">{this.validPW()}</p>
                         <button onClick={this.checkErrors}>Sign Up</button>
-                        <button id="login-redirect" onClick={this.props.changeForm}>Log In Instead</button>
+                        {/* <button id="login-redirect" onClick={this.props.changeForm}>Log In Instead</button> */}
+                        <button id="login-redirect">Log In Instead</button>
                     </form>
                 </div>
             </div>

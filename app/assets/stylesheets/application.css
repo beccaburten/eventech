@@ -14,8 +14,20 @@
  *= require_self
  */
 
+
+ html {
+   margin: 0px;
+   height: 100%;
+   width: 100%;
+}
+
+
  body {
-     position: relative;
-     margin: 0 auto;
-     line-height: 1.45;
+    position: relative;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    margin: 0px;
+     /* margin: 0 auto;
+     line-height: 1.45; */
  }
+ 
