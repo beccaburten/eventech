@@ -17,7 +17,7 @@ class Api::EventsController < ApplicationController
     end
 
     def show
-        @event = Event.find(params[:id])
+        @event = Event.find(params[:id]) # do I need .includes() for O(1) organizer & category?
         render :show
     end
 

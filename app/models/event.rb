@@ -22,6 +22,9 @@ class Event < ApplicationRecord
     validates :title, uniqueness: true
 
     has_one_attached :photo #AWS
+    #add photo to instance (`e1`) by running in Rails console:
+    # e1.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/bryan-goff-f7YQo-eYHdM-unsplash.jpg"), filename: "asgard.jpg")
+    # here, "/Users...jpg" is filepath, can get by dragdropping pic into browser
 
     belongs_to :organizer,
         primary_key: :id,

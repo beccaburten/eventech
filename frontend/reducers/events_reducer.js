@@ -3,7 +3,7 @@ import { RECEIVE_ALL_EVENTS, RECEIVE_EVENT, DELETE_EVENT } from '../actions/even
 
 export default (state = {}, action) => {
     Object.freeze(state);
-    debugger;
+    // debugger;
     let nextState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_ALL_EVENTS:

@@ -28,6 +28,7 @@ di = Category.create({category: 'Diversity & Inclusion'})
 
 
 #EVENTS
+#starts with Event3
 ev1 = Event.create({title: 'App Academy Info Session', organizer_id: gabo.id, 
     date: DateTime.new(2021,9,24,9), start_time: DateTime.new(2021,9,24,9), end_time: DateTime.new(2021,9,24,11), 
     category_id: ed.id, company_id: 1, registration_type: 'free', promo_pic: 'n/a', url: 'appacademy.io'})
