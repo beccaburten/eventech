@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { fetchEvents, fetchEvent } from '../../actions/event_actions'
+import { fetchEvents, fetchEvent, clearEvents } from '../../actions/event_actions'
 import EventsIndex from './events_index';
 
 const mSTP = (state) => ({
@@ -9,7 +9,8 @@ const mSTP = (state) => ({
 
 const mDTP = (dispatch) => ({
     fetchEvents: () => dispatch(fetchEvents()),
-    fetchEvent: (eventId) => dispatch(fetchEvent(eventId))
+    fetchEvent: (eventId) => dispatch(fetchEvent(eventId)),
+    clearEvents: () => dispatch(clearEvents())
 })
 
 export default connect(mSTP, mDTP)(EventsIndex);

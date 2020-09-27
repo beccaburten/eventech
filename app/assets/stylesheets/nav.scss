@@ -4,13 +4,14 @@
     justify-content: space-between;
     font-family: 'Roboto', sans-serif;
 
-    position: fixed !important;
-    z-index: 2;
+    // position: absolute !important;
+    z-index: 6;
     background-color: white;
     left: 0;
     top: 0;
     width: 100%;
-    // box-sizing: border-box;
+    margin-bottom: 50px !important;
+    box-sizing: border-box;
 }
 
 .logo {

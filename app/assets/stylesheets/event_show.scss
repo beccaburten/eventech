@@ -1,0 +1,51 @@
+
+.promo-blur {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    clip: rect(5px 5px 5px 5px);
+    filter: blur(15px);
+    position: relative;
+    // top: -10px;
+    background-size: cover;
+    position: absolute;
+    z-index: 0;
+//  left: 22.5em;
+//  top: 3em;
+    transform: scale(1.1); 
+}
+
+
+
+.event-show {
+    position: absolute;
+    top: 15%;
+    margin: 20px;
+    align-self: center;
+    width: 80%;
+    padding: 20px;
+    z-index: 2;
+    font-family: 'Roboto', sans-serif;
+    color: #2e2a35;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    background-color: #F8F7FA;
+}
+
+.show-promo {
+    height: 360px;
+    width: 720px;
+    object-fit: cover;
+    margin: 0;
+}
+
+.event-intro {
+    width: 360px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

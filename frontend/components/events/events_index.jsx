@@ -10,12 +10,16 @@ class EventsIndex extends React.Component {
         this.props.fetchEvents();
     }
 
+    // componentWillUnmount() {
+    //     this.props.clearEvents();
+    // }
+
     render() {
         const {events} = this.props;
         return (
         <div className="grid-container">
             {events.map((event,i) => (
-                <EventIndexItem key={`${i}`} event={event} />
+                <EventIndexItem key={`${i}`} event={event} eventId={event.id} />
             ))
             }
         </div>

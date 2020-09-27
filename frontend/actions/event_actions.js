@@ -3,6 +3,7 @@ export const RECEIVE_ALL_EVENTS = 'RECEIVE_ALL_EVENTS';
 export const RECEIVE_EVENT = 'RECEIVE_EVENT';
 export const DELETE_EVENT = 'DELETE_EVENT';
 export const RECEIVE_EVENT_ERRORS = 'RECEIVE_EVENT_ERRORS';
+export const CLEAR_EVENTS = 'CLEAR_EVENTS';
 
 // REGULAR ACTIONS
 export const receiveAllEvents = (events) => {
@@ -34,7 +35,11 @@ export const receiveEventErrors = (errors) => {
     }
 };
 
-
+export const clearEvents = () => {
+    return {
+        type: CLEAR_EVENTS
+    }
+}
 
 // THUNK ACTION CREATORS
 
