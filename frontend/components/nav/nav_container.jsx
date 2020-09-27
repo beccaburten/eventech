@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 
 class Nav extends React.Component {
@@ -20,6 +20,8 @@ class Nav extends React.Component {
     handleClick(e) {
         e.preventDefault();
         this.props.logout();
+        const { history } = this.props;
+        history.push('/');
     }
 
 
@@ -56,7 +58,7 @@ class Nav extends React.Component {
                             <i className="far fa-user-circle"></i>
                         </div>
                         <div className="dropdown-list">
-                            <div className="logout" onClick={this.handleClick}>Log Out</div>
+                            <Link className="logout" to="/" onClick={this.handleClick}>Log Out</Link>
                         </div>
                     </div>
                 </nav>
@@ -80,5 +82,5 @@ const mDTP = (dispatch) => ({
     logout: () => dispatch(logout()),
 });
 
-export default connect(mSTP, mDTP)(Nav); //NavContainer
+export default withRouter(connect(mSTP, mDTP)(Nav)); //NavContainer
 
