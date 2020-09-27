@@ -1,35 +1,40 @@
-
+.clip-promo-blur {
+    display: flex;
+    flex-direction: column;
+}
 .promo-blur {
+    margin-top: 75px;
     width: 100%;
     height: 430px;
     object-fit: cover;
-    clip: rect(5px 5px 5px 5px);
     filter: blur(15px);
-    position: relative;
-    // top: -10px;
     background-size: cover;
-    position: absolute;
     z-index: 0;
-//  left: 22.5em;
-//  top: 3em;
     transform: scale(1.1); 
+    opacity: 0.95;
 }
-
-
+.clip {
+    margin: 0;
+    width: 100%;
+    min-height: 400px;
+    z-index: 2;
+    background-color: #F8F7FA;
+}
 
 .event-show {
     position: absolute;
     top: 15%;
     margin: 20px;
     align-self: center;
-    width: 80%;
-    padding: 20px;
-    z-index: 2;
+    // width: 80%;
+    // padding: 20px;
+    z-index: 4;
     font-family: 'Roboto', sans-serif;
     color: #2e2a35;
+    box-shadow: 0 3px 5px 10px rgba(0, 0, 0, .05);
 }
 
-.top {
+.es-top {
     display: flex;
     flex-direction: row;
     background-color: #F8F7FA;
@@ -43,9 +48,75 @@
 }
 
 .event-intro {
-    width: 360px;
+    width: 360px !important;
     height: 360px;
+}
+
+.event-intro-textbox {
+    height: inherit;
+    margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.es-register {
+    height: 70px;
+    width: inherit;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 2px solid #DBDAE3;
+    border-bottom: 2px solid #DBDAE3;
+    // padding: 5px;
+}
+
+.es-register button {
+    border: 0;
+    outline: none;
+    padding: 15px 0px 15px 0px;
+    background-color: #0E8548;
+    transition: background-color 0.5s;
+    border-radius: 4px;
+    font-weight: 400;
+    color: white;
+    font-size: 16px;
+    width: 320px;
+    margin: 10px;
+    &:hover {
+        background-color: #17a85d;
+        transition: background-color 0.5s;
+    }
+
+}
+
+.es-register > .fa-heart {
+    display: block;
+    font-size: 26px;
+    color: #4B4D63;
+    font-weight: 500;
+    padding: 10px 10px 5px 10px;
+    margin-right: 5px;
+    border-radius: 50%;
+    transition: background-color 0.5s;
+    &:hover {
+        transition: background-color 0.5s;
+        background-color: #F8F7FA;
+    }
+}
+
+.es-body {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+
+.es-body-L {
+    width: 720px;
+    padding: 10px;
+}
+.es-body-R {
+    width: 360px;
+    padding: 10px;
 }

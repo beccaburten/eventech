@@ -11,24 +11,46 @@ class EventShow extends React.Component {
 
     render() {
         const { event } = this.props;
-        console.log(event);
-
         if (!event) return null;
+
+        let ev = event;
+        if (typeof event.organizer === undefined) {
+            ev = this.props.fetchEvent(this.props.eventId);
+        }
+
+        console.log(event);
+        console.log(ev)
+
         return (
-            <div>
-                <img className="promo-blur" src={event.photoUrl} alt={event.title} />
+            <div className="event-show-container">
+                <div className="clip-promo-blur">
+                    <img className="promo-blur" src={event.photoUrl} alt={event.title} />
+                    <div className="clip"></div>
+                </div>
                 <main className="event-show">
-                    <div className="top">
+                    <div className="es-top">
                         <img className="show-promo" src={event.photoUrl} alt={event.title} />
                         <div className="event-intro">
-                            <h3>{event.date}</h3>
-                            <h1>{event.title}</h1>
-                            {/* <h2>by {event.organizer.fname} {event.organizer.lname}</h2> */}
+                            <div className="event-intro-textbox">
+                                <h2>{event.date}</h2>
+                                <h1>{event.title}</h1>
+                                <h3>by {ev.organizer.fname} {ev.organizer.lname}</h3>
+                            </div>
                         </div>
                     </div>
-                    <div className="register"></div>
-                    <div className="body"></div>
-
+                    <div className="es-register">
+                        <i className="far fa-heart"></i>
+                        <button>Register</button>
+                    </div>
+                    <div className="es-body">
+                        <div className="es-body-L">
+                            <h1>About This Event</h1>
+                            <p>placeholder description lol need to add to database</p>
+                        </div >
+                        <div className="es-body-R">
+                            <p>{event.date}</p>
+                        </div>
+                    </div>
                 </main>
             </div>
         )
