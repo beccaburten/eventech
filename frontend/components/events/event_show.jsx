@@ -48,6 +48,7 @@ class EventShow extends React.Component {
                             <p>placeholder description lol need to add to database</p>
                         </div >
                         <div className="es-body-R">
+                            <h1>Date And Time</h1>
                             <p>{event.date}</p>
                         </div>
                     </div>

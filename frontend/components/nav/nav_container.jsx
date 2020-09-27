@@ -35,12 +35,12 @@ class Nav extends React.Component {
                     </div>
 
 
-                    <div className="search">
+                    {/* <div className="search">
                         <div className="search-bar">
                             <i className="fas fa-search"></i>
                             <input type="text" className="search-input" placeholder="Search"></input>
                         </div>
-                    </div>
+                    </div> */}
 
 
                     <div className="nav-links">
@@ -59,7 +59,7 @@ class Nav extends React.Component {
                             <Link className="link" to="/">Tickets</Link>
                         </div>
                         
-                        <div className="dropdown">
+                        <div className="dropdown-trigger">
                             <div className="dropdown-icon">
                                 <i className="far fa-user-circle"></i>
                             </div>
