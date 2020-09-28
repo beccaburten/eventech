@@ -39,52 +39,73 @@ di = Category.create({category: 'Diversity & Inclusion'})
 ev1 = Event.create({title: 'App Academy Info Session', organizer_id: gabo.id, 
     date: "2021-09-24", start_time: DateTime.new(2021,9,24,9), end_time: DateTime.new(2021,9,24,11), 
     category_id: ed.id, company_id: 1, registration_type: 'free', promo_pic: 'n/a', url: 'appacademy.io'})
-ev1.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/aainfo.jpg"), filename: "coders.jpg")
+# ev1.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/aainfo.jpg"), filename: "coders.jpg")
+ev1_promo = open("https://eventech-dev.s3-us-west-1.amazonaws.com/event-seeds/aainfo.jpg")
+ev1.photo.attach(io: ev1_promo, filename: 'haightasbhury')
+
 
 ev2 = Event.create({title: 'Diversity In Tech Webinar', organizer_id: gabo.id, 
     date: "2021-04-00", start_time: DateTime.new(2021,4,03,12), end_time: DateTime.new(2021,4,03,15), 
     category_id: di.id, company_id: 1, registration_type: 'RSVP', promo_pic: 'n/a', url: 'diversifytech.co'})
-ev2.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/women.jpg"), filename: "div.jpg")
+# ev2.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/women.jpg"), filename: "div.jpg")
+ev2_promo = open("https://eventech-dev.s3-us-west-1.amazonaws.com/event-seeds/div.jpg")
+ev2.photo.attach(io: ev2_promo, filename: "diversityintech.jpg")
 
 ev3 = Event.create({title: 'Walkthrough Of A Coding Technical Interview', organizer_id: lindsey.id, 
     date: "2021-01-01", start_time: DateTime.new(2021,9,24,9), end_time: DateTime.new(2021,9,24,11), 
     category_id: ed.id, company_id: 1, registration_type: 'free', promo_pic: 'n/a', url: 'youtube.com/watch?v=f02mOEt11OQ'})
-ev3.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/interview.jpg"), filename: "code.jpg")
+# ev3.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/interview.jpg"), filename: "code.jpg")
+ev3_promo = open("https://eventech-dev.s3-us-west-1.amazonaws.com/event-seeds/interview.jpg")
+ev3.photo.attach(io: ev3_promo, filename: "techinterview.jpg")
 
 ev4 = Event.create({title: 'Virtual Career Fair In Tech', organizer_id: lindsey.id, 
     date: "2021-02-03", start_time: DateTime.new(2021,9,24,9), end_time: DateTime.new(2021,9,24,11), 
     category_id: net.id, company_id: 1, registration_type: 'free', promo_pic: 'n/a', url: 'quickmeme.com/p/3vojro'})
-ev4.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/career.jpg"), filename: "career.jpg")
+# ev4.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/career.jpg"), filename: "career.jpg")
+ev4_promo = open("https://eventech-dev.s3-us-west-1.amazonaws.com/event-seeds/career.jpg")
+ev4.photo.attach(io: ev4_promo, filename: "careerfair.jpg")
 
 ev5 = Event.create({title: 'Charles Babbage: Tech & Time Travel', organizer_id: michael.id, 
     date: "2021-01-09", start_time: DateTime.new(2021,9,24,9), end_time: DateTime.new(2021,9,24,11), 
     category_id: talk.id, company_id: 1, registration_type: 'RSVP', promo_pic: 'n/a', url: 'britannica.com/biography/Charles-Babbage'})
-ev5.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/babb.jpg"), filename: "type.jpg")
+# ev5.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/babb.jpg"), filename: "type.jpg")
+ev5_promo = open("https://eventech-dev.s3-us-west-1.amazonaws.com/event-seeds/babb.jpg")
+ev5.photo.attach(io: ev5_promo, filename: "typewriter.jpg")
 
 ev6 = Event.create({title: 'Women In Tech Panel', organizer_id: rachel.id, 
     date: "2021-03-05", start_time: DateTime.new(2021,9,24,9), end_time: DateTime.new(2021,9,24,11), 
     category_id: di.id, company_id: 1, registration_type: 'RSVP', promo_pic: 'n/a', url: 'women-in-tech.org'})
-ev6.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/div.jpg"), filename: "whoruntheworld.jpg")
+# ev6.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/div.jpg"), filename: "whoruntheworld.jpg")
+ev6_promo = open("https://eventech-dev.s3-us-west-1.amazonaws.com/event-seeds/women.jpg")
+ev6.photo.attach(io: ev6_promo, filename: "womenintech.jpg")
 
 ev7 = Event.create({title: 'Asgard TechWeek', organizer_id: mimi.id, 
     date: "2021-03-21", start_time: DateTime.new(2021,9,24,9), end_time: DateTime.new(2021,9,24,11), 
     category_id: conf.id, company_id: 1, registration_type: 'RSVP', promo_pic: 'n/a', url: 'open.spotify.com/playlist/1xY6msLHX1W34EzB0UkkbU'})
-ev7.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/asgard.jpg"), filename: "thortech.jpg")
-
+# ev7.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/asgard.jpg"), filename: "thortech.jpg")
+ev7_promo = open("https://eventech-dev.s3-us-west-1.amazonaws.com/event-seeds/asgard.jpg")
+ev7.photo.attach(io: ev7_promo, filename: "guardians.jpg")
+ 
 ev8 = Event.create({title: 'Why Hiring Bootcamp Grads Improves Your Business', organizer_id: demo.id, 
     date: "2021-04-04", start_time: DateTime.new(2021,9,24,9), end_time: DateTime.new(2021,9,24,11), 
     category_id: talk.id, company_id: 1, registration_type: 'free', promo_pic: 'n/a', url: 'appacademy.io/immersive/students'})
-ev8.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/bootcampgrad.jpg"), filename: "considerit.jpg")
-
+# ev8.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/bootcampgrad.jpg"), filename: "considerit.jpg")
+ev8_promo = open("https://eventech-dev.s3-us-west-1.amazonaws.com/event-seeds/bootcampgrad.jpg")
+ev8.photo.attach(io: ev8_promo, filename: "hireme.jpg")
+ 
 ev9 = Event.create({title: 'NYC Digital Conference', organizer_id: demo.id, 
     date: "2021-02-04", start_time: DateTime.new(2021,9,24,9), end_time: DateTime.new(2021,9,24,11), 
     category_id: conf.id, company_id: 1, registration_type: 'free', promo_pic: 'n/a', url: 'techupforwomen.com'})
-ev9.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/conference.jpg"), filename: "conference.jpg")
+# ev9.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/conference.jpg"), filename: "conference.jpg")
+ev9_promo = open("https://eventech-dev.s3-us-west-1.amazonaws.com/event-seeds/conference.jpg")
+ev9.photo.attach(io: ev9_promo, filename: "virtualconference.jpg")
 
 ev0 = Event.create({title: 'EST Dev Social Hour', organizer_id: rachel.id, 
     date: "2021-01-02", start_time: DateTime.new(2021,9,24,9), end_time: DateTime.new(2021,9,24,11), 
     category_id: net.id, company_id: 1, registration_type: 'RSVP', promo_pic: 'n/a', url: 'codenames.game'})
-ev0.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/social.jpg"), filename: "socialdistance.jpg")
+# ev0.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/social.jpg"), filename: "socialdistance.jpg")
+ev0_promo = open("https://eventech-dev.s3-us-west-1.amazonaws.com/event-seeds/social.jpg")
+ev0.photo.attach(io: ev0_promo, filename: "eastcoastsocials.jpg")
 
 
 #REGISTRATIONS
