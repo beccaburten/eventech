@@ -13,13 +13,8 @@ class EventShow extends React.Component {
 
     render() {
         const { event, organizer } = this.props;
+        if (!organizer) return null;
         if (!event) return null;
-
-        // let ev = event;
-        // if (typeof event.organizer === undefined) {
-        //     ev = this.props.fetchEvent(this.props.eventId);
-        // }
-
         // debugger;
 
         return (
@@ -37,7 +32,8 @@ class EventShow extends React.Component {
                                     <p className="show-date">{showPageDay(event.date)}</p>
                                 </h2>
                                 <h1>{event.title}</h1>
-                                <h3>by {organizer.fname} {organizer.lname}</h3>
+                                {/* <h3>{organizer.fname} {organizer.lname}</h3> */}
+                                <h3>{organizer ? `${organizer.fname} ${organizer.lname}` : null}</h3>
                             </div>
                         </div>
                     </div>

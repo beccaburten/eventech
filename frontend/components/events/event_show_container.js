@@ -5,6 +5,7 @@ import { openModal } from '../../actions/modal_actions';
 import EventShow from './event_show';
 
 const mSTP = (state, ownProps) => {
+    debugger;
     const eventId = ownProps.match.params.eventId;
     if (state.entities.events[eventId]) {
         return (

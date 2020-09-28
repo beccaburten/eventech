@@ -31,10 +31,6 @@ talk = Category.create({category: 'Tech Talks'})
 conf = Category.create({category: 'Virtual Conferences'})
 di = Category.create({category: 'Diversity & Inclusion'})
 
-
-# REGISTRATION
-# 1 = Registration.create({user_id: , event_id: })
-
 #EVENTS
 #starts with Event3
 ev1 = Event.create({title: 'App Academy Info Session', organizer_id: gabo.id, 
@@ -109,3 +105,12 @@ ev0.photo.attach(io: ev0_promo, filename: "eastcoastsocials.jpg")
 
 
 #REGISTRATIONS
+Registration.create({user_id: demo.id, event_id: ev3.id})
+Registration.create({user_id: demo.id, event_id: ev5.id})
+Registration.create({user_id: demo.id, event_id: ev7.id})
+Registration.create({user_id: jose.id, event_id: ev7.id})
+Registration.create({user_id: jose.id, event_id: ev3.id})
+Registration.create({user_id: lindsey.id, event_id: ev0.id})
+Registration.create({user_id: rachel.id, event_id: ev6.id})
+Registration.create({user_id: rachel.id, event_id: ev9.id})
+Registration.create({user_id: gabo.id, event_id: ev3.id})

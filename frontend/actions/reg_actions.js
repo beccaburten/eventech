@@ -7,15 +7,20 @@ export const REGISTRATION_ERRORS =  'REGISTRATION_ERRORS';
 
 //REGULAR ACTIONS
 
-const receiveAllReg = registrations => ({
+const receiveAllReg = registrations => {
+    return {
     type: RECEIVE_ALL_REGISTRATIONS,
     registrations
-});
+    }
+}; //this should go to events reducer and update the events there
 
+
+// these actions go to the users reducer
 const receiveReg = registration => ({
     type: RECEIVE_REGISTRATION,
     registration
 });
+//registration create now sends a USER with the new association added via model
 
 const deleteReg = regId => ({
     type: DELETE_REGISTRATION,

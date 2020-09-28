@@ -15,6 +15,7 @@ class EventsIndex extends React.Component {
     // }
 
     render() {
+        // debugger;
         const {events} = this.props;
         return (
         <div className="grid-container">

@@ -20,7 +20,9 @@ class Api::RegistrationsController < ApplicationController
     def create
         @registration = Registration.new(registration_params)
         if @registration.save!
-            render json: ["Registration successful."]
+            @user = current_user
+            render "/api/users/show" #this will send user info w updated registration
+            # render json: ["Registration successful."]
         else
             render @registration.errors.full_messages
         end
