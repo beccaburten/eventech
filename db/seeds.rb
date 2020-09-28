@@ -5,8 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'open-uri'
 
+require 'open-uri'
+# debugger
 
 User.destroy_all
 Category.destroy_all
@@ -41,8 +42,7 @@ ev1 = Event.create({title: 'App Academy Info Session', organizer_id: gabo.id,
     category_id: ed.id, company_id: 1, registration_type: 'free', promo_pic: 'n/a', url: 'appacademy.io'})
 # ev1.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/aainfo.jpg"), filename: "coders.jpg")
 ev1_promo = URI.open("https://eventech-dev.s3-us-west-1.amazonaws.com/event-seeds/aainfo.jpg")
-ev1.photo.attach(io: ev1_promo, filename: 'haightasbhury')
-
+ev1.photo.attach(io: ev1_promo, filename: 'aainfo.jpg')
 
 ev2 = Event.create({title: 'Diversity In Tech Webinar', organizer_id: gabo.id, 
     date: "2021-04-00", start_time: DateTime.new(2021,4,03,12), end_time: DateTime.new(2021,4,03,15), 
