@@ -1,4 +1,6 @@
 import React from 'react';
+import { formatDate, formatTime, showPageMonth, showPageDay } from '../../util/format_util'
+
 
 class EventShow extends React.Component {
     constructor(props) {
@@ -18,21 +20,22 @@ class EventShow extends React.Component {
             ev = this.props.fetchEvent(this.props.eventId);
         }
 
-        console.log(event);
-        console.log(ev)
+        debugger;
 
         return (
             <div className="event-show-container">
                 <div className="clip-promo-blur">
                     <img className="promo-blur" src={event.photoUrl} alt={event.title} />
-                    <div className="clip"></div>
                 </div>
                 <main className="event-show">
                     <div className="es-top">
                         <img className="show-promo" src={event.photoUrl} alt={event.title} />
                         <div className="event-intro">
                             <div className="event-intro-textbox">
-                                <h2>{event.date}</h2>
+                                <h2>
+                                    <p className="show-date">{showPageMonth(event.date)}</p>
+                                    <p className="show-date">{showPageDay(event.date)}</p>
+                                </h2>
                                 <h1>{event.title}</h1>
                                 <h3>by {ev.organizer.fname} {ev.organizer.lname}</h3>
                             </div>
@@ -45,14 +48,16 @@ class EventShow extends React.Component {
                     <div className="es-body">
                         <div className="es-body-L">
                             <h1>About This Event</h1>
-                            <p>placeholder description lol need to add to database</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, magnam? Possimus dicta voluptatibus, similique sunt molestias animi ad eius, optio voluptas odit distinctio placeat id voluptate rerum laboriosam dolorem architecto. description lol need to add to database</p>
                         </div >
                         <div className="es-body-R">
                             <h1>Date And Time</h1>
-                            <p>{event.date}</p>
+                            <p>{formatDate(event.date)}</p>
+                            <p>{formatTime(event.start_time)} - {formatTime(event.end_time)}</p>
                         </div>
                     </div>
                 </main>
+                <div className="clip"></div>
             </div>
         )
     }
@@ -61,27 +66,3 @@ class EventShow extends React.Component {
 
 export default EventShow;
 
-
-//Nahid example?
-// const { track } = this.props;
-// let trackShow;
-// if (track) {
-//     let artistName;
-//     if (track.artist) {
-//         artistName = track.artist
-//     } else {
-//         artistName = “Unknown”
-//     }
-//     trackShow = (
-//             <div className=“track-header-container”>
-//                 <a className=“track-header-play-icon”><FaPlayCircle /></a>
-//                 <div className=“track-text-show-container”>
-//                     <h1 className=“track-artist-show”>{artistName}</h1>
-//                     <h1 className=“track-title-show”>{track.title} {track.email}</h1>
-//                 </div >
-//         <img className=“ track-artwork” src={track.photoUrl} alt={track.title} />
-//             </div >
-//         )
-// } else {
-//     trackShow = null
-// };
