@@ -14,10 +14,13 @@ export const receiveAllEvents = (events) => {
     }
 };
 
-export const receiveEvent = (event) => {
+export const receiveEvent = ({event, organizer, category}) => {
+    debugger;
     return {
         type: RECEIVE_EVENT,
-        event
+        event,
+        organizer,
+        category
     }
 };
 

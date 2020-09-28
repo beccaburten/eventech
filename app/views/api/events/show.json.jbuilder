@@ -1,14 +1,18 @@
 evId = @event.id
 
-json.set! evId do
-    json.extract! @event, :id, :title, :date, :start_time, :end_time, :registration_type, :url
-    json.photoUrl url_for(@event.photo) if @event.photo.attached?
-    json.organizer do
-        json.extract! @event.organizer, :id, :fname, :lname
+json.event do
+    json.set! evId do
+        json.extract! @event, :id, :title, :date, :start_time, :end_time, :organizer_id, :category_id, :registration_type, :url
+        json.photoUrl url_for(@event.photo) if @event.photo.attached?
     end
-    json.category do
-        json.extract! @event.category, :id, :category
-    end
+end
+
+json.organizer do
+    json.extract! @event.organizer, :id, :fname, :lname
+end
+
+json.category do
+    json.extract! @event.category, :id, :category
 end
 
 # Example Output:

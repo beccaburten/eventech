@@ -9,9 +9,9 @@ export default (state = {}, action) => {
         case RECEIVE_ALL_EVENTS:
             return Object.assign(nextState, action.events);
         case RECEIVE_EVENT:
-            return action.event;
+            // return action.event;
             // return { event: action.event };
-            // return Object.assign(nextState, { [action.event.id]: action.event });;
+            return Object.assign(nextState, action.event);
         case DELETE_EVENT:
             delete nextState[action.eventId]
             return nextState;

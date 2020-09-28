@@ -12,13 +12,13 @@ class EventShow extends React.Component {
     }
 
     render() {
-        const { event } = this.props;
+        const { event, organizer } = this.props;
         if (!event) return null;
 
-        let ev = event;
-        if (typeof event.organizer === undefined) {
-            ev = this.props.fetchEvent(this.props.eventId);
-        }
+        // let ev = event;
+        // if (typeof event.organizer === undefined) {
+        //     ev = this.props.fetchEvent(this.props.eventId);
+        // }
 
         // debugger;
 
@@ -37,13 +37,13 @@ class EventShow extends React.Component {
                                     <p className="show-date">{showPageDay(event.date)}</p>
                                 </h2>
                                 <h1>{event.title}</h1>
-                                <h3>by {ev.organizer.fname} {ev.organizer.lname}</h3>
+                                <h3>by {organizer.fname} {organizer.lname}</h3>
                             </div>
                         </div>
                     </div>
                     <div className="es-register">
                         <i className="far fa-heart"></i>
-                        <button>Register</button>
+                        <button onClick={() => this.props.openModal('register')}>Register</button>
                     </div>
                     <div className="es-body">
                         <div className="es-body-L">

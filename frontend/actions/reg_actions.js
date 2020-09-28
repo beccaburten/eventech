@@ -10,21 +10,39 @@ export const REGISTRATION_ERRORS =  'REGISTRATION_ERRORS';
 const receiveAllReg = registrations => ({
     type: RECEIVE_ALL_REGISTRATIONS,
     registrations
-})
+});
 
 const receiveReg = registration => ({
     type: RECEIVE_REGISTRATION,
     registration
-})
+});
 
 const deleteReg = regId => ({
     type: DELETE_REGISTRATION,
     regId
-})
+});
 
 const receiveErrors = errors => ({
     type: REGISTRATION_ERRORS,
     errors
-})
+});
 
 //THUNK ACTION CREATORS
+
+
+export const fetchUserRegistrations = () => dispatch => (
+    RegistrationApiUtil.fetchUserRegistrations()
+        .then(registrations => dispatch(receiveAllReg(registrations)))
+);
+
+export const registerUser = (registration) => dispatch => (
+    RegistrationApiUtil.registerUser(registration).then(
+        registration => (dispatch(receiveReg(registration))),
+        err => { dispatch(receiveErrors(err.responseJSON)) }
+    )
+);
+
+export const unregisterUser = (registrationId) => dispatch => (
+    RegistrationApiUtil.unregisterUser(registrationId)
+        .then(() => dispatch(deleteReg(registrationId)))
+);

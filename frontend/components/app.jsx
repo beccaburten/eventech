@@ -6,9 +6,11 @@ import EventsIndexContainer from './events/events_index_container';
 import EventShowContainer from './events/event_show_container';
 import SessionFormContainer from "./session/session_form_container";
 import Footer from './footer/footer';
+import Modal from './modal/modal';
 
 const App = () => (
     <div>
+        <Modal />
         <NavContainer />
         <div className="content">
             <Switch>
