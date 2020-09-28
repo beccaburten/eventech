@@ -20,7 +20,7 @@ class EventShow extends React.Component {
             ev = this.props.fetchEvent(this.props.eventId);
         }
 
-        debugger;
+        // debugger;
 
         return (
             <div className="event-show-container">

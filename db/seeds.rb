@@ -40,12 +40,12 @@ ev1 = Event.create({title: 'App Academy Info Session', organizer_id: gabo.id,
 ev1.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/aainfo.jpg"), filename: "coders.jpg")
 
 ev2 = Event.create({title: 'Diversity In Tech Webinar', organizer_id: gabo.id, 
-    date: "2021-04-00"), start_time: DateTime.new(2021,4,03,12), end_time: DateTime.new(2021,4,03,15), 
+    date: "2021-04-00", start_time: DateTime.new(2021,4,03,12), end_time: DateTime.new(2021,4,03,15), 
     category_id: di.id, company_id: 1, registration_type: 'RSVP', promo_pic: 'n/a', url: 'diversifytech.co'})
 ev2.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/women.jpg"), filename: "div.jpg")
 
 ev3 = Event.create({title: 'Walkthrough Of A Coding Technical Interview', organizer_id: lindsey.id, 
-    date: "2021-01-01"), start_time: DateTime.new(2021,9,24,9), end_time: DateTime.new(2021,9,24,11), 
+    date: "2021-01-01", start_time: DateTime.new(2021,9,24,9), end_time: DateTime.new(2021,9,24,11), 
     category_id: ed.id, company_id: 1, registration_type: 'free', promo_pic: 'n/a', url: 'youtube.com/watch?v=f02mOEt11OQ'})
 ev3.photo.attach(io: File.open("/Users/beccaburten/Desktop/events/interview.jpg"), filename: "code.jpg")
 

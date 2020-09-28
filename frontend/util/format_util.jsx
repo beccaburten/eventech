@@ -13,20 +13,20 @@ const months = {
     11: 'Dec',
 };
 
-const MONTHS = {
-    0: 'JAN',
-    1: 'FEB',
-    2: 'MAR',
-    3: 'APR',
-    4: 'MAY',
-    5: 'JUNE',
-    6: 'JULY',
-    7: 'AUG',
-    8: 'SEP',
-    9: 'OCT',
-    10: 'NOV',
-    11: 'DEC',
-};
+// const MONTHS = {
+//     0: 'JAN',
+//     1: 'FEB',
+//     2: 'MAR',
+//     3: 'APR',
+//     4: 'MAY',
+//     5: 'JUNE',
+//     6: 'JULY',
+//     7: 'AUG',
+//     8: 'SEP',
+//     9: 'OCT',
+//     10: 'NOV',
+//     11: 'DEC',
+// };
 
 export const formatDate = (date) => {
     const daysOfWeek = {
@@ -60,7 +60,7 @@ export const formatTime = (time) => {
 
 export const showPageMonth = (date) => {
     const obj = new Date(date);
-    const month = MONTHS[obj.getMonth()];
+    const month = months[obj.getMonth()];
     return (`${month}`
     )
 };
