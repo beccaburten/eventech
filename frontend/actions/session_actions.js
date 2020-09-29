@@ -26,6 +26,7 @@ export const receiveSessionErrors = (errors) => {
 };
 
 // THUNK ACTION CREATORS
+
 export const login = (user) => (dispatch) => {
    return SessionApiUtil.login(user)
             .then(user => dispatch(receiveCurrentUser(user)),

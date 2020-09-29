@@ -19,7 +19,7 @@ class Api::UsersController < ApplicationController
             render @user.errors.full_messages 
         end
     end
-
+    
     private
 
     def user_params

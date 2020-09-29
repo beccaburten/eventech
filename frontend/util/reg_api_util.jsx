@@ -13,9 +13,10 @@ export const registerUser = (registration) => {
     })
 }
 
-export const unregisterUser = (registrationId) => (
-    $.ajax({
+export const unregisterUser = (regId) => {
+    debugger;
+    return $.ajax({
         method: "DELETE",
-        url: `/api/registrations/${registrationId}`
+        url: `/api/registrations/${regId}`
     })
-);
+};

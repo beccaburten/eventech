@@ -2,16 +2,9 @@ class Api::RegistrationsController < ApplicationController
 
     def index  
         if current_user
-            # @registrations = []
-            # current_user.registrations.each do |reg|  # array of registration objects
-            #     id = reg.id
-            #     event = { [id]: Event.find(reg.event_id)}
-            #     @registrations.push(event)
-            #   # returns object with registration id pointing to event object?
-            #   # id needed so you can unregister from index page
-            # end
             @registrations = current_user.registrations
-            render :index #takes array of objects {registration_id: {Event object}}
+            render :index 
+            #return Event objects to Events reducer
         else
             render json: ["Must log in to see registrations."]
         end
@@ -22,16 +15,18 @@ class Api::RegistrationsController < ApplicationController
         if @registration.save!
             @user = current_user
             render "/api/users/show" #this will send user info w updated registration
-            # render json: ["Registration successful."]
+            #return User object with updated registration to User reducer
         else
-            render @registration.errors.full_messages
+            render @registration.errors.full_messages, status: 422
         end
     end
 
     def destroy
          @registration = Registration.find(params[:id])
         if @registration.destroy
-            render json: ['Unregistered successfully.']
+            @user = current_user
+            render "/api/users/show"
+            #return User object with updated registration to User reducer 
         else
             render json: ['Something went wrong'], status: 422
         end

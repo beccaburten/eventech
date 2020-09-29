@@ -1,5 +1,5 @@
 import { RECEIVE_ALL_EVENTS, RECEIVE_EVENT, DELETE_EVENT, CLEAR_EVENTS } from '../actions/event_actions';
-//eventsReducer
+import { RECEIVE_ALL_REGISTRATIONS } from '../actions/reg_actions';
 
 export default (state = {}, action) => {
     Object.freeze(state);
@@ -15,6 +15,8 @@ export default (state = {}, action) => {
         case DELETE_EVENT:
             delete nextState[action.eventId]
             return nextState;
+        case RECEIVE_ALL_REGISTRATIONS:
+            return Object.assign(nextState, action.registrations);
         case CLEAR_EVENTS:
             return {};
         default:

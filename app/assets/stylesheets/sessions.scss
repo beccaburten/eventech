@@ -24,7 +24,7 @@
     font-weight: 400;
 }
 
-.session-form p {
+.session-form #or {
     color: #39364f;
     font-size: 14px;
     margin: 3px 0 3px 0;
@@ -49,6 +49,12 @@
     color: white;
     min-width: 370px;
     margin: 10px;
+    &:hover {
+        cursor: pointer;
+        background-color: #f55b23;
+        transition: background-color 0.5s;
+        transition-timing-function: ease-out;
+    }
 }
 
 .session-form button.demo {
@@ -61,12 +67,12 @@
     transition-timing-function: ease-out;
 }
 
-.session-form button:hover {
-    cursor: pointer;
-    background-color: #f55b23;
-    transition: background-color 0.5s;
-    transition-timing-function: ease-out;
-}
+// .session-form button:hover {
+//     cursor: pointer;
+//     background-color: #f55b23;
+//     transition: background-color 0.5s;
+//     transition-timing-function: ease-out;
+// }
 
 .session-form #login-redirect {
     text-decoration: none;

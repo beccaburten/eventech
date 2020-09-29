@@ -44,5 +44,4 @@ class Event < ApplicationRecord
     has_many :attendees,
         through: :registrations,
         source: :attendee
-
 end

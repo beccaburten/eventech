@@ -22,9 +22,9 @@ const receiveReg = registration => ({
 });
 //registration create now sends a USER with the new association added via model
 
-const deleteReg = regId => ({
+const deleteReg = unregUser => ({
     type: DELETE_REGISTRATION,
-    regId
+    unregUser
 });
 
 const receiveErrors = errors => ({
@@ -47,7 +47,8 @@ export const registerUser = (registration) => dispatch => (
     )
 );
 
-export const unregisterUser = (registrationId) => dispatch => (
-    RegistrationApiUtil.unregisterUser(registrationId)
-        .then(() => dispatch(deleteReg(registrationId)))
-);
+export const unregisterUser = (regId) => dispatch => {
+    debugger;
+    return RegistrationApiUtil.unregisterUser(regId)
+        .then((unregUser) => dispatch(deleteReg(unregUser)))
+};

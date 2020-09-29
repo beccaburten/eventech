@@ -11,7 +11,12 @@ export default (state = {}, action) => {
         case RECEIVE_EVENT:
             return Object.assign(nextState, { [action.organizer.id]: action.organizer });
         case RECEIVE_REGISTRATION:
-            return Object.assign(nextState, { [action.registration.id]: action.registration } )
+            return Object.assign(nextState, { [action.registration.id]: action.registration });
+        case DELETE_REGISTRATION:
+        // need to update user here, so I return from controller the updated user 
+        // but action takes in the Reg's id...is that the variable it also returns?
+        // how to access controller rendered json from the delete action?
+            return Object.assign(nextState, { [action.unregUser.id]: action.unregUser });
         default:
             return state;
     }

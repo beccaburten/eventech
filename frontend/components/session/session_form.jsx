@@ -28,8 +28,31 @@ class SessionForm extends React.Component {
 
     demoLogin(e) {
         e.preventDefault();
-        this.props.login({ email: 'demo_user@gmail.com', password: 'demologin'});
+        // this.props.login({ email: 'demo_user@gmail.com', password: 'demologin'});
+        const demo = { email: 'demo_user@gmail.com', password: 'demologin' };
+        this.setState(demo, () => {
+            const timer = setTimeout(() => this.props.login(demo), 700);
+            return () => clearTimeout(timer);
+        });
     }
+
+    // GET TYPED FUNCTIONALITY WORKING --> undefined Typed
+    // demoLogin(e) {
+    //     e.preventDefault();
+    //     let demoemail = { strings: ['demo_user@gmail.com'], typeSpeed: 50};
+    //     let demopw = { strings: ['demologin'], typeSpeed: 50};
+        
+    //     new Typed('typeemail', demoemail);
+        
+    //     setTimeout(() => {
+    //         new Typed('typepw', demopw)
+    //     }, 1400);
+
+    //     setTimeout(() => {
+    //         this.props.login({ email: 'demo_user@gmail.com', password: 'demologin' })
+    //     })
+    // }
+
 
     isValidEmail(email) {
         if (email.length < 5) return 'pending';
@@ -69,7 +92,7 @@ class SessionForm extends React.Component {
                         </div>
                         <div className="errors">{this.isValidEmail(this.state.email) === 'invalid' ? 'Please enter a valid email address' : null}</div>
                         <button onClick={this.handleClick}>Get Started</button>
-                        <p>or</p>
+                        <p id="or">or</p>
                         <button className='demo' onClick={this.demoLogin}>Continue as Demo User</button>
                     </form>
                 </div>

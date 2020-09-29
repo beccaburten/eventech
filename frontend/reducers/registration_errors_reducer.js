@@ -3,10 +3,10 @@ import { RECEIVE_REGISTRATION, REGISTRATION_ERRORS } from '../actions/reg_action
 export default (state = [], action) => {
     switch (action.type) {
         case RECEIVE_REGISTRATION:
-            return []
+            return [];
         case REGISTRATION_ERRORS:
-            return action.errors
+            return action.errors;
         default:
-            return state
+            return state;
     }
 };

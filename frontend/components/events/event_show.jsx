@@ -1,14 +1,25 @@
 import React from 'react';
 import { formatDate, formatTime, showPageMonth, showPageDay } from '../../util/format_util'
-
+import { useHistory } from 'react-router-dom';
 
 class EventShow extends React.Component {
     constructor(props) {
         super(props);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchEvent(this.props.eventId);
+    }
+
+    handleClick(e) {
+        e.preventDefault();
+        debugger;
+        if (this.props.currentUserId) {
+            this.props.openModal('register');
+        } else {
+            this.props.history.push("/signin");
+        }
     }
 
     render() {
@@ -33,13 +44,13 @@ class EventShow extends React.Component {
                                 </h2>
                                 <h1>{event.title}</h1>
                                 {/* <h3>{organizer.fname} {organizer.lname}</h3> */}
-                                <h3>{organizer ? `${organizer.fname} ${organizer.lname}` : null}</h3>
+                                <h3>{organizer ? `by ${organizer.fname} ${organizer.lname}` : null}</h3>
                             </div>
                         </div>
                     </div>
                     <div className="es-register">
                         <i className="far fa-heart"></i>
-                        <button onClick={() => this.props.openModal('register')}>Register</button>
+                        <button onClick={this.handleClick}>Register</button>
                     </div>
                     <div className="es-body">
                         <div className="es-body-L">

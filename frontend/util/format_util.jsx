@@ -13,21 +13,6 @@ const months = {
     11: 'Dec',
 };
 
-// const MONTHS = {
-//     0: 'JAN',
-//     1: 'FEB',
-//     2: 'MAR',
-//     3: 'APR',
-//     4: 'MAY',
-//     5: 'JUNE',
-//     6: 'JULY',
-//     7: 'AUG',
-//     8: 'SEP',
-//     9: 'OCT',
-//     10: 'NOV',
-//     11: 'DEC',
-// };
-
 export const formatDate = (date) => {
     const daysOfWeek = {
         0: 'Sun',
@@ -47,11 +32,17 @@ export const formatDate = (date) => {
 };
 
 export const formatTime = (time) => {
+    debugger;
     const obj = new Date(time);
     let hour = obj.getHours();
     let min = obj.getMinutes();
-    let ampm = hour >= 12 ? 'PM' : 'AM';
-    if (hour > 12) hour = hour % 12;
+    let ampm;
+    if (hour >= 12) {
+        ampm = 'PM';
+        hour > 12 ? hour = hour % 12 : hour = hour;
+    } else {
+        ampm = 'AM'
+    }
     min = min < 10 ? '0' + min : min;
     // const timezone = obj.get???();
     return `${hour}:${min} ${ampm}`;
@@ -61,13 +52,11 @@ export const formatTime = (time) => {
 export const showPageMonth = (date) => {
     const obj = new Date(date);
     const month = months[obj.getMonth()];
-    return (`${month}`
-    )
+    return (`${month}`)
 };
 
 export const showPageDay = (date) => {
     const obj = new Date(date);
     const day = obj.getDate();
-    return (`${day}`
-    )
+    return (`${day}`)
 };
