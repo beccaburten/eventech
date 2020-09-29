@@ -80,14 +80,31 @@
 }
 
 .fa-times {
-    font-size: 24px;
+    font-size: 14px;
     padding: 6px 8px 6px 8px;
     border-radius: 50%;
     background-color: white;
+    opacity: 0.5;
+    transition: opacity 0.5s;
     text-align: right;
     align-self: flex-end;
     justify-self: flex-end;
     &:hover {
         cursor: pointer;
+        opacity: 0.8;
+        transition: opacity 0.5s;
     }
+}
+
+.close-modal {
+    position: absolute;
+    left: 97%;
+    top: 3px;
+    z-index: 15;
+    align-self: flex-end;
+}
+
+.fa-shopping-cart {
+    opacity: 0.3;
+    margin: 100px 150px 100px 150px;
 }

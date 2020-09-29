@@ -54,9 +54,9 @@ class Nav extends React.Component {
                             <Link className="link" to="/">Likes</Link>
                         </div>
 
-                        <div className="link-selector">
+                        <div className="link-selector" onClick={() => this.props.history.push(`/u/${currentUserId}`)}>
                             <i className="fas fa-ticket-alt"></i>
-                            <Link className="link" to="/">Tickets</Link>
+                            <Link className="link" to={`/u/${currentUserId}`}>Tickets</Link>
                         </div>
                         
                         <div className="dropdown-trigger">

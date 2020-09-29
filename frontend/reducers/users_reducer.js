@@ -1,6 +1,6 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_EVENT } from '../actions/event_actions';
-import { RECEIVE_REGISTRATION, DELETE_REGISTRATION } from '../actions/reg_actions';
+import { RECEIVE_REGISTRATION, RECEIVE_ALL_REGISTRATIONS, DELETE_REGISTRATION } from '../actions/reg_actions';
 
 export default (state = {}, action) => {
     Object.freeze(state);
@@ -17,6 +17,8 @@ export default (state = {}, action) => {
         // but action takes in the Reg's id...is that the variable it also returns?
         // how to access controller rendered json from the delete action?
             return Object.assign(nextState, { [action.unregUser.id]: action.unregUser });
+        case RECEIVE_ALL_REGISTRATIONS:
+            return action.registrations.currentUser;
         default:
             return state;
     }

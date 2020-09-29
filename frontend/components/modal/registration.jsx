@@ -60,6 +60,7 @@ class RegistrationModal extends React.Component {
                 <div className="modal-R">
                     <div className="close-modal" onClick={this.handleClose}><i className="fas fa-times"></i></div>
                     <img className="modal-promo" src={event.photoUrl} alt={event.title} />
+                    <i class="fas fa-shopping-cart"></i>
                 </div>
             </div>
         )

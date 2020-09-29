@@ -16,7 +16,8 @@ export default (state = {}, action) => {
             delete nextState[action.eventId]
             return nextState;
         case RECEIVE_ALL_REGISTRATIONS:
-            return Object.assign(nextState, action.registrations);
+            return action.registrations.events;
+            // return Object.assign(nextState, action.registrations);
         case CLEAR_EVENTS:
             return {};
         default:

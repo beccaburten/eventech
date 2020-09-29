@@ -1,6 +1,7 @@
 class Api::RegistrationsController < ApplicationController
 
     def index  
+        @user = current_user
         if current_user
             @registrations = current_user.registrations
             render :index 
@@ -23,6 +24,7 @@ class Api::RegistrationsController < ApplicationController
 
     def destroy
          @registration = Registration.find(params[:id])
+        #  debugger
         if @registration.destroy
             @user = current_user
             render "/api/users/show"

@@ -1,0 +1,21 @@
+
+.registration-index-container {
+    background-color: #FBFAFC;
+    font-family: 'Roboto', sans-serif;
+    color: #1F0B3D;
+}
+
+.registration-index-container > header {
+    display: flex;
+    flex-direction: row;
+}
+
+.registration-index-container .fa-user {
+    font-size: 60px;
+    color: #A9A8B3;
+    padding: 40px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px 2px rgba(0, 0, 0, .05);
+}
