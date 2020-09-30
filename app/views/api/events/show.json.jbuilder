@@ -3,6 +3,7 @@ evId = @event.id
 json.event do
     json.set! evId do
         json.extract! @event, :id, :title, :date, :start_time, :end_time, :organizer_id, :category_id, :registration_type, :url, :description, :attendees, :registrations
+        json.regId @regId
         json.photoUrl url_for(@event.photo) if @event.photo.attached?
     end
 end

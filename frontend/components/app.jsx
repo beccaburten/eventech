@@ -9,11 +9,13 @@ import RegistrationsIndexContainer from './registrations_index/registrations_ind
 import RegistrationShowContainer from './registrations_index/registration_show';
 import SessionFormContainer from "./session/session_form_container";
 import Footer from './footer/footer';
-import Modal from './modal/modal';
+import RegistrationModal from './modal/registration_modal';
+import CancelModal from './modal/cancel_modal';
 
 const App = () => (
     <div>
-        <Modal />
+        <RegistrationModal />
+        <CancelModal />
         <NavContainer />
         <div className="content">
             <Switch>

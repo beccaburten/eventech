@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { formatDate, formatTime } from '../../util/format_util';
 import { unregisterUser, fetchRegistration } from '../../actions/reg_actions';
+import { openModal } from '../../actions/modal_actions';
+
 
 class RegistrationShow extends React.Component {
     constructor(props) {
         super(props);
-        this.handleUnregister = this.handleUnregister.bind(this);
+        // this.handleUnregister = this.handleUnregister.bind(this);
+        this.openCancelModal = this.openCancelModal.bind(this);
     }
 
 
@@ -20,12 +23,17 @@ class RegistrationShow extends React.Component {
         this.props.fetchRegistration(this.props.regId);
     }
 
-    handleUnregister(e) {
+    // handleUnregister(e) {
+    //     e.preventDefault();
+    //     debugger;
+    //     const { regId } = this.props;
+    //     this.props.unregisterUser(regId);
+    //     window.alert('You have successfully unregistered from this event. If you would like to re-register, simply follow the link to the event page.')
+    // }
+
+    openCancelModal(e) {
         e.preventDefault();
-        debugger;
-        const { regId } = this.props;
-        this.props.unregisterUser(regId);
-        window.alert('You have successfully unregistered from this event. If you would like to re-register, simply follow the link to the event page.')
+        this.props.openModal('cancel-order');
     }
 
     render() {
@@ -36,6 +44,7 @@ class RegistrationShow extends React.Component {
             debugger;
             return null;
         };
+        if (!user) return null;
 
         return (
             <div className="ticket-show-container">
@@ -49,7 +58,8 @@ class RegistrationShow extends React.Component {
                     </div>
                 </div>
                 <div className="ticket-show-info">
-                    <button onClick={this.handleUnregister} className="cancel-order">Cancel Order</button>            
+                    {/* <button onClick={this.handleUnregister} className="cancel-order">Cancel Order</button>             */}
+                    <button onClick={this.openCancelModal} className="cancel-order">Cancel Order</button> 
                     <div className="ticket-stub">
                         <p className="GA">General Admission</p>
                         <p className="contact-info">Contact Information</p>
@@ -80,17 +90,20 @@ class RegistrationShow extends React.Component {
 const mSTP = (state, ownProps) => {
     const currentUserId = ownProps.match.params.user_id;
     const regId = ownProps.match.params.regId;
+    const registration = Object.values(state.entities.events).find((event) => event.reg_id === parseInt(regId))
     debugger;
     return ({
-        user: state.entities.users, currentUserId,
-        registration: state.entities.events[regId], regId
+        user: state.entities.users[currentUserId], currentUserId,
+        registration, regId
     })
 }
 
 const mDTP = (dispatch) => {
+    debugger;
     return ({
         fetchRegistration: (regId) => dispatch(fetchRegistration(regId)),
-        unregisterUser: (regId) => dispatch(unregisterUser(regId))
+        unregisterUser: (regId) => dispatch(unregisterUser(regId)),
+        openModal: modal => dispatch(openModal(modal))
     })
 }
 

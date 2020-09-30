@@ -4,8 +4,8 @@ import { closeModal } from '../../actions/modal_actions';
 import RegistrationContainer from './registration_container';
 // import EventDelete from '../events/event_delete';
 
-const Modal = ({modal, closeModal}) => {
-  if (!modal) {
+const RegistrationModal = ({modal, closeModal}) => {
+  if (modal !== "register") {
     return null;
   } else {
     return (
@@ -30,4 +30,4 @@ const mDTP = dispatch => {
   };
 };
 
-export default connect(mSTP, mDTP)(Modal);
+export default connect(mSTP, mDTP)(RegistrationModal);

@@ -13,8 +13,8 @@ class RegistrationsIndex extends React.Component {
     render() {
         debugger;
         const { registeredEvents, user} = this.props;
-
-        if (!registeredEvents) return null
+        if (!user) return null;
+        if (!registeredEvents) return null;
 
         debugger;
         return (

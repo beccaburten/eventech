@@ -7,7 +7,7 @@ import RegistrationsIndex from './registrations_index';
 const mSTP = (state) => {
     debugger;
     return ({
-        user: state.entities.users,
+        user: state.entities.users[state.session.id],
         registeredEvents: Object.values(state.entities.events)
     })
 };

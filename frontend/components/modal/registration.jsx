@@ -24,13 +24,13 @@ class RegistrationModal extends React.Component {
     handleUnregister(e) {
         e.preventDefault();
         const { event } = this.props;
-        let regId;
+        // let regId;
+        // debugger;
+        // event.registrations.forEach((r) => {
+        //     if (r.user_id === this.props.currentUserId) regId = r.id
+        // });  
         debugger;
-        event.registrations.forEach((r) => {
-            if (r.user_id === this.props.currentUserId) regId = r.id
-        });  
-        debugger;
-        this.props.unregisterUser(regId);
+        this.props.unregisterUser(event.regId);
         this.setState({ attending: 'false' });
         
     }
@@ -60,7 +60,7 @@ class RegistrationModal extends React.Component {
                 <div className="modal-R">
                     <div className="close-modal" onClick={this.handleClose}><i className="fas fa-times"></i></div>
                     <img className="modal-promo" src={event.photoUrl} alt={event.title} />
-                    <i class="fas fa-shopping-cart"></i>
+                    <i className="fas fa-shopping-cart"></i>
                 </div>
             </div>
         )

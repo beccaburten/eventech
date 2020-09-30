@@ -18,10 +18,12 @@ export default (state = {}, action) => {
         // how to access controller rendered json from the delete action?
             return Object.assign(nextState, { [action.unregUser.id]: action.unregUser });
         case RECEIVE_ALL_REGISTRATIONS:
-            return action.registrations.currentUser;
+            nextState[action.registrations.currentUser.id] = action.registrations.currentUser;
+            return nextState;
         case RECEIVE_TICKET:
             debugger;
-            return action.registration.user;
+            nextState[action.registration.user.id] = action.registration.user;
+            return nextState;
         default:
             return state;
     }

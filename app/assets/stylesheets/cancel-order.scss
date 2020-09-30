@@ -1,0 +1,104 @@
+.cancel-order-modal {
+    min-width: 720px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.cancel-close-modal {
+    position: absolute;
+    left: 95%;
+    top: 18px;
+    line-height: 12px;
+    font-size: 14px;
+    padding: 1px 5px 5px 5px;
+    border-radius: 50%;
+    font-family: 'Nunito', sans-serif;
+    border: 1px solid grey;
+    color: grey;
+    opacity: 0.5;
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}
+
+#cancel-order-header {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin: 20px 0px 30px 0px;
+    letter-spacing: 1px;
+}
+
+#check-certainty {
+   color: #39364F;
+   font-size: 15px;
+   font-weight: 400;
+   text-align: left;
+   letter-spacing: 0.5px;
+}
+
+.cancel-buttons {
+    display: flex;
+}
+
+#cancel-order-button {
+    font-family: inherit;
+    border: 0;
+    outline: none;
+    padding: 15px 40px 15px 40px;
+    background-color: #D1410c;
+    transition: background-color 0.5s;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    color: white;
+    // min-width: 230px;
+    // margin: 10px 10px 10px 0px;
+    &:hover {
+    cursor: pointer;
+        background-color: #f55b23;
+        transition: background-color 0.5s;
+        transition-timing-function: ease-out;
+  }
+}
+
+#nevermind {
+    margin-left: 14px;
+    padding: 15px 32px 15px 32px;
+    display: inline-block;
+    border:  3px solid #A9A8B3;
+    outline: 0;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 0.1em;
+    background-color: white;
+    color: #39364F;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    &:hover {
+        cursor: pointer;
+        border:  3px solid #6F7287;
+        background-color: #FBFAFC;
+        transition: background-color 250ms ease-in-out;
+        transition: border 250ms ease-in-out;
+    }
+}
+
+@keyframes modal-animation {
+  from {
+    top: -100%;
+    bottom: -100%;
+  }
+  to {
+    top: 50%;
+    bottom: 0%;
+  }
+}

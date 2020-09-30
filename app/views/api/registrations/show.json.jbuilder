@@ -2,6 +2,7 @@ json.event do
     event = Event.find(@registration.event_id)
     json.set! event.id do
         json.extract! event, :id, :title, :date, :start_time, :end_time, :registration_type, :url
+        json.reg_id @registration.id
         json.photoUrl url_for(event.photo) if event.photo.attached?
     end
 end

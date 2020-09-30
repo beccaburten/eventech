@@ -17,6 +17,11 @@ class Api::EventsController < ApplicationController
 
     def show
         @event = Event.find(params[:id]) # do I need .includes() for O(1) organizer & category?
+        if current_user
+            @regId = current_user.registrations.where(event_id: @event.id).pluck(:id)[0]
+        else
+            @regId = 'undefined'
+        end
         render :show
     end
 

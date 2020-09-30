@@ -8,7 +8,8 @@ class RegistrationIndexItem extends React.Component {
         debugger;
         const { registration, user } = this.props;
         return (
-            <Link to={`/u/${user.id}/t/${registration.id}`} className="registration-index-item" user={user} registration={registration}>
+            //NEED TO FIX LINK TO= ... it's currently passing in EVENT id, need REGISTRATION id
+            <Link to={`/u/${user.id}/t/${registration.reg_id}`} className="registration-index-item" user={user} registration={registration}>
                 <div>
                     <p id="reg-month">{showPageMonth(registration.date)}</p>
                     <p id="reg-day">{showPageDay(registration.date)}</p>

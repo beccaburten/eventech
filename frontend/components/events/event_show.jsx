@@ -43,7 +43,6 @@ class EventShow extends React.Component {
                                     <p className="show-date">{showPageDay(event.date)}</p>
                                 </h2>
                                 <h1>{event.title}</h1>
-                                {/* <h3>{organizer.fname} {organizer.lname}</h3> */}
                                 <h3>{organizer ? `by ${organizer.fname} ${organizer.lname}` : null}</h3>
                             </div>
                         </div>

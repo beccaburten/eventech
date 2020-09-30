@@ -1,5 +1,5 @@
 import { RECEIVE_ALL_EVENTS, RECEIVE_EVENT, DELETE_EVENT, CLEAR_EVENTS } from '../actions/event_actions';
-import { RECEIVE_ALL_REGISTRATIONS, RECEIVE_TICKET } from '../actions/reg_actions';
+import { RECEIVE_ALL_REGISTRATIONS, RECEIVE_TICKET, DELETE_REGISTRATION } from '../actions/reg_actions';
 
 export default (state = {}, action) => {
     Object.freeze(state);
@@ -21,6 +21,8 @@ export default (state = {}, action) => {
         case RECEIVE_TICKET:
             debugger;
             return action.registration.event;
+        case DELETE_REGISTRATION:
+            return {};
         case CLEAR_EVENTS:
             return {};
         default:
