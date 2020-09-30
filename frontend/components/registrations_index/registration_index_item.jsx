@@ -8,7 +8,7 @@ class RegistrationIndexItem extends React.Component {
         debugger;
         const { registration, user } = this.props;
         return (
-            <Link to={`/u/${user.id}/t/${registration.id}`} className="registration-index-item" user={user}>
+            <Link to={`/u/${user.id}/t/${registration.id}`} className="registration-index-item" user={user} registration={registration}>
                 <div>
                     <p id="reg-month">{showPageMonth(registration.date)}</p>
                     <p id="reg-day">{showPageDay(registration.date)}</p>

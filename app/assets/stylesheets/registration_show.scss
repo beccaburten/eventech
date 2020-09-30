@@ -1,0 +1,135 @@
+.ticket-show-container {
+    font-family: 'Roboto', sans-serif;
+    padding: 30px;
+    background-color: #FBFAFC;
+    height: inherit;
+    width: inherit;
+}
+
+.back-to-reg-idx {
+    text-decoration: none;
+    color: #365AE4;
+    font-size: 16px;
+    font-weight: 100;
+    transition: color 0.3s;
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: #3b61fa;
+        transition: color 0.3s;
+    }
+}
+
+.order-for {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.order-for #ticket-title-link {
+    text-decoration: none;
+    color: #365AE4;
+    transition: color 0.3s;
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        color: #3b61fa;
+        transition: color 0.3s;
+    }
+}
+.event-info-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.ticket-show-intro p {
+    font-size: 14px;
+    font-weight: 100;
+    color: #6F7287;
+    margin: 0px;
+}
+#ev-i-dark {
+    color: #39364F;
+    margin: 0px 3px 0px 0px;
+}
+
+.ticket-show-info {
+    padding-top: 30px;
+    display: flex;
+}
+
+.cancel-order {
+    // padding: 10px 65px 10px 65px;
+    // margin: 0px 10px 0px 0px;
+    width: 245px;
+    height: 45px;
+
+    display: inline-block;
+    border:  3px solid #A9A8B3;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 0.1em;
+    background-color: white;
+    color: #39364F;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    &:hover {
+        cursor: pointer;
+        border:  3px solid #6F7287;
+        background-color: #FBFAFC;
+        transition: background-color 250ms ease-in-out;
+        transition: border 250ms ease-in-out;
+    }
+}
+
+.ticket-stub {
+    background-color: white;
+    min-width: 60%;
+    border-radius: 5px;
+    padding: 30px;
+    margin-left: 20px;
+}
+
+.GA {
+    margin: 0px 0px 15px 0px;
+    font-size: 26px;
+    font-weight: 500;
+    padding-right: 200px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ECEBF0;
+}
+
+.contact-info {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.field-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.fields {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0px;
+}
+
+#ast {
+    color: red;
+    margin: 0px 0px 0px 3px;
+}
+
+.inputs {
+    font-size: 16px;
+    font-weight: 400;
+    color: #6F7287;
+    margin: 5px 0px 15px 0px;
+}
+

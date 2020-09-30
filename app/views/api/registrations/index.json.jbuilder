@@ -9,7 +9,7 @@ json.events do
 end
 
 json.currentUser do
-  json.extract! @user, :id, :fname, :lname
+  json.extract! @user, :id, :fname, :lname, :email
 end
 
 
