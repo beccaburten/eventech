@@ -17,7 +17,8 @@
 #                           PUT    /api/events/:id(.:format)                                                                api/events#update {:format=>:json}
 #                           DELETE /api/events/:id(.:format)                                                                api/events#destroy {:format=>:json}
 #         api_registrations GET    /api/registrations(.:format)                                                             api/registrations#index {:format=>:json}
-#          api_registration DELETE /api/registrations/:id(.:format)                                                         api/registrations#destroy {:format=>:json}
+#          api_registration GET    /api/registrations/:id(.:format)                                                         api/registrations#show {:format=>:json}
+#                           DELETE /api/registrations/:id(.:format)                                                         api/registrations#destroy {:format=>:json}
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 # rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
 #        rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
@@ -36,6 +37,6 @@ Rails.application.routes.draw do
     resources :events, only: [:index, :show, :create, :update, :destroy] do
       resources :registrations, only: [:create]
     end
-    resources :registrations, only: [:index, :destroy]
+    resources :registrations, only: [:index, :show, :destroy]
   end
 end

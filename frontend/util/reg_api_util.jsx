@@ -5,6 +5,14 @@ export const fetchUserRegistrations = (userId) => {
     })
 };
 
+export const fetchRegistration = (regId) => {
+    debugger;
+    return $.ajax({
+        method: "GET",
+        url: `/api/registrations/${regId}`
+    })
+};
+
 export const registerUser = (registration) => {
     return $.ajax({
         method: "POST",

@@ -1,6 +1,6 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_EVENT } from '../actions/event_actions';
-import { RECEIVE_REGISTRATION, RECEIVE_ALL_REGISTRATIONS, DELETE_REGISTRATION } from '../actions/reg_actions';
+import { RECEIVE_REGISTRATION, RECEIVE_ALL_REGISTRATIONS, RECEIVE_TICKET, DELETE_REGISTRATION } from '../actions/reg_actions';
 
 export default (state = {}, action) => {
     Object.freeze(state);
@@ -19,6 +19,9 @@ export default (state = {}, action) => {
             return Object.assign(nextState, { [action.unregUser.id]: action.unregUser });
         case RECEIVE_ALL_REGISTRATIONS:
             return action.registrations.currentUser;
+        case RECEIVE_TICKET:
+            debugger;
+            return action.registration.user;
         default:
             return state;
     }

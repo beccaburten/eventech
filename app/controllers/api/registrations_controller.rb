@@ -11,6 +11,22 @@ class Api::RegistrationsController < ApplicationController
         end
     end
 
+    def show
+        @user = current_user
+        if current_user
+            current_user.registrations.each do |reg|
+                # debugger
+                @registration = reg if reg.id.to_s == params[:id]
+            end
+        end
+        # debugger
+        if @registration
+            render :show
+        else
+            render json: ["Ticket does not exist/"]
+        end
+    end
+
     def create
         @registration = Registration.new(registration_params)
         if @registration.save!

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { formatDate, formatTime } from '../../util/format_util';
-import {unregisterUser} from '../../actions/reg_actions';
+import { unregisterUser, fetchRegistration } from '../../actions/reg_actions';
 
 class RegistrationShow extends React.Component {
     constructor(props) {
@@ -13,6 +13,11 @@ class RegistrationShow extends React.Component {
 
     goBack() {
         this.props.history.goBack();
+    }
+
+    componentDidMount() {
+        debugger;
+        this.props.fetchRegistration(this.props.regId);
     }
 
     handleUnregister(e) {
@@ -27,7 +32,10 @@ class RegistrationShow extends React.Component {
         debugger;
         const { registration, user} = this.props;
 
-        if (!registration) return null;
+        if (typeof registration === 'undefined') {
+            debugger;
+            return null;
+        };
 
         return (
             <div className="ticket-show-container">
@@ -81,6 +89,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
     return ({
+        fetchRegistration: (regId) => dispatch(fetchRegistration(regId)),
         unregisterUser: (regId) => dispatch(unregisterUser(regId))
     })
 }
