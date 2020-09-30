@@ -17,8 +17,10 @@ class RegistrationShow extends React.Component {
 
     handleUnregister(e) {
         e.preventDefault();
+        debugger;
         const { regId } = this.props;
         this.props.unregisterUser(regId);
+        window.alert('You have successfully unregistered from this event. If you would like to re-register, simply follow the link to the event page.')
     }
 
     render() {
@@ -32,7 +34,7 @@ class RegistrationShow extends React.Component {
                 <div className="ticket-show-intro">
                     <Link to={`/u/${user.id}`} className="back-to-reg-idx">← Back to Current Orders</Link>
                     <div className="order-for">Order for <Link to={`/events/${registration.id}`} id="ticket-title-link">{registration.title}</Link></div>
-                    <p>Free Order #{registration.id}</p>
+                    <p id="free">Free Order #{registration.id}</p>
                     <div className="event-info-flex">
                         <p id="ev-i-dark">Event information: </p> 
                         <p>{formatDate(registration.date)} from {formatTime(registration.start_time)} to {formatTime(registration.end_time)}</p>
