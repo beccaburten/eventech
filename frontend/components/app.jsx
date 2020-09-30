@@ -23,7 +23,7 @@ const App = () => (
                 <AuthRoute path="/signin" component={SessionFormContainer} />
                 <Route exact path='/events/:eventId' component={EventShowContainer} />
                 <ProtectedRoute exact path='/u/:user_id' component={RegistrationsIndexContainer}/>
-                <ProtectedRoute path='/u/:user_id/t/:regId' component={RegistrationShowContainer} />
+                <ProtectedRoute path='/u/:user_id/t/:event_id' component={RegistrationShowContainer} />
             </Switch>
         </div>
         <Footer />

@@ -9,6 +9,7 @@
 class Registration < ApplicationRecord
 
     validates :user_id, :event_id, null: false
+    validates :user_id, uniqueness: { scope: :event_id }
     
     belongs_to :attendee,
         primary_key: :id,

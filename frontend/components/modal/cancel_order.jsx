@@ -13,12 +13,11 @@ class CancelOrder extends React.Component {
 
     handleUnregister(e) {
         e.preventDefault();
-        const { regId, user_id } = this.props;
+        const { event_id, user_id } = this.props;
         debugger;
-        this.props.unregisterUser(regId);
+        this.props.unregisterUser({ user_id: user_id, event_id: event_id});
         this.props.closeModal();
         this.props.history.push(`/u/${user_id}`)
-        // window.location.reload();
     }
 
     handleClose(e) {

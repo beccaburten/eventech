@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { formatDate, formatTime } from '../../util/format_util';
-import { unregisterUser, fetchRegistration } from '../../actions/reg_actions';
+import { unregisterUser } from '../../actions/reg_actions';
+import { fetchEvent } from '../../actions/event_actions';
 import { openModal } from '../../actions/modal_actions';
 
 
@@ -20,7 +21,7 @@ class RegistrationShow extends React.Component {
 
     componentDidMount() {
         debugger;
-        this.props.fetchRegistration(this.props.regId);
+        this.props.fetchEvent(this.props.event_id);
     }
 
     // handleUnregister(e) {
@@ -38,23 +39,19 @@ class RegistrationShow extends React.Component {
 
     render() {
         debugger;
-        const { registration, user} = this.props;
-
-        if (typeof registration === 'undefined') {
-            debugger;
-            return null;
-        };
+        const { event, user} = this.props;
+        if (!event) return null;
         if (!user) return null;
 
         return (
             <div className="ticket-show-container">
                 <div className="ticket-show-intro">
                     <Link to={`/u/${user.id}`} className="back-to-reg-idx">← Back to Current Orders</Link>
-                    <div className="order-for">Order for <Link to={`/events/${registration.id}`} id="ticket-title-link">{registration.title}</Link></div>
-                    <p id="free">Free Order #{registration.id}</p>
+                    <div className="order-for">Order for <Link to={`/events/${event.id}`} id="ticket-title-link">{event.title}</Link></div>
+                    <p id="free">Free Order #{event.id}</p>
                     <div className="event-info-flex">
                         <p id="ev-i-dark">Event information: </p> 
-                        <p>{formatDate(registration.date)} from {formatTime(registration.start_time)} to {formatTime(registration.end_time)}</p>
+                        <p>{formatDate(event.date)} from {formatTime(event.start_time)} to {formatTime(event.end_time)}</p>
                     </div>
                 </div>
                 <div className="ticket-show-info">
@@ -88,21 +85,21 @@ class RegistrationShow extends React.Component {
 }
 
 const mSTP = (state, ownProps) => {
-    const currentUserId = ownProps.match.params.user_id;
-    const regId = ownProps.match.params.regId;
-    const registration = Object.values(state.entities.events).find((event) => event.reg_id === parseInt(regId))
+    const user_id = ownProps.match.params.user_id;
+    const event_id = ownProps.match.params.event_id;
+    const event = state.entities.events[event_id]
     debugger;
     return ({
-        user: state.entities.users[currentUserId], currentUserId,
-        registration, regId
+        user: state.entities.users[user_id], user_id, 
+        event, event_id
     })
 }
 
 const mDTP = (dispatch) => {
     debugger;
     return ({
-        fetchRegistration: (regId) => dispatch(fetchRegistration(regId)),
-        unregisterUser: (regId) => dispatch(unregisterUser(regId)),
+        fetchEvent: (event_id) => dispatch(fetchEvent(event_id)),
+        unregisterUser: (event_id) => dispatch(unregisterUser(event_id)),
         openModal: modal => dispatch(openModal(modal))
     })
 }

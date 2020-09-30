@@ -1,17 +1,17 @@
-json.events do 
-    @registrations.each do |reg|
-        event = Event.find(reg.event_id)
-        json.set! event.id do
-            json.extract! event, :id, :title, :date, :start_time, :end_time, :registration_type, :url
-            json.reg_id reg.id
-            json.photoUrl url_for(event.photo) if event.photo.attached?
-        end
-    end
-end
+# json.events do 
+#     @registrations.each do |reg|
+#         event = Event.find(reg.event_id)
+#         json.set! event.id do
+#             json.extract! event, :id, :title, :date, :start_time, :end_time, :registration_type, :url
+#             json.reg_id reg.id
+#             json.photoUrl url_for(event.photo) if event.photo.attached?
+#         end
+#     end
+# end
 
-json.currentUser do
-  json.extract! @user, :id, :fname, :lname, :email
-end
+# json.currentUser do
+#   json.extract! @user, :id, :fname, :lname, :email
+# end
 
 
 # {

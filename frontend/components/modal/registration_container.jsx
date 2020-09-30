@@ -8,24 +8,24 @@ import RegistrationModal from './registration.jsx';
 
 const mSTP = (state, ownProps) => {
     debugger;
-    const currentUserId = state.session.id;
+    const user_id = state.session.id;
     //my user is currently the 'organizer' but is the session id just our currentUser's id?
     const event = state.entities.events[ownProps.location.pathname.split("/").reverse()[0]]; 
-    let attending = "false";
-    event.attendees.forEach(user => {
-        if(user.id === currentUserId) attending = "true"
-    });
+    // let attending = "false";
+    // event.attendees.forEach(userId => {
+    //     if (userId === user_id) attending = "true";
+    // });
+    const attendingEvents = state.entities.users[user_id].attendingEvents;
     debugger;
-    return ({ currentUserId: currentUserId, 
-        event: event,
-        attending });
+    // return ({ user_id, event, attending });
+    return ({ user_id, event, attendingEvents });
 };
 
 const mDTP = dispatch => {
     return {
-        fetchEvent: (eventId) => dispatch(fetchEvent(eventId)),
+        fetchEvent: (event_id) => dispatch(fetchEvent(event_id)),
         registerUser: (registration) => dispatch(registerUser(registration)),
-        unregisterUser: (regId) => dispatch(unregisterUser(regId)),
+        unregisterUser: (ids) => dispatch(unregisterUser(ids)),
         closeModal: () => dispatch(closeModal())
     };
 };

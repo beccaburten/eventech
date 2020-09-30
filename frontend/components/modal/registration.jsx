@@ -4,7 +4,7 @@ import { formatDate, formatTime } from '../../util/format_util';
 class RegistrationModal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { attending: this.props.attending }
+        this.state = { attending: null }
         this.handleRegistration = this.handleRegistration.bind(this);
         this.handleUnregister = this.handleUnregister.bind(this);
         this.handleClose = this.handleClose.bind(this);
@@ -16,21 +16,17 @@ class RegistrationModal extends React.Component {
 
     handleRegistration(e) {
         e.preventDefault();
-        const { currentUserId, event} = this.props;
-        this.props.registerUser({ user_id: currentUserId, event_id: event.id });
-        this.setState({attending: 'true'});
+        debugger;
+        const { event } = this.props;
+        this.props.registerUser(event.id);
+        this.setState({ attending: 'true' });
     }
 
     handleUnregister(e) {
         e.preventDefault();
-        const { event } = this.props;
-        // let regId;
-        // debugger;
-        // event.registrations.forEach((r) => {
-        //     if (r.user_id === this.props.currentUserId) regId = r.id
-        // });  
+        const { event, user_id } = this.props;
         debugger;
-        this.props.unregisterUser(event.regId);
+        this.props.unregisterUser({ user_id: user_id, event_id: event.id});
         this.setState({ attending: 'false' });
         
     }
@@ -42,7 +38,7 @@ class RegistrationModal extends React.Component {
 
     render() {
         debugger;
-        const {event} = this.props;
+        const { event, attendingEvents } = this.props;
         return (
             <div className="modal-contents">                
                 <div className="modal-L">
@@ -54,7 +50,8 @@ class RegistrationModal extends React.Component {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quod reiciendis doloremque qui inventore expedita deleniti blanditiis corrupti cumque voluptatibus. Voluptatibus voluptatum ad perferendis earum inventore eaque, sequi nemo sed?
                     </div>
                     <div className="modal-footer">
-                        { this.state.attending === 'true' ? <button onClick={this.handleUnregister}>Unregister</button> : <button onClick={this.handleRegistration}>Register</button>}
+                        {/* { this.state.attending === 'true' ? <button onClick={this.handleUnregister}>Unregister</button> : <button onClick={this.handleRegistration}>Register</button>} */}
+                        {attendingEvents.includes(event.id) ? <button onClick={this.handleUnregister}>Unregister</button> : <button onClick={this.handleRegistration}>Register</button> }
                     </div>
                 </div>
                 <div className="modal-R">

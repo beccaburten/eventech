@@ -6,18 +6,18 @@ class RegistrationIndexItem extends React.Component {
 
     render() {
         debugger;
-        const { registration, user } = this.props;
+        const { attendingevent, user } = this.props;
         return (
             //NEED TO FIX LINK TO= ... it's currently passing in EVENT id, need REGISTRATION id
-            <Link to={`/u/${user.id}/t/${registration.reg_id}`} className="registration-index-item" user={user} registration={registration}>
+            <Link to={`/u/${user.id}/t/${attendingevent.id}`} className="registration-index-item" user={user} attendingevent={attendingevent}>
                 <div>
-                    <p id="reg-month">{showPageMonth(registration.date)}</p>
-                    <p id="reg-day">{showPageDay(registration.date)}</p>
+                    <p id="reg-month">{showPageMonth(attendingevent.date)}</p>
+                    <p id="reg-day">{showPageDay(attendingevent.date)}</p>
                 </div>
-                <img className="reg-promo" src={registration.photoUrl} alt={registration.title} />
+                <img className="reg-promo" src={attendingevent.photoUrl} alt={attendingevent.title} />
                 <div className="ev-idx-text">
-                    <p id="reg-title">{registration.title}</p>
-                    <p id="reg-date">{formatDate(registration.date)} {formatTime(registration.start_time)}</p>
+                    <p id="reg-title">{attendingevent.title}</p>
+                    <p id="reg-date">{formatDate(attendingevent.date)} {formatTime(attendingevent.start_time)}</p>
                 </div>
             </Link>
         )

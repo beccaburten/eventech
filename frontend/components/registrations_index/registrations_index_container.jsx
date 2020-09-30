@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchUserRegistrations } from '../../actions/reg_actions';
-import RegistrationsIndex from './registrations_index';
+import { fetchEvents } from '../../actions/event_actions';
+import RegistrationsIndex from './registrations_index.jsx';
 
 const mSTP = (state) => {
+    const user = state.entities.users[state.session.id];
+    const attendingEventsIds = user.attendingEvents;
+    const attendingEvents = attendingEventsIds.map((id) => state.entities.events[id])
     debugger;
-    return ({
-        user: state.entities.users[state.session.id],
-        registeredEvents: Object.values(state.entities.events)
-    })
+    return ({ user, attendingEvents })
 };
 
 const mDTP = dispatch => {
     return ({
-        fetchUserRegistrations: () => dispatch(fetchUserRegistrations())
+        fetchEvents: () => dispatch(fetchEvents())
     })
 };
 

@@ -1,2 +1,2 @@
-json.extract! user, :id, :email
+json.extract! user, :id, :fname, :lname, :email
 json.attendingEvents user.events_attending.pluck(:id)

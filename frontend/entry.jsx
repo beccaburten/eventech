@@ -2,14 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from "./store/store"
 import Root from "./components/root";
-import { fetchEvents, fetchEvent } from './actions/event_actions';
+import { registerUser } from './util/reg_api_util';
 
 document.addEventListener("DOMContentLoaded", ()=>{
     const root = document.getElementById('root');
+    debugger;
     let preloadedState = undefined;
     if (window.currentUser) {
         preloadedState = {
-            session: { id: window.currentUser.id }
+            session: { id: window.currentUser.id },
+            entities: { users: { [window.currentUser.id]: window.currentUser} }
         };
         delete window.currentUser;
     } else {
@@ -17,10 +19,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
             session: { id: null }
         };
     }
+
     const store = configureStore(preloadedState);
     window.store = store;
     window.getState = store.getState;
-    // window.fetchEvent = fetchEvent;
+    window.registerUser = registerUser;
     // window.fetchEvents = fetchEvents;
 
     ReactDOM.render(<Root store={store}/>, root)

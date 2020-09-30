@@ -7,14 +7,14 @@ class RegistrationsIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUserRegistrations();
+        this.props.fetchEvents();
     }
 
     render() {
         debugger;
-        const { registeredEvents, user} = this.props;
+        const { attendingEvents, user} = this.props;
         if (!user) return null;
-        if (!registeredEvents) return null;
+        if (attendingEvents.some((event) => typeof event === 'undefined')) return null;
 
         debugger;
         return (
@@ -23,13 +23,13 @@ class RegistrationsIndex extends React.Component {
                     <i className="far fa-user"></i>
                     <div className="reg-indx-text">
                         <h1>{user.fname} {user.lname} </h1>
-                        <p>{registeredEvents.length} tickets</p>
+                        <p>{attendingEvents.length} tickets</p>
                     </div>
                 </header>
                 <div className="registration-index">
                     <h3>Tickets</h3>
-                    {registeredEvents.map((registration, idx) => (
-                        <RegistrationIndexItem key={idx} registration={registration} user={user} />
+                    {attendingEvents.map((attendingEvent, idx) => (
+                        <RegistrationIndexItem key={idx} attendingevent={attendingEvent} user={user} />
                     ))}
                 </div>
             </div>
