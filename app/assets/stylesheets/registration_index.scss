@@ -1,6 +1,11 @@
 
 .registration-index-container {
+    margin-left: 120px;
+    width: 1300px;
+    height: inherit;
     background-color: #FBFAFC;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 2px rgba(0, 0, 0, .05);
     font-family: 'Roboto', sans-serif;
     color: #1F0B3D;
 }
@@ -8,14 +13,49 @@
 .registration-index-container > header {
     display: flex;
     flex-direction: row;
+    margin: 30px;
 }
 
 .registration-index-container .fa-user {
-    font-size: 60px;
+    font-size: 50px;
     color: #A9A8B3;
-    padding: 40px;
+    padding: 45px 47px;
     margin: 10px;
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 1px 2px 2px rgba(0, 0, 0, .05);
+}
+
+.reg-indx-header {
+    padding: 60px 20px;
+}
+
+.reg-indx-text {
+    margin: 10px 10px 5px 10px;
+}
+
+.reg-indx-text h1 {
+    font-size: 30px;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.reg-indx-text p {
+    font-size: 14px;
+    color: #4C4E64;
+    letter-spacing: 0.5px;
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+.registration-index {
+    margin-left: 400px;
+
+}
+
+.registration-index h3 {
+    font-size: 18px;
+    font-weight: 500;
 }

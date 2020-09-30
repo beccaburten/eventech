@@ -1,0 +1,53 @@
+.registration-index-item {
+    display: flex;
+    flex-direction: row;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: box-shadow 0.5s;
+    margin: 15px 10px 15px 0px;
+    padding: 10px 10px 30px 10px;
+    &:hover {
+        box-shadow: 0 1px 2px 2px rgba(0, 0, 0, .05);
+        transition: box-shadow 0.5s;
+        cursor: pointer;
+    }
+}
+
+#reg-month {
+    font-size: 12px;
+    margin: 0px;
+    text-transform: uppercase;
+    color: #D03E09;
+}
+
+#reg-day {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px;
+    margin: 0;
+    color: #4C4E64;;
+}
+
+.reg-promo {
+    width: 300px;
+    height: 150px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#reg-title {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: #1F0B3D;
+    font-weight: 400;
+    margin: 0;
+}
+
+#reg-date {
+    font-size: 14px;
+    color: #4C4E64;
+    font-weight: 100;
+}

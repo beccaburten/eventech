@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { formatDate, formatTime } from '../../util/format_util'
+import { showPageMonth, showPageDay, formatDate, formatTime } from '../../util/format_util'
 
 class RegistrationIndexItem extends React.Component {
 
@@ -9,10 +9,14 @@ class RegistrationIndexItem extends React.Component {
         const { registration, user } = this.props;
         return (
             <Link to={`/u/${user.id}/t/${registration.id}`} className="registration-index-item" user={user}>
-                <img className="promo" src={registration.photoUrl} alt={registration.title} />
+                <div>
+                    <p id="reg-month">{showPageMonth(registration.date)}</p>
+                    <p id="reg-day">{showPageDay(registration.date)}</p>
+                </div>
+                <img className="reg-promo" src={registration.photoUrl} alt={registration.title} />
                 <div className="ev-idx-text">
-                    <h1>{registration.title}</h1>
-                    <h2>{formatDate(registration.date)} {formatTime(registration.start_time)}</h2>
+                    <p id="reg-title">{registration.title}</p>
+                    <p id="reg-date">{formatDate(registration.date)} {formatTime(registration.start_time)}</p>
                 </div>
             </Link>
         )
