@@ -8,14 +8,10 @@ class FirstTab extends React.Component {
             tab: "first",
             title: "",
             category_id: null,
-            description: "",
             url: "",
             date: "",
             start_time: "",
             end_time: "",
-            organizer_id: state.session.id,
-            registration_type: "Free",
-            promo_pic: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
