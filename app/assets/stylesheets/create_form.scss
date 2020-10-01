@@ -1,3 +1,53 @@
+.create-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    color: #39364F;
+    letter-spacing: 0.5; 
+}
+
 .tab-navigation {
-    background-color: #F4EFEE;
+    list-style: none;
+    background-color: #F8F7FA;
+    padding: 60px 30px 30px 60px;
+    width: 250px;
+    margin: 0;
+    // width: 280px !important;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.tab-navigation li {
+    padding: 20px;
+}
+
+.tab-navigation .selected {
+    
+}
+
+.tab-content {
+    padding: 50px 100px 50px 100px;
+}
+
+.event-form h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.event-form h3 {
+    font-size: 14px;
+    font-weight: 100;
+    margin: 2px;
+}
+
+.custom-select > select {
+    display: none;
+}
+
+.custom-select {
+    position: relative;
+    width: 200px;
+    font-family: 'Roboto', sans-serif;
+    color: #39364F;
+    background-color: white;
 }

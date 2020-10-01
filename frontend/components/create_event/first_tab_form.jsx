@@ -33,21 +33,25 @@ class FirstTab extends React.Component {
             <div className="event-form">
                 <form onSubmit={this.handleSubmit}>
                     <h2>Basic Info</h2>
-                    <h3>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</h3>
+                    <h3>Name your event and tell event-goers why they should come.</h3>
+                    <h3>Add details that highlight what makes it unique.</h3>
                     <br></br>
                     <label htmlFor="title">Event Title</label>
+                    <br></br>
                     <input id="title" type="text" value={this.state.title} onChange={this.update('title')} required />
                     <br></br>
-                    <select name="category" id="category" value={this.state.category} onChange={this.update('category')} required>
-                        <option value="Category" selected disabled={true}>Category</option>
-                        <option value="Education">Education</option>
-                        <option value="Career and Networking">Career and Networking</option>
-                        <option value="Tech Talks">Tech Talks</option>
-                        <option value="10:00 PM">10:00 PM</option>
-                        <option value="10:30 PM">10:30 PM</option>
-                        <option value="11:00 PM">11:00 PM</option>
-                        <option value="11:30 PM">11:30 PM</option>
-                    </select>
+                    <div class="custom-select">
+                        <select name="category" id="category" value={this.state.category} onChange={this.update('category')} required>
+                            <option value="Category" selected disabled={true}>Category</option>
+                            <option value="Education">Education</option>
+                            <option value="Career and Networking">Career and Networking</option>
+                            <option value="Tech Talks">Tech Talks</option>
+                            <option value="10:00 PM">10:00 PM</option>
+                            <option value="10:30 PM">10:30 PM</option>
+                            <option value="11:00 PM">11:00 PM</option>
+                            <option value="11:30 PM">11:30 PM</option>
+                        </select>
+                    </div>
                     <br></br>
                     <h2>Location URL</h2>
                     <h3>Help people in discover more of your events and let attendees know where to show up.</h3>
@@ -57,7 +61,7 @@ class FirstTab extends React.Component {
                     <h2>Date and Time</h2>
                     <h3>Tell event-goers when your event starts and ends so they can make plans to attend.</h3>
                     <br></br>
-                    <i class="far fa-calendar-alt"></i>
+                    <i className="far fa-calendar-alt"></i>
                     <label htmlFor="date">Event Starts</label>
                     <input id="date" type="date" value={this.state.date} onChange={this.update('date')} required />
                     <br></br>
