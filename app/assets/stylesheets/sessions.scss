@@ -144,24 +144,28 @@ input:focus + #floatLabel {
 }
 
 //Email address
-label {
+.session-form label {
     display: flex;
     flex-direction: column;
     margin-top: 8px;
     margin-left: 4px;
-    // margin-bottom: 15px;
     font-size: 13px;
     color: grey;
     position: absolute;
     top: 0;
-    // transform-origin: top left;
-    // transform: translate(0, 16px) scale(1);
-    // transition: all .1s ease-in-out;
 }
 
-// .float-label.active label {
-//   transform: translate(0, 4px) scale(.75);
-// }
+.session label {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    margin-left: 4px;
+    font-size: 13px;
+    color: grey;
+    position: absolute;
+    top: 0;
+}
+
 
 .name {
     display: flex;
@@ -201,6 +205,7 @@ label {
 }
 
 .errors {
+    margin: 4px;
     font-weight: 100;
     color: rgb(184, 7, 7);
     align-items: left;

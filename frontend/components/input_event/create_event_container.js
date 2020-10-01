@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createEvent } from '../../actions/event_actions';
-import EventForm from './event_form';
+import EventFormNav from './event_form_nav';
 
 const mSTP = state => {
     debugger
@@ -29,4 +29,4 @@ const mDTP = dispatch => {
     })
 }
 
-export default withRouter(connect(mSTP, mDTP)(EventForm));
+export default withRouter(connect(mSTP, mDTP)(EventFormNav));

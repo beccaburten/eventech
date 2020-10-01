@@ -31,7 +31,7 @@ class SessionForm extends React.Component {
         // this.props.login({ email: 'demo_user@gmail.com', password: 'demologin'});
         const demo = { email: 'demo_user@gmail.com', password: 'demologin' };
         this.setState(demo, () => {
-            const timer = setTimeout(() => this.props.login(demo), 700);
+            const timer = setTimeout(() => this.props.login(demo), 500);
             return () => clearTimeout(timer);
         });
     }
