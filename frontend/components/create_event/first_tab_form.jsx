@@ -1,10 +1,22 @@
 import React from 'react';
 
-class EventForm extends React.Component {
+class FirstTab extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = this.props.event;
+        this.state = {
+            tab: "first",
+            title: "",
+            category_id: null,
+            description: "",
+            url: "",
+            date: "",
+            start_time: "",
+            end_time: "",
+            organizer_id: state.session.id,
+            registration_type: "Free",
+            promo_pic: ""
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -20,16 +32,15 @@ class EventForm extends React.Component {
     }
 
     render() {
-        const {formType} = this.props;
+        const { formType } = this.props;
         return (
             <div className="event-form">
-                <h1>{formType}</h1>
                 <form onSubmit={this.handleSubmit}>
-                <h2>Basic Info</h2>
-                <h3>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</h3>
+                    <h2>Basic Info</h2>
+                    <h3>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</h3>
                     <br></br>
                     <label htmlFor="title">Event Title</label>
-                    <input id="title" type="text" value={this.state.title} onChange={this.update('title')} required/>
+                    <input id="title" type="text" value={this.state.title} onChange={this.update('title')} required />
                     <br></br>
                     <select name="category" id="category" value={this.state.category} onChange={this.update('category')} required>
                         <option value="Category" selected disabled={true}>Category</option>
@@ -42,16 +53,13 @@ class EventForm extends React.Component {
                         <option value="11:30 PM">11:30 PM</option>
                     </select>
                     <br></br>
-                    <label htmlFor="description">Description</label>
-                    <textarea id="description" value={this.state.description} onChange={this.update('description')} />
-                    <br></br>
-                <h2>Location URL</h2>
-                <h3>Help people in discover more of your events and let attendees know where to show up.</h3>
+                    <h2>Location URL</h2>
+                    <h3>Help people in discover more of your events and let attendees know where to show up.</h3>
                     <br></br>
                     <input id="url" type="url" value={this.state.url} onChange={this.update('url')} />
                     <br></br>
-                <h2>Date and Time</h2>
-                <h3>Tell event-goers when your event starts and ends so they can make plans to attend.</h3>
+                    <h2>Date and Time</h2>
+                    <h3>Tell event-goers when your event starts and ends so they can make plans to attend.</h3>
                     <br></br>
                     <i class="far fa-calendar-alt"></i>
                     <label htmlFor="date">Event Starts</label>
@@ -110,7 +118,7 @@ class EventForm extends React.Component {
                     </select>
                     <br></br>
                     <label htmlFor="end_date">Event Ends</label>
-                    <input id="end_date" type="date" value={this.state.end_date} onChange={this.update('end_date')} required/>
+                    <input id="end_date" type="date" value={this.state.end_date} onChange={this.update('end_date')} required />
                     <br></br>
                     <label htmlFor="end_time">End Time</label>
                     <select name="end_time" id="end_time" value={this.state.end_time} onChange={this.update('end_time')} required>
@@ -163,17 +171,17 @@ class EventForm extends React.Component {
                         <option value="11:00 PM">11:00 PM</option>
                         <option value="11:30 PM">11:30 PM</option>
                     </select>
-                    <br></br>                    
+                    <br></br>
                     <input type="submit" value={formType} />
                 </form>
-   
-            {/* promo_pic: "" */}
+
+                {/* promo_pic: "" */}
             </div>
-            
+
         )
     }
 
-    
+
 }
 
-export default EventForm;
+export default FirstTab;

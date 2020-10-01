@@ -11,7 +11,7 @@ import SessionFormContainer from "./session/session_form_container";
 import Footer from './footer/footer';
 import RegistrationModal from './modal/registration_modal';
 import CancelModal from './modal/cancel_modal';
-import CreateEventContainer from './input_event/create_event_container';
+import CreateEventContainer from './create_event/create_event_container';
 // import EditEventContainer from './input_event/edit_event_container';
 
 const App = () => (
