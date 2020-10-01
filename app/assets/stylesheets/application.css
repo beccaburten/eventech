@@ -25,7 +25,7 @@
  body {
     position: relative;
     font-family: 'Roboto', sans-serif;
-    padding-bottom: 6rem;
+    padding-bottom: 0;
     min-height: 100%;
     margin: 0px;
  }

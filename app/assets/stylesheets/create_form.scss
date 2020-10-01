@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     height: 100%;
+    min-height: 1000px;
     color: #39364F;
     letter-spacing: 0.5; 
 }
@@ -9,45 +10,126 @@
 .tab-navigation {
     list-style: none;
     background-color: #F8F7FA;
-    padding: 60px 30px 30px 60px;
+    padding-top: 60px;
+    padding-left: 0px;
     width: 250px;
+    height: inherit;
+    min-height: 900px;
     margin: 0;
-    // width: 280px !important;
     font-weight: 500;
     font-size: 16px;
 }
 
 .tab-navigation li {
-    padding: 20px;
+    padding: 20px 0px 20px 60px;
+    width: inherit;
 }
 
 .tab-navigation .selected {
-    
+    background-color: white;
 }
 
 .tab-content {
-    padding: 50px 100px 50px 100px;
+    padding: 0px 100px 50px 100px;
+}
+
+.form-slice {
+    padding-bottom: 60px;
+    width: inherit;
+    border-bottom: 1px solid #e6e6e7;
 }
 
 .event-form h2 {
-    font-size: 24px;
-    margin: 0;
+    color: #1E0A3C;
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin: 60px 0px 10px 0px;
 }
 
 .event-form h3 {
     font-size: 14px;
     font-weight: 100;
-    margin: 2px;
+    margin: 4px;
 }
 
-.custom-select > select {
-    display: none;
+.event-form i {
+    opacity: 0.3;
 }
 
-.custom-select {
-    position: relative;
+.outer-selector {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d7d7d8;
+    padding: 5px 15px 0px 15px;
+    margin: 20px 10px 0px 10px;
     width: 200px;
+    height: 50px;
+    border-radius: 3px;
+    transition: border 0.5s;
+    color: #6F7287;
+    font-size: 12px;
+    &:hover {
+        border: 1px solid #959596;
+        transition: border 0.5s;
+    }
+}
+
+.text-input {
+    margin-top: 5px;
+    outline: none;
+    border: white;
+    font-size: 14px;
+    &:focus {
+        outline: none;
+    }
+}
+
+
+#category {
+    width: inherit;
+    height: inherit;
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    border: white;
     color: #39364F;
     background-color: white;
+    &:focus {
+        outline: 0;
+    }
 }
+
+.time-flex {
+    display: flex;
+}
+
+.time-selector {
+    width: inherit;
+    margin: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    border: white;
+    color: #39364F;
+    background-color: white;
+    &:focus {
+        outline: 0;
+    }
+}
+
+#savecont {    
+    font-family: inherit;
+    border: 0;
+    outline: none;
+    padding: 15px 0px 15px 0px;
+    background-color: #D1410c;
+    transition: background-color 0.5s;
+    border-radius: 4px;
+    font-weight: 400;
+    color: white;
+    min-width: 370px;
+    margin: 10px;
+    &:hover {
+        cursor: pointer;
+        background-color: #f55b23;
+        transition: background-color 0.5s;
+        transition-timing-function: ease-out;
+    }}

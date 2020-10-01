@@ -47,11 +47,11 @@ class CreateFormNav extends React.Component {
         return (
             <div className="create-container">
                 <ul className="tab-navigation">
-                    <li className={} onClick={this.switchTab('first')}>Basic Info</li>
-                    <li onClick={this.switchTab('second')}>Details</li>
+                    <li className={this.state.tab === 'first' ? 'selected' : null} onClick={this.switchTab('first')}>Basic Info</li>
+                    <li className={this.state.tab === 'second' ? 'selected' : null} onClick={this.switchTab('second')}>Details</li>
                 </ul>
                 <div className="tab-content">
-                    {this.state.tab === 'first' ? <FirstTab /> : <SecondTab />}
+                    {this.state.tab === 'first' ? <FirstTab update={this.update} /> : <SecondTab update={this.update} />}
                 </div>
             </div>
             
