@@ -58,7 +58,7 @@ class EventShow extends React.Component {
                         </div >
                         <div className="es-body-R">
                             <h1>Date And Time</h1>
-                            <p>{formatDate(event.date)}</p>
+                            <p>{formatDate(event.date)} {event.date !== event.end_date ? `to ${formatDate(event.end_date)}` : null}</p> 
                             <p>{formatTime(event.start_time)} - {formatTime(event.end_time)}</p>
                         </div>
                     </div>

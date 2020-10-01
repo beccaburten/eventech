@@ -1,7 +1,7 @@
 import React from 'react';
 import SignupFormContainer from './signup_form_container'
 import LoginFormContainer from './login_form_container'
-//this will be my entry sign-in, https://www.eventbrite.com/signin/
+// import Typed from 'typed.js'
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -36,21 +36,18 @@ class SessionForm extends React.Component {
         });
     }
 
-    // GET TYPED FUNCTIONALITY WORKING --> undefined Typed
     // demoLogin(e) {
     //     e.preventDefault();
-    //     let demoemail = { strings: ['demo_user@gmail.com'], typeSpeed: 50};
-    //     let demopw = { strings: ['demologin'], typeSpeed: 50};
-        
-    //     new Typed('typeemail', demoemail);
-        
-    //     setTimeout(() => {
-    //         new Typed('typepw', demopw)
-    //     }, 1400);
+    //     const demo_email = {
+    //         strings: ["demo_user@gmail.com"],
+    //         typeSpeed: 56,
+    //     };
+
+    //     new Typed(".demo-email", demo_email);
 
     //     setTimeout(() => {
-    //         this.props.login({ email: 'demo_user@gmail.com', password: 'demologin' })
-    //     })
+    //         this.props.login({ email: 'demo_user@gmail.com', password: 'demologin' });
+    //     }, 2400);
     // }
 
 

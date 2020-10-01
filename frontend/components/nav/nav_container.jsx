@@ -44,9 +44,9 @@ class Nav extends React.Component {
 
 
                     <div className="nav-links">
-                        <div className="link-selector" id="create-event">
+                        <div className="link-selector" id="create-event" onClick={() => this.props.history.push(`/events/create`)}>
                             <i className="fas fa-plus"></i>
-                            <Link className="link" to="/" id="create-event">Create Event</Link>
+                            <Link className="link" to="'/events/create'" id="create-event">Create Event</Link>
                         </div>
 
                         <div className="link-selector">

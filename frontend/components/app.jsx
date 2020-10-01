@@ -11,6 +11,8 @@ import SessionFormContainer from "./session/session_form_container";
 import Footer from './footer/footer';
 import RegistrationModal from './modal/registration_modal';
 import CancelModal from './modal/cancel_modal';
+import CreateEventContainer from './input_event/create_event_container';
+// import EditEventContainer from './input_event/edit_event_container';
 
 const App = () => (
     <div>
@@ -21,7 +23,8 @@ const App = () => (
             <Switch>
                 <Route exact path="/" component={EventsIndexContainer} />
                 <AuthRoute path="/signin" component={SessionFormContainer} />
-                <Route exact path='/events/:eventId' component={EventShowContainer} />
+                <ProtectedRoute exact path='/events/create' component={CreateEventContainer} />
+                <Route path='/events/:eventId' component={EventShowContainer} />
                 <ProtectedRoute exact path='/u/:user_id' component={RegistrationsIndexContainer}/>
                 <ProtectedRoute path='/u/:user_id/t/:event_id' component={RegistrationShowContainer} />
             </Switch>
