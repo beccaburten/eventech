@@ -1,12 +1,13 @@
 import React from 'react';
 import FirstTab from './first_tab_form';
+import SecondTab from './second_tab_form';
 
 class CreateFormNav extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            tab: "first",
+            tab: 'first',
             title: "",
             category_id: null,
             description: "",
@@ -14,11 +15,13 @@ class CreateFormNav extends React.Component {
             date: "",
             start_time: "",
             end_time: "",
-            organizer_id: state.session.id,
+            organizer_id: this.props.organizer_id,
             registration_type: "Free",
             promo_pic: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.switchTab = this.switchTab.bind(this);
+        this.update = this.update.bind(this);
     }
 
     handleSubmit(e) {
@@ -32,10 +35,24 @@ class CreateFormNav extends React.Component {
         }
     }
 
+    switchTab(target) {
+        return (e) => {
+            e.preventDefault;
+            this.setState({ tab: target})
+        }
+    }
+
     render() {
-        const {formType} = this.props;
+        debugger;
         return (
             <div>
+                <ul className="tab-navigation">
+                    <li onClick={this.switchTab('first')}>Basic Info</li>
+                    <li onClick={this.switchTab('second')}>Details</li>
+                </ul>
+                <div className="tab-revealed">
+                    {this.state.tab === 'first' ? <FirstTab /> : <SecondTab />}
+                </div>
             </div>
             
         )
