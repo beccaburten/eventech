@@ -47,7 +47,8 @@ To implement event creation across two form tabs, I created a container componen
 + [Site Features](site-features)
 
 ## Future Plans
-Filter events by Category
-Update & Delete events for full CRUD cycle 
-Like events
+- Responsive design for browser and mobile
+- Filter events by Category
+- Update & Delete events for full CRUD cycle 
+- Like events
 
