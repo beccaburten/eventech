@@ -13,7 +13,7 @@
     padding-top: 60px;
     padding-left: 0px;
     width: 250px;
-    height: inherit;
+    // height: inherit;
     min-height: 900px;
     margin: 0;
     font-weight: 500;
@@ -59,18 +59,25 @@
 .outer-selector {
     display: flex;
     flex-direction: column;
-    border: 1px solid #d7d7d8;
+    box-shadow: 0 0 0 1px #d7d7d8;
+    border: 3px solid transparent;
     padding: 5px 15px 0px 15px;
     margin: 20px 10px 0px 10px;
-    width: 200px;
+    width: 400px;
     height: 50px;
     border-radius: 3px;
-    transition: border 0.5s;
+    transition: border 0.2s;
     color: #6F7287;
     font-size: 12px;
     &:hover {
-        border: 1px solid #959596;
-        transition: border 0.5s;
+        box-shadow: 0 0 0 1px #959596;
+        transition: box-shadow 0.2s;
+    }
+    &:focus-within {
+        box-shadow: none;
+        transition: box-shadow 0.2s;
+        border: 3px solid #365AE4;
+        transition: border 0.2s;
     }
 }
 
@@ -79,6 +86,8 @@
     outline: none;
     border: white;
     font-size: 14px;
+    resize: none;
+    font-family: inherit;
     &:focus {
         outline: none;
     }
@@ -115,7 +124,7 @@
     }
 }
 
-#savecont {    
+.create-container button {    
     font-family: inherit;
     border: 0;
     outline: none;
@@ -126,10 +135,40 @@
     font-weight: 400;
     color: white;
     min-width: 370px;
-    margin: 10px;
+    margin: 40px 0px 40px 0px;
     &:hover {
         cursor: pointer;
         background-color: #f55b23;
         transition: background-color 0.5s;
         transition-timing-function: ease-out;
-    }}
+    }
+}
+
+.outer-desc-selector {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 0 1px #d7d7d8;
+    border: 3px solid transparent;
+    padding: 5px 15px 0px 15px;
+    margin: 20px 10px 0px 10px;
+    width: 600px;
+    height: 350px;
+    border-radius: 3px;
+    transition: border 0.2s;
+    color: #6F7287;
+    font-size: 12px;
+    &:hover {
+        box-shadow: 0 0 0 1px #959596;
+        transition: box-shadow 0.2s;
+    }
+    &:focus-within {
+        box-shadow: none;
+        transition: box-shadow 0.2s;
+        border: 3px solid #365AE4;
+        transition: border 0.2s;
+    }
+}
+
+.outer-desc-selector textarea {
+    height: inherit;
+}

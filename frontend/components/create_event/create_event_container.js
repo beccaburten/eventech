@@ -26,7 +26,7 @@ const mSTP = state => {
 const mDTP = dispatch => {
     debugger
     return ({
-        action: (event) => dispatch(createEvent(event))
+        createEvent: (event) => dispatch(createEvent(event))
     })
 }
 

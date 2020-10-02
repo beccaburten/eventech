@@ -4,31 +4,9 @@ class FirstTab extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            tab: "first",
-            title: "",
-            category_id: null,
-            url: "",
-            date: "",
-            start_time: "",
-            end_time: "",
-        }
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick(e) {
-        e.preventDefault();
-        this.setState({tab: 'second'});
-    }
-
-    update(field) {
-        return (e) => {
-            this.setState({ [field]: e.target.value })
-        }
     }
 
     render() {
-        const { formType } = this.props;
         return (
             <div className="event-form">
                 <form onSubmit={this.handleSubmit}>
@@ -38,16 +16,16 @@ class FirstTab extends React.Component {
                         <h3>Add details that highlight what makes it unique.</h3>
                         <br></br>
                         <div className="outer-selector">Event Title
-                            <input className="text-input" id="title" type="text" value={this.state.title} onChange={this.update('title')} required />
+                            <input className="text-input" id="title" type="text" onChange={this.props.update('title')} required />
                         </div>
                         <div className="outer-selector">
-                            <select name="category" id="category" value={this.state.category} onChange={this.update('category')} required>
+                            <select name="category" id="category" onChange={this.props.update('category')} required>
                                 <option value="Category" selected disabled={true}>Category</option>
                                 <option value="Education">Education</option>
-                                <option value="Career and Networking">Career & Networking</option>
+                                <option value="Career & Networking">Career & Networking</option>
                                 <option value="Tech Talks">Tech Talks</option>
                                 <option value="Virtual Conferences">Virtual Conferences</option>
-                                <option value="Diversity and Inclusion">Diversity & Inclusion</option>
+                                <option value="Diversity & Inclusion">Diversity & Inclusion</option>
                             </select>
                         </div>
                     </div>
@@ -56,7 +34,7 @@ class FirstTab extends React.Component {
                         <h2><i className="fas fa-desktop"></i> Location</h2>
                         <h3>Help people in discover more of your events and let attendees know where to show up.</h3>
                         <div className="outer-selector"> Event URL 
-                            <input className="text-input" id="url" type="url" value={this.state.url} onChange={this.update('url')} />
+                            <input className="text-input" id="url" type="url" onChange={this.props.update('url')} />
                         </div>
                     </div>
 
@@ -67,11 +45,11 @@ class FirstTab extends React.Component {
                         {/* <label htmlFor="date">Event Starts</label> */}
                         <div className="time-flex">
                             <div className="outer-selector"> Event Starts
-                                <input className="time-selector" id="date" type="date" value={this.state.date} onChange={this.update('date')} required />
+                                <input className="time-selector" id="date" type="date" onChange={this.props.update('date')} required />
                             </div>
                             <br></br>
                             <div className="outer-selector"> Start Time
-                                <select className="time-selector" name="start_time" id="start_time" value={this.state.start_time} onChange={this.update('start_time')} required>
+                                <select className="time-selector" name="start_time" id="start_time" onChange={this.props.update('start_time')} required>
                                     <option value="12:00 AM">12:00 AM</option>
                                     <option value="12:30 AM">12:30 AM</option>
                                     <option value="1:00 AM">1:00 AM</option>
@@ -127,11 +105,11 @@ class FirstTab extends React.Component {
                         {/* <label htmlFor="end_date">Event Ends</label> */}
                         <div className="time-flex">
                             <div className="outer-selector"> Event Ends
-                                <input className="time-selector" id="end_date" type="date" value={this.state.end_date} onChange={this.update('end_date')} required />
+                                <input className="time-selector" id="end_date" type="date" onChange={this.props.update('end_date')} required />
                             </div>
                             <br></br>
                             <div className="outer-selector"> End Time
-                                <select name="end_time" className="time-selector" id="end_time" value={this.state.end_time} onChange={this.update('end_time')} required>
+                                <select name="end_time" className="time-selector" id="end_time" onChange={this.props.update('end_time')} required>
                                     <option value="12:00 AM">12:00 AM</option>
                                     <option value="12:30 AM">12:30 AM</option>
                                     <option value="1:00 AM">1:00 AM</option>
@@ -185,7 +163,7 @@ class FirstTab extends React.Component {
                         </div>
                     </div>
 
-                    <button id="savecont" onClick={this.handleClick}>Save & Continue</button>
+                    <button onClick={this.props.switchTab('second')}>Save & Continue</button>
                 </form>
 
                 {/* promo_pic: "" */}

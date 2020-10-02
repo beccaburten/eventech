@@ -26,7 +26,7 @@ class EventShow extends React.Component {
         const { event, organizer } = this.props;
         if (!organizer) return null;
         if (!event) return null;
-        // debugger;
+        debugger;
 
         return (
             <div className="event-show-container">

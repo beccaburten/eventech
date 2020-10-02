@@ -87,8 +87,9 @@
 
 //div container
 .float-label {
-  border: solid 1px #ccc;
-  transition: border 1s;
+  box-shadow: 0 0 0 1px #ccc;
+  border: 3px solid transparent;
+  transition: outline 1s;
   padding: 0 8px 0 8px;
   margin: 10px;
   position: relative;
@@ -97,11 +98,38 @@
 //   width: 30%;
   align-items: center;
   &:hover {
-      border: solid 1px rgb(150, 149, 149);
-      transition: border 0.5s;
-      transition-timing-function: ease-out;
+      box-shadow: 0 0 0 1px rgb(150, 149, 149);
+      transition: box-shadow 0.2s;
   }
+  &:focus-within {
+      box-shadow: none;
+      border: 3px solid #365AE4;
+      transition: border 0.2s;
+      transition: box-shadow 0.2s;
+    }
 }
+
+
+
+// .post-item {
+//   outline: 1px solid #0198fa;
+//   padding: 20px 20px;
+//   border: 5px solid transparent;
+//   -webkit-transition: all 0.2s ease-in-out;
+//   transition: all 0.2s ease-in-out;
+// }
+// .post-item:hover {
+//   outline: 0px solid transparent;
+//   padding: 20px 20px;
+//   border: 5px solid #0198fa;
+//   -webkit-transition: all 0.2s ease-in-out;
+//   transition: all 0.2s ease-in-out;
+// }
+
+
+
+
+
 
 .error-label {
   border: 2px solid rgb(184, 7, 7);
@@ -115,15 +143,8 @@
   align-items: center;
 }
 
-input:focus + label {
-    color: #0066cc;
-}
-//CANT GET THE BORDER TO CHANGE TO BLUE :(
-input:focus + #floatLabel {
-    border: solid 3px #0066cc;
-    transition: border 0.5s;
-    transition-timing-function: ease-out;
-}
+
+
 
 .session-form input {
   border: none;
@@ -173,7 +194,8 @@ input:focus + #floatLabel {
 }
 
 .float-name {
-  border: solid 1px #ccc;
+  box-shadow: 0 0 0 1px #ccc;
+  border: 3px solid transparent;
   padding: 0 8px 0 8px;
   margin: 0px 8px 0px 8px;
   position: relative;
@@ -182,11 +204,17 @@ input:focus + #floatLabel {
   width: 30%;
   align-items: center;
   &:hover {
-      border: solid 1px rgb(150, 149, 149);
-      transition: border 0.5s;
-      transition-timing-function: ease-out;
+      box-shadow: 0 0 0 1px rgb(150, 149, 149);
+      transition: box-shadow 0.2s;
   }
+  &:focus-within {
+        box-shadow: none;
+        transition: box-shadow 0.2s;
+        border: 3px solid #365AE4;
+        transition: border 0.5s;
+    }
 }
+
 
 .float-name > input {
   border: none;
