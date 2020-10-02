@@ -4,6 +4,7 @@ class FirstTab extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {category: null}
     }
 
     render() {
@@ -19,7 +20,7 @@ class FirstTab extends React.Component {
                             <input className="text-input" id="title" type="text" onChange={this.props.update('title')} required />
                         </div>
                         <div className="outer-selector">
-                            <select name="category" id="category" onChange={this.props.update('category')} required>
+                            <select name="category" id="category" onChange={this.props.update('category')} required >
                                 <option value="Category" selected disabled={true}>Category</option>
                                 <option value="Education">Education</option>
                                 <option value="Career & Networking">Career & Networking</option>

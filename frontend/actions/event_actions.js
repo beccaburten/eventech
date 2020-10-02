@@ -7,7 +7,6 @@ export const CLEAR_EVENTS = 'CLEAR_EVENTS';
 
 // REGULAR ACTIONS
 export const receiveAllEvents = (events) => {
-    //  ;
     return {
         type: RECEIVE_ALL_EVENTS,
         events
@@ -15,7 +14,6 @@ export const receiveAllEvents = (events) => {
 };
 
 export const receiveEvent = ({event, organizer, category}) => {
-     ;
     return {
         type: RECEIVE_EVENT,
         event,
@@ -60,14 +58,14 @@ export const fetchEvent = (eventId) => (dispatch) => {
 
 export const createEvent = (event) => (dispatch) => {
     return EventApiUtil.createEvent(event)
-        .then(event => dispatch(receiveEvent(event))),
-            errors => dispatch(receiveEventErrors(errors.responseJSON))
+        .then(event => dispatch(receiveEvent(event)),
+            errors => dispatch(receiveEventErrors(errors.responseJSON)))
 }
 
 export const updateEvent = (event) => (dispatch) => {
     return EventApiUtil.updateEvent(event)
-        .then(event => dispatch(receiveEvent(event))),
-            errors => dispatch(receiveEventErrors(errors.responseJSON))
+        .then(event => dispatch(receiveEvent(event)),
+            errors => dispatch(receiveEventErrors(errors.responseJSON)))
         //.then(successcallbackarg1, failcallbackarg2)
 };
 

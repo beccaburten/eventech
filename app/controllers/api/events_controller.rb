@@ -7,8 +7,10 @@ class Api::EventsController < ApplicationController
     
     def create
         @event = Event.new(event_params)
-        @event.organizer_id = current_user.id
-        if @event.save!
+        # @event.organizer_id = current_user.id
+        #  
+        if @event.save
+            # redirect_to '/api/events', status: 303
             render :show
         else
             render @event.errors.full_messages
@@ -46,7 +48,7 @@ class Api::EventsController < ApplicationController
     private
     def event_params
         params.require(:event)
-        .permit(:title, :date, :start_time, :end_date, :end_time, :category_id, :company_id, :registration_type, :promo_pic, :url)
+        .permit(:title, :date, :start_time, :end_date, :end_time, :category_id, :organizer_id, :registration_type, :description, :photo, :url)
     end
 
 end

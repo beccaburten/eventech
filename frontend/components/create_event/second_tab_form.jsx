@@ -10,6 +10,9 @@ class SecondTab extends React.Component {
             <div className="event-form">
                 <form>
                 {/* importing a promo_pic  */}
+
+                    <input onChange={this.props.uploadFile} type="file" />
+
                     <h2><i className="fas fa-align-justify"></i> Description</h2>
                     <h3>Add more details to your event like your schedule, sponsors, or featured guests.</h3>
                     

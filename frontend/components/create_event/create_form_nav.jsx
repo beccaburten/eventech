@@ -15,32 +15,42 @@ class CreateFormNav extends React.Component {
             date: "",
             start_time: "12:00",
             end_time: "12:00",
-            organizer_id: this.props.organizer_id,
+            organizer_id: this.props.event.organizer_id,
             registration_type: "Free",
-            promo_pic: ""
+            photo: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.switchTab = this.switchTab.bind(this);
         this.update = this.update.bind(this);
+        this.uploadFile = this.uploadFile.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createEvent(this.state);
-        this.props.history.push('/')
+        const formData = new FormData();
+        Object.keys(this.state).map(key => {
+            formData.append(`event[${key}]`, this.state[key])
+        })
+         ;
+        this.props.createEvent(formData).then(() => this.props.history.push('/'))
     }
 
     update(field) {
         return (e) => {
             if(field === 'category') {
-                 ;
                 const categories = ['Education', 'Career & Networking', 'Tech Talks', 'Virtual Conferences', 'Diversity & Inclusion'];
-                let i = categories.indexOf(e.target.value);
+                let i = categories.indexOf(e.target.value) + 1;
                 this.setState({ category_id: i })
             } else {
                 this.setState({ [field]: e.target.value })
             }
         }
+    }
+
+    uploadFile(e) {
+        e.preventDefault();
+         ;
+        this.setState({photo: e.target.files[0]}, () => console.log(this.state))
     }
 
     switchTab(target) {
@@ -60,7 +70,7 @@ class CreateFormNav extends React.Component {
                         <li className={this.state.tab === 'second' ? 'selected' : null} onClick={this.switchTab('second')}>Details</li>
                     </ul>
                     <div className="tab-content">
-                        {this.state.tab === 'first' ? <FirstTab update={this.update} switchTab={this.switchTab} /> : <SecondTab update={this.update} handleSubmit={this.handleSubmit} />}
+                        {this.state.tab === 'first' ? <FirstTab update={this.update} switchTab={this.switchTab} /> : <SecondTab update={this.update} handleSubmit={this.handleSubmit} uploadFile={this.uploadFile} />}
                     </div>
                 </div>
                 {/* { this.state.tab === 'second' ? <button onClick={this.handleSubmit}>Publish</button> : null } */}
