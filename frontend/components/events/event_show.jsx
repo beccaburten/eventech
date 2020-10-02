@@ -14,7 +14,7 @@ class EventShow extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        debugger;
+         ;
         if (this.props.currentUserId) {
             this.props.openModal('register');
         } else {
@@ -26,7 +26,7 @@ class EventShow extends React.Component {
         const { event, organizer } = this.props;
         if (!organizer) return null;
         if (!event) return null;
-        debugger;
+         ;
 
         return (
             <div className="event-show-container">

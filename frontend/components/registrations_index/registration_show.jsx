@@ -20,13 +20,13 @@ class RegistrationShow extends React.Component {
     }
 
     componentDidMount() {
-        debugger;
+         ;
         this.props.fetchEvent(this.props.event_id);
     }
 
     // handleUnregister(e) {
     //     e.preventDefault();
-    //     debugger;
+    //      ;
     //     const { regId } = this.props;
     //     this.props.unregisterUser(regId);
     //     window.alert('You have successfully unregistered from this event. If you would like to re-register, simply follow the link to the event page.')
@@ -38,7 +38,7 @@ class RegistrationShow extends React.Component {
     }
 
     render() {
-        debugger;
+         ;
         const { event, user} = this.props;
         if (!event) return null;
         if (!user) return null;
@@ -88,7 +88,7 @@ const mSTP = (state, ownProps) => {
     const user_id = ownProps.match.params.user_id;
     const event_id = ownProps.match.params.event_id;
     const event = state.entities.events[event_id]
-    debugger;
+     ;
     return ({
         user: state.entities.users[user_id], user_id, 
         event, event_id
@@ -96,7 +96,7 @@ const mSTP = (state, ownProps) => {
 }
 
 const mDTP = (dispatch) => {
-    debugger;
+     ;
     return ({
         fetchEvent: (event_id) => dispatch(fetchEvent(event_id)),
         unregisterUser: (event_id) => dispatch(unregisterUser(event_id)),

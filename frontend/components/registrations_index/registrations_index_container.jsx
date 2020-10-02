@@ -8,7 +8,7 @@ const mSTP = (state) => {
     const user = state.entities.users[state.session.id];
     const attendingEventsIds = user.attendingEvents;
     const attendingEvents = attendingEventsIds.map((id) => state.entities.events[id])
-    debugger;
+     ;
     return ({ user, attendingEvents })
 };
 

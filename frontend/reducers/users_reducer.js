@@ -13,20 +13,20 @@ export default (state = {}, action) => {
             return Object.assign(nextState, { [action.organizer.id]: action.organizer });
         case RECEIVE_REGISTRATION:
             userToUpdate = state[action.registration.user_id]
-            debugger;
+             ;
             userToUpdate.attendingEvents.push(action.registration.event_id) 
             return Object.assign(nextState, { [userToUpdate.id]: userToUpdate })
         case DELETE_REGISTRATION:
             userToUpdate = state[action.unregistration.user_id]
             let updatedEvents = userToUpdate.attendingEvents.filter((eventId) => eventId !== action.unregistration.event_id)
             userToUpdate.attendingEvents = updatedEvents;
-            debugger;
+             ;
             return Object.assign(nextState, { [userToUpdate.id]: userToUpdate })
         // case RECEIVE_ALL_REGISTRATIONS:
         //     nextState[action.registrations.currentUser.id] = action.registrations.currentUser;
         //     return nextState;
         // case RECEIVE_TICKET:
-        //     debugger;
+        //      ;
         //     nextState[action.registration.user.id] = action.registration.user;
         //     return nextState;
         default:

@@ -5,7 +5,7 @@ import { showPageMonth, showPageDay, formatDate, formatTime } from '../../util/f
 class RegistrationIndexItem extends React.Component {
 
     render() {
-        debugger;
+         ;
         const { attendingevent, user } = this.props;
         return (
             //NEED TO FIX LINK TO= ... it's currently passing in EVENT id, need REGISTRATION id

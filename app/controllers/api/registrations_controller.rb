@@ -24,7 +24,7 @@ class Api::RegistrationsController < ApplicationController
         @user_id = current_user.id
         @event_id = params[:event_id]
         registration = Registration.new({user_id: @user_id, event_id: @event_id})
-        # debugger
+        #  
         if registration.save!
             render :show
         else
@@ -37,7 +37,7 @@ class Api::RegistrationsController < ApplicationController
         registration.destroy
         @user_id = current_user.id
         @event_id = params[:event_id]
-        # debugger
+        #  
         render :show
     end
 
@@ -55,11 +55,11 @@ end
     #     @user = current_user
     #     if current_user
     #         current_user.registrations.each do |reg|
-    #             # debugger
+    #             #  
     #             @registration = reg if reg.id.to_s == params[:id]
     #         end
     #     end
-    #     # debugger
+    #     #  
     #     if @registration
     #         render :show
     #     else
@@ -80,7 +80,7 @@ end
 
 #    def destroy
 #          @registration = Registration.find(params[:id])
-#         #  debugger
+#         #   
 #         if @registration.destroy
 #             @user = current_user
 #             render "/api/users/show"

@@ -33,7 +33,7 @@ class CreateFormNav extends React.Component {
     update(field) {
         return (e) => {
             if(field === 'category') {
-                debugger;
+                 ;
                 const categories = ['Education', 'Career & Networking', 'Tech Talks', 'Virtual Conferences', 'Diversity & Inclusion'];
                 let i = categories.indexOf(e.target.value);
                 this.setState({ category_id: i })
@@ -51,7 +51,7 @@ class CreateFormNav extends React.Component {
     }
 
     render() {
-        debugger;
+         ;
         return (
             <div>
                 <div className="create-container">

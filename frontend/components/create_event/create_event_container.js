@@ -4,7 +4,7 @@ import { createEvent } from '../../actions/event_actions';
 import CreateFormNav from './create_form_nav';
 
 const mSTP = state => {
-    debugger
+     
     return ({   
         event: {
             tab: 'first',
@@ -24,7 +24,7 @@ const mSTP = state => {
 
 
 const mDTP = dispatch => {
-    debugger
+     
     return ({
         createEvent: (event) => dispatch(createEvent(event))
     })

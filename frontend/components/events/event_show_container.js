@@ -6,7 +6,7 @@ import { openModal } from '../../actions/modal_actions';
 import EventShow from './event_show';
 
 const mSTP = (state, ownProps) => {
-    // debugger;
+    //  ;
     const currentUserId = state.session.id;
     const eventId = ownProps.match.params.eventId;
     if (state.entities.events[eventId]) {
@@ -32,7 +32,7 @@ export default withRouter(connect(mSTP, mDTP)(EventShow));
 
 
 // const mSTP = (state, ownProps) => {
-//     // debugger;
+//     //  ;
 //     const eventId = ownProps.match.params.eventId;
 //     if (state.entities.events[eventId]) {
 //         return (

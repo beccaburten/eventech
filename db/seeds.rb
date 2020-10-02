@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
-# debugger
+#  
 
 User.destroy_all
 Category.destroy_all

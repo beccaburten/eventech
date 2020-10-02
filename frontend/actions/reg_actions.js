@@ -50,14 +50,14 @@ const receiveErrors = errors => ({
 // );
 
 // export const fetchRegistration = (regId) => dispatch => {
-//     debugger;
+//      ;
 //     return RegistrationApiUtil.fetchRegistration(regId)
 //         .then(registration => dispatch(fetchTicket(registration)))
 // }
 
 //registration returned is hash with user and event ids
 export const registerUser = (event_id) => dispatch => {
-    debugger
+     
     return RegistrationApiUtil.registerUser(event_id).then(
         registration => (dispatch(receiveReg(registration))),
         err => { dispatch(receiveErrors(err.responseJSON)) }
@@ -66,7 +66,7 @@ export const registerUser = (event_id) => dispatch => {
 
 //ids is hash with both user and event registration
 export const unregisterUser = (ids) => dispatch => {
-    debugger;
+     ;
     return RegistrationApiUtil.unregisterUser(ids)
         .then((unregistration) => dispatch(deleteReg(unregistration)))
 };

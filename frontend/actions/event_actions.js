@@ -7,7 +7,7 @@ export const CLEAR_EVENTS = 'CLEAR_EVENTS';
 
 // REGULAR ACTIONS
 export const receiveAllEvents = (events) => {
-    // debugger;
+    //  ;
     return {
         type: RECEIVE_ALL_EVENTS,
         events
@@ -15,7 +15,7 @@ export const receiveAllEvents = (events) => {
 };
 
 export const receiveEvent = ({event, organizer, category}) => {
-    debugger;
+     ;
     return {
         type: RECEIVE_EVENT,
         event,

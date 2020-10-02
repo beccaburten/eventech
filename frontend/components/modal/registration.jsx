@@ -23,7 +23,7 @@ class RegistrationModal extends React.Component {
     handleRegistration(e) {
         e.preventDefault();
         this.setState({ attending: true });
-        debugger;
+         ;
         const { event } = this.props;
         this.props.registerUser(event.id);
     }
@@ -31,7 +31,7 @@ class RegistrationModal extends React.Component {
     handleUnregister(e) {
         e.preventDefault();
         const { event, user_id } = this.props;
-        debugger;
+         ;
         this.props.unregisterUser({ user_id: user_id, event_id: event.id});
         this.setState({ attending: false });
         
@@ -43,7 +43,7 @@ class RegistrationModal extends React.Component {
     }
 
     render() {
-        debugger;
+         ;
         const { event, attendingEvents } = this.props;
         return (
             <div className="modal-contents">                
