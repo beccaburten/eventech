@@ -33,13 +33,14 @@ To implement event creation across two form tabs, I created a container componen
 - Optimized with cloud-based image storage using Rails ActiveStorage and Amazon Web Services S3
 
 ## Additional Resources
-- Schema
-- Sample State
-- Frontend routes and components
-- Backend routes
-- MVP List
++ [Schema](schema)
++ [Sample State](sample-state)
++ [Frontend Routes](frontend-routes)
++ [Backend Routes](backend-routes)
++ [Site Features](site-features)
 
 ## Future Plans
 Filter events by Category
+Update & Delete events for full CRUD cycle 
 Like events
-Update events created by logged-in user
+
