@@ -14,6 +14,7 @@ class CreateFormNav extends React.Component {
             url: "",
             date: "",
             start_time: "12:00",
+            end_date: "",
             end_time: "12:00",
             organizer_id: this.props.event.organizer_id,
             registration_type: "Free",

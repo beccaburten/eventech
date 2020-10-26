@@ -13,13 +13,13 @@ class EditFormNav extends React.Component {
             description: this.props.event.description,
             url: this.props.event.url,
             date: this.props.event.date,
+            end_date: this.props.event.end_date,
             start_time: this.props.event.start_time,
             end_time: this.props.event.end_time,
             organizer_id: this.props.event.organizer_id,
             registration_type: "Free",
             photo: this.props.event.photo
         } : {tab: 'first'}
-        debugger;
         this.handleUpdate = this.handleUpdate.bind(this);
         this.switchTab = this.switchTab.bind(this);
         this.update = this.update.bind(this);
@@ -27,7 +27,6 @@ class EditFormNav extends React.Component {
     }
 
     componentDidMount() {
-        debugger;
         this.props.fetchEvent(this.props.eventId);
         this.setState({
             tab: 'first',
@@ -36,6 +35,7 @@ class EditFormNav extends React.Component {
             description: this.props.event.description,
             url: this.props.event.url,
             date: this.props.event.date,
+            end_date: this.props.event.end_date,
             start_time: this.props.event.start_time,
             end_time: this.props.event.end_time,
             organizer_id: this.props.event.organizer_id,

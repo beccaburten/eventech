@@ -1,4 +1,5 @@
 import React from 'react';
+import {formatTime} from '../../util/format_util';
 
 class EditFirstTab extends React.Component {
 
@@ -11,6 +12,7 @@ class EditFirstTab extends React.Component {
             category_id: this.props.event.category_id,
             url: this.props.event.url,
             date: this.props.event.date,
+            end_date: this.props.event.end_date,
             start_time: this.props.event.start_time,
             end_time: this.props.event.end_time,
         }
@@ -79,11 +81,11 @@ class EditFirstTab extends React.Component {
                         {/* <label htmlFor="date">Event Starts</label> */}
                         <div className="time-flex">
                             <div className="outer-selector"> Event Starts
-                                <input className="time-selector" id="date" type="date" value={this.state.date} onChange={this.localUpdate('date')} required />
+                                <input className="time-selector" id="date" type="date" value={this.state.date.slice(0,10)} onChange={this.localUpdate('date')} required />
                             </div>
                             <br></br>
                             <div className="outer-selector"> Start Time
-                                <select className="time-selector" name="start_time" id="start_time" defaultValue={this.state.start_time} onChange={this.localUpdate('start_time')} required>
+                                <select className="time-selector" name="start_time" id="start_time" defaultValue={formatTime(this.state.start_time)} onChange={this.localUpdate('start_time')} required>
                                     <option value="12:00 AM">12:00 AM</option>
                                     <option value="12:30 AM">12:30 AM</option>
                                     <option value="1:00 AM">1:00 AM</option>
@@ -136,14 +138,13 @@ class EditFirstTab extends React.Component {
                             </div>
                         </div>
                         <br></br>
-                        {/* <label htmlFor="end_date">Event Ends</label> */}
                         <div className="time-flex">
                             <div className="outer-selector"> Event Ends
-                                <input className="time-selector" id="end_date" type="date" value={this.state.end_date} onChange={this.localUpdate('end_date')} required />
+                                <input className="time-selector" id="end_date" type="date" value={this.state.end_date.slice(0,10)} onChange={this.localUpdate('end_date')} required />
                             </div>
                             <br></br>
                             <div className="outer-selector"> End Time
-                                <select name="end_time" className="time-selector" id="end_time" defaultValue={this.state.end_time} onChange={this.localUpdate('end_time')} required>
+                                <select name="end_time" className="time-selector" id="end_time" defaultValue={formatTime(this.state.end_time)} onChange={this.localUpdate('end_time')} required>
                                     <option value="12:00 AM">12:00 AM</option>
                                     <option value="12:30 AM">12:30 AM</option>
                                     <option value="1:00 AM">1:00 AM</option>
