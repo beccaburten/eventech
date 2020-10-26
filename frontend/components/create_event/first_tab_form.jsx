@@ -20,8 +20,9 @@ class FirstTab extends React.Component {
                             <input className="text-input" id="title" type="text" onChange={this.props.update('title')} required />
                         </div>
                         <div className="outer-selector">
-                            <select name="category" id="category" onChange={this.props.update('category')} required >
-                                <option value="Category" selected disabled={true}>Category</option>
+                            <select name="category" id="category" defaultValue={'DEFAULT'} onChange={this.props.update('category')} required >
+                                {/* <option value="Category" selected disabled={true}>Category</option> */}
+                                <option value="DEFAULT" disabled>Category</option>
                                 <option value="Education">Education</option>
                                 <option value="Career & Networking">Career & Networking</option>
                                 <option value="Tech Talks">Tech Talks</option>

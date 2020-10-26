@@ -31,7 +31,6 @@ class CreateFormNav extends React.Component {
         Object.keys(this.state).map(key => {
             formData.append(`event[${key}]`, this.state[key])
         })
-         ;
         this.props.createEvent(formData).then(() => this.props.history.push('/'))
     }
 
@@ -49,7 +48,6 @@ class CreateFormNav extends React.Component {
 
     uploadFile(e) {
         e.preventDefault();
-         ;
         this.setState({photo: e.target.files[0]}, () => console.log(this.state))
     }
 
@@ -61,7 +59,6 @@ class CreateFormNav extends React.Component {
     }
 
     render() {
-         ;
         return (
             <div>
                 <div className="create-container">
