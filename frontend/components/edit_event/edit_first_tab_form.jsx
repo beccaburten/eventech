@@ -4,13 +4,36 @@ class FirstTab extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {category: null}
+        // this.state = {category: null}
+        this.state = {
+            tab: 'first',
+            title: this.props.event.title,
+            category_id: this.props.event.category_id,
+            url: this.props.event.url,
+            date: this.props.event.date,
+            start_time: this.props.event.start_time,
+            end_time: this.props.event.end_time,
+        }
+        this.localUpdate = this.localUpdate.bind(this);
     }
 
     identifyCategory() {     
         const categories = ['Education', 'Career & Networking', 'Tech Talks', 'Virtual Conferences', 'Diversity & Inclusion'];
-        let i = this.props.event.category_id - 1;
+        let i = this.state.category_id - 1;
         return categories[i]
+    }
+
+    localUpdate(field) {
+        return (e) => {
+            this.props.update(field);
+            if(field === 'category') {
+                const categories = ['Education', 'Career & Networking', 'Tech Talks', 'Virtual Conferences', 'Diversity & Inclusion'];
+                let i = categories.indexOf(e.target.value) + 1;
+                this.setState({ category_id: i })
+            } else {
+                this.setState({ [field]: e.target.value })
+            }
+        }
     }
 
     render() {
@@ -25,10 +48,11 @@ class FirstTab extends React.Component {
                         <h3>Add details that highlight what makes it unique.</h3>
                         <br></br>
                         <div className="outer-selector">Event Title
-                            <input className="text-input" id="title" type="text" onChange={this.props.update('title')} value={event.title} required />
+                            {/* <input className="text-input" id="title" type="text" onChange={this.props.update('title')} value={this.state.title} required /> */}
+                            <input className="text-input" id="title" type="text" onChange={this.localUpdate('title')} value={this.state.title} required />
                         </div>
                         <div className="outer-selector">
-                            <select name="category" id="category" defaultValue={this.identifyCategory()} onChange={this.props.update('category')} required >
+                            <select name="category" id="category" defaultValue={this.identifyCategory()} onChange={this.localUpdate('category')} required >
                                 {/* <option value="Category" selected disabled={true}>Category</option> */}
                                 <option value="DEFAULT" disabled>Category</option>
                                 <option value="Education">Education</option>
@@ -44,7 +68,7 @@ class FirstTab extends React.Component {
                         <h2><i className="fas fa-desktop"></i> Location</h2>
                         <h3>Help people discover more of your events and let attendees know where to show up.</h3>
                         <div className="outer-selector"> Event URL 
-                            <input className="text-input" id="url" type="url" value={event.url} onChange={this.props.update('url')} />
+                            <input className="text-input" id="url" type="url" value={this.state.url} onChange={this.localUpdate('url')} />
                         </div>
                     </div>
 
@@ -55,11 +79,11 @@ class FirstTab extends React.Component {
                         {/* <label htmlFor="date">Event Starts</label> */}
                         <div className="time-flex">
                             <div className="outer-selector"> Event Starts
-                                <input className="time-selector" id="date" type="date" value={event.date} onChange={this.props.update('date')} required />
+                                <input className="time-selector" id="date" type="date" value={this.state.date} onChange={this.localUpdate('date')} required />
                             </div>
                             <br></br>
                             <div className="outer-selector"> Start Time
-                                <select className="time-selector" name="start_time" id="start_time" defaultValue={event.start_time} onChange={this.props.update('start_time')} required>
+                                <select className="time-selector" name="start_time" id="start_time" defaultValue={this.state.start_time} onChange={this.localUpdate('start_time')} required>
                                     <option value="12:00 AM">12:00 AM</option>
                                     <option value="12:30 AM">12:30 AM</option>
                                     <option value="1:00 AM">1:00 AM</option>
@@ -115,11 +139,11 @@ class FirstTab extends React.Component {
                         {/* <label htmlFor="end_date">Event Ends</label> */}
                         <div className="time-flex">
                             <div className="outer-selector"> Event Ends
-                                <input className="time-selector" id="end_date" type="date" value={event.end_date} onChange={this.props.update('end_date')} required />
+                                <input className="time-selector" id="end_date" type="date" value={this.state.end_date} onChange={this.localUpdate('end_date')} required />
                             </div>
                             <br></br>
                             <div className="outer-selector"> End Time
-                                <select name="end_time" className="time-selector" id="end_time" defaultValue={event.end_time} onChange={this.props.update('end_time')} required>
+                                <select name="end_time" className="time-selector" id="end_time" defaultValue={this.state.end_time} onChange={this.localUpdate('end_time')} required>
                                     <option value="12:00 AM">12:00 AM</option>
                                     <option value="12:30 AM">12:30 AM</option>
                                     <option value="1:00 AM">1:00 AM</option>

@@ -6,7 +6,7 @@ class EditFormNav extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
+        this.state = this.props.event ? {
             tab: 'first',
             title: this.props.event.title,
             category_id: this.props.event.category_id,
@@ -18,7 +18,8 @@ class EditFormNav extends React.Component {
             organizer_id: this.props.event.organizer_id,
             registration_type: "Free",
             photo: this.props.event.photo
-        }
+        } : {tab: 'first'}
+        debugger;
         this.handleUpdate = this.handleUpdate.bind(this);
         this.switchTab = this.switchTab.bind(this);
         this.update = this.update.bind(this);
@@ -26,7 +27,21 @@ class EditFormNav extends React.Component {
     }
 
     componentDidMount() {
+        debugger;
         this.props.fetchEvent(this.props.eventId);
+        this.setState({
+            tab: 'first',
+            title: this.props.event.title,
+            category_id: this.props.event.category_id,
+            description: this.props.event.description,
+            url: this.props.event.url,
+            date: this.props.event.date,
+            start_time: this.props.event.start_time,
+            end_time: this.props.event.end_time,
+            organizer_id: this.props.event.organizer_id,
+            registration_type: "Free",
+            photo: this.props.event.photo
+        })
     }
 
 
@@ -36,6 +51,7 @@ class EditFormNav extends React.Component {
         Object.keys(this.state).map(key => {
             formData.append(`event[${key}]`, this.state[key])
         })
+        debugger;
         this.props.updateEvent(formData).then((resp) => {
             debugger;
             this.props.history.push(`/events/${Object.values(resp.event)[0].id}`)
@@ -68,19 +84,24 @@ class EditFormNav extends React.Component {
 
     render() {
         const {event} = this.props;
-        return (
-            <div>
-                <div className="create-container">
-                    <ul className="tab-navigation">
-                        <li className={this.state.tab === 'first' ? 'selected' : null} onClick={this.switchTab('first')}>Basic Info</li>
-                        <li className={this.state.tab === 'second' ? 'selected' : null} onClick={this.switchTab('second')}>Details</li>
-                    </ul>
-                    <div className="tab-content">
-                        {this.state.tab === 'first' ? <FirstTab update={this.update} switchTab={this.switchTab} event={event} /> : <SecondTab update={this.update} handleUpdate={this.handleUpdate} uploadFile={this.uploadFile} event={event} />}
+        debugger;
+        if (!event) {
+            return null
+        } else {
+            return (
+                <div>
+                    <div className="create-container">
+                        <ul className="tab-navigation">
+                            <li className={this.state.tab === 'first' ? 'selected' : null} onClick={this.switchTab('first')}>Basic Info</li>
+                            <li className={this.state.tab === 'second' ? 'selected' : null} onClick={this.switchTab('second')}>Details</li>
+                        </ul>
+                        <div className="tab-content">
+                            {this.state.tab === 'first' ? <FirstTab update={this.update} switchTab={this.switchTab} event={event} /> : <SecondTab update={this.update} handleUpdate={this.handleUpdate} uploadFile={this.uploadFile} event={event} />}
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        }
     }
 
     

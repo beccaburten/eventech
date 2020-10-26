@@ -4,7 +4,26 @@ class SecondTab extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            description: this.props.event.description,
+            photo: this.props.event.photo
+        }
+        this.localUpdate = this.localUpdate.bind(this);
     }
+
+    localUpdate(field) {
+        return (e) => {
+            this.props.update(field);
+            if(field === 'category') {
+                const categories = ['Education', 'Career & Networking', 'Tech Talks', 'Virtual Conferences', 'Diversity & Inclusion'];
+                let i = categories.indexOf(e.target.value) + 1;
+                this.setState({ category_id: i })
+            } else {
+                this.setState({ [field]: e.target.value })
+            }
+        }
+    }
+
     render() {
         const {event} = this.props;
         return (
@@ -19,10 +38,10 @@ class SecondTab extends React.Component {
                     <h3>Add more details to your event like your schedule, sponsors, or featured guests.</h3>
                     
                     <div className="outer-desc-selector"> Description
-                            <textarea className="text-input" value={event.description} onChange={this.props.update('description')} />
+                            <textarea className="text-input" value={this.state.description} onChange={this.localUpdate('description')} />
                     </div>
 
-                    <button onClick={this.props.handleSubmit}>Publish</button>
+                    <button onClick={this.props.handleUpdate}>Publish</button>
                 </form>
 
             </div>
