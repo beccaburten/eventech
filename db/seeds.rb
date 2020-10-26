@@ -41,7 +41,7 @@ ev1.photo.attach(io: ev1_promo, filename: 'aainfo.jpg')
 ev2 = Event.create({title: 'Diversity In Tech Webinar', organizer_id: gabo.id, 
     date: "2021-04-01", start_time: "2021-04-01 10:00:00-08:00", end_date: "2021-04-01", end_time: "2021-04-01 12:30:00-08:00", 
     category_id: di.id, company_id: 1, registration_type: 'RSVP', promo_pic: 'n/a', url: 'diversifytech.co', description: "As a part of our ongoing spotlight around diversity and inclusion, join us for an evening of conversation around the issues and obstacles we face as womxn, BIPOC, & LGBTQ people in this new tech industry landscape. This month we will be highlighting the unique experience and contributions of Black Women in STEM."})
-ev2_promo = URI.open("https://eventech-dev.s3-us-west-1.amazonaws.com/event-seeds/div.jpg")
+ev2_promo = URI.open("https://eventech-dev.s3-us-west-1.amazonaws.com/event-seeds/diversityintech.jpg")
 ev2.photo.attach(io: ev2_promo, filename: "diversityintech.jpg")
 
 ev3 = Event.create({title: 'Walkthrough Of A Coding Technical Interview', organizer_id: lindsey.id, 
