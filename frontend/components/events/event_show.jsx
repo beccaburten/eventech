@@ -16,7 +16,6 @@ class EventShow extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-         ;
         if (this.props.currentUserId) {
             this.props.openModal('register');
         } else {
@@ -25,7 +24,8 @@ class EventShow extends React.Component {
     }
 
     handleEdit(e) {
-    
+        e.preventDefault();
+        this.props.history.push(`/events/${this.props.event.id}/edit`);
     }
 
     handleDelete(e) {

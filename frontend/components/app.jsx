@@ -12,7 +12,7 @@ import Footer from './footer/footer';
 import RegistrationModal from './modal/registration_modal';
 import CancelModal from './modal/cancel_modal';
 import CreateEventContainer from './create_event/create_event_container';
-// import EditEventContainer from './input_event/edit_event_container';
+import EditEventContainer from './edit_event/edit_event_container';
 
 const App = () => (
     <div>
@@ -24,6 +24,7 @@ const App = () => (
                 <Route exact path="/" component={EventsIndexContainer} />
                 <AuthRoute path="/signin" component={SessionFormContainer} />
                 <ProtectedRoute exact path='/events/create' component={CreateEventContainer} />
+                <ProtectedRoute exact path='/events/:event_id/edit' component={EditEventContainer} />
                 <Route path='/events/:eventId' component={EventShowContainer} />
                 <ProtectedRoute exact path='/u/:user_id' component={RegistrationsIndexContainer}/>
                 <ProtectedRoute path='/u/:user_id/t/:event_id' component={RegistrationShowContainer} />
