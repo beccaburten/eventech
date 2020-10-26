@@ -53,7 +53,7 @@ class RegistrationModal extends React.Component {
                         <h3>{formatDate(event.date)} {event.date !== event.end_date ? `to ${formatDate(event.end_date)}` : null} {formatTime(event.start_time)} - {formatDate(event.end_time)} {formatTime(event.end_time)}</h3>
                     </div>
                     <div className="modal-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quod reiciendis doloremque qui inventore expedita deleniti blanditiis corrupti cumque voluptatibus. Voluptatibus voluptatum ad perferendis earum inventore eaque, sequi nemo sed?
+                        {event.description}
                     </div>
                     <div className="modal-footer">
                         {this.state.attending || attendingEvents.includes(event.id) ? <button onClick={this.handleUnregister}>Unregister</button> : <button onClick={this.handleRegistration}>Register</button>}

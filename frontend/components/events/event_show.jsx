@@ -6,6 +6,8 @@ class EventShow extends React.Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     }
 
     componentDidMount() {
@@ -22,8 +24,16 @@ class EventShow extends React.Component {
         }
     }
 
+    handleEdit(e) {
+    
+    }
+
+    handleDelete(e) {
+    
+    }
+
     render() {
-        const { event, organizer } = this.props;
+        const { event, organizer, currentUserId } = this.props;
         if (!organizer) return null;
         if (!event) return null;
          ;
@@ -49,12 +59,19 @@ class EventShow extends React.Component {
                     </div>
                     <div className="es-register">
                         <i className="far fa-heart"></i>
-                        <button onClick={this.handleClick}>Register</button>
+                        { currentUserId === event.organizer_id ? 
+                            <div className="edit-delete-event">
+                                <button onClick={this.handleEdit}>Edit</button>
+                                <button onClick={this.handleDelete}>Delete</button>
+                            </div>
+                        :
+                            <button onClick={this.handleClick}>Register</button>
+                        }
                     </div>
                     <div className="es-body">
                         <div className="es-body-L">
                             <h1>About This Event</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, magnam? Possimus dicta voluptatibus, similique sunt molestias animi ad eius, optio voluptas odit distinctio placeat id voluptate rerum laboriosam dolorem architecto. description lol need to add to database</p>
+                            <p>{event.description}</p>
                         </div >
                         <div className="es-body-R">
                             <h1>Date And Time</h1>

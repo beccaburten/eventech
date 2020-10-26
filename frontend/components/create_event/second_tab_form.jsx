@@ -9,7 +9,7 @@ class SecondTab extends React.Component {
         return (
             <div className="event-form">
                 <form>
-                    <h2><i class="far fa-image"></i> Main Event Image</h2>
+                    <h2><i className="far fa-image"></i> Main Event Image</h2>
                     <h3>This is the first image attendees will see at the top of your listing.</h3>
                     <input type="file" className="upload-file" onChange={this.props.uploadFile} />
  
