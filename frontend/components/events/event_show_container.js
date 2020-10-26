@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import { fetchEvent } from '../../actions/event_actions';
+import { fetchEvent, destroyEvent } from '../../actions/event_actions';
 import { openModal } from '../../actions/modal_actions';
 import EventShow from './event_show';
 
@@ -25,6 +25,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => ({
     fetchEvent: (eventId) => dispatch(fetchEvent(eventId)),
+    destroyEvent: (eventId) => dispatch(destroyEvent(eventId)),
     openModal: modal => dispatch(openModal(modal))
 })
 

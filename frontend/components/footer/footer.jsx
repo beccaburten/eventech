@@ -10,6 +10,9 @@ class Footer extends React.Component {
                 <a href="http://www.linkedin.com/in/beccaburten/">
                     <img className='linkedin-logo' src={window.linkedinURL} />
                 </a>
+                <a href="https://angel.co/u/becca-burten/">
+                    <img className='angellist-logo' src={window.angelURL} />
+                </a>
             </div>
         )
     }

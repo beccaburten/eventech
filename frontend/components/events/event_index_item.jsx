@@ -10,6 +10,8 @@ class EventIndexItem extends React.Component {
     render() {
         const{event} = this.props;
 
+        if (typeof event === undefined) return null
+
         return (
             <Link to={`/events/${this.props.eventId}`} className="grid-item">
                 <img className="promo" src={event.photoUrl} alt={event.title} />

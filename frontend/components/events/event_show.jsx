@@ -29,7 +29,8 @@ class EventShow extends React.Component {
     }
 
     handleDelete(e) {
-    
+        e.preventDefault();
+        this.props.destroyEvent(this.props.event.id).then(this.props.history.push('/'))
     }
 
     render() {

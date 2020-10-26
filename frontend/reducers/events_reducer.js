@@ -3,27 +3,18 @@ import { RECEIVE_REGISTRATION, DELETE_REGISTRATION } from '../actions/reg_action
 
 export default (state = {}, action) => {
     Object.freeze(state);
-    //  ;
     let nextState = Object.assign({}, state);
     let eventToUpdate;
     switch (action.type) {
         case RECEIVE_ALL_EVENTS:
             return Object.assign(nextState, action.events);
         case RECEIVE_EVENT:
-            // return action.event;
-            // return { event: action.event };
             return Object.assign(nextState, action.event);
         case DELETE_EVENT:
-            delete nextState[action.eventId]
+            delete nextState[action.eventId];
+            // debugger;
             return nextState;
-        // case RECEIVE_ALL_REGISTRATIONS:
-        //     return action.registrations.events;
-            // return Object.assign(nextState, action.registrations);
-        // case RECEIVE_TICKET:
-        //      ;
-        //     return action.registration.event;
         case RECEIVE_REGISTRATION:
-             ;
             eventToUpdate = state[action.registration.event_id]
             eventToUpdate.attendees.push(action.registration.user_id)
             return Object.assign(nextState, { [eventToUpdate.id]: eventToUpdate })
