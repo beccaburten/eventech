@@ -1,6 +1,6 @@
 import React from 'react';
 
-class FirstTab extends React.Component {
+class EditFirstTab extends React.Component {
 
     constructor(props) {
         super(props);
@@ -207,4 +207,4 @@ class FirstTab extends React.Component {
 
 }
 
-export default FirstTab;
+export default EditFirstTab;

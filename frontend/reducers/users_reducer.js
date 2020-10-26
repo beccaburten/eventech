@@ -10,6 +10,7 @@ export default (state = {}, action) => {
         case RECEIVE_CURRENT_USER:
             return Object.assign(nextState, { [action.currentUser.id]: action.currentUser });
         case RECEIVE_EVENT:
+            debugger;
             return Object.assign(nextState, { [action.organizer.id]: action.organizer });
         case RECEIVE_REGISTRATION:
             userToUpdate = state[action.registration.user_id]

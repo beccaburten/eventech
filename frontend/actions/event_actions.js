@@ -57,9 +57,14 @@ export const fetchEvent = (eventId) => (dispatch) => {
 
 
 export const createEvent = (event) => (dispatch) => {
+    debugger;
+    
     return EventApiUtil.createEvent(event)
         .then(event => dispatch(receiveEvent(event)),
-            errors => dispatch(receiveEventErrors(errors.responseJSON)))
+            errors => {
+                debugger;
+                dispatch(receiveEventErrors(errors.responseJSON))
+            })
 }
 
 export const updateEvent = (event) => (dispatch) => {

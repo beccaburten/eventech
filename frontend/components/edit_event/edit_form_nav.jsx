@@ -1,6 +1,6 @@
 import React from 'react';
-import FirstTab from './edit_first_tab_form';
-import SecondTab from './edit_second_tab_form';
+import EditFirstTab from './edit_first_tab_form';
+import EditSecondTab from './edit_second_tab_form';
 
 class EditFormNav extends React.Component {
 
@@ -77,7 +77,7 @@ class EditFormNav extends React.Component {
 
     switchTab(target) {
         return (e) => {
-            e.preventDefault;
+            e.preventDefault();
             this.setState({ tab: target})
         }
     }
@@ -96,7 +96,7 @@ class EditFormNav extends React.Component {
                             <li className={this.state.tab === 'second' ? 'selected' : null} onClick={this.switchTab('second')}>Details</li>
                         </ul>
                         <div className="tab-content">
-                            {this.state.tab === 'first' ? <FirstTab update={this.update} switchTab={this.switchTab} event={event} /> : <SecondTab update={this.update} handleUpdate={this.handleUpdate} uploadFile={this.uploadFile} event={event} />}
+                            {this.state.tab === 'first' ? <EditFirstTab update={this.update} switchTab={this.switchTab} event={event} /> : <EditSecondTab update={this.update} handleUpdate={this.handleUpdate} uploadFile={this.uploadFile} event={event} />}
                         </div>
                     </div>
                 </div>
