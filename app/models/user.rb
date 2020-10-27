@@ -36,6 +36,15 @@ class User < ApplicationRecord
     has_many :events_attending,
         through: :registrations,
         source: :registered
+
+    has_many :likes,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Like
+    
+    has_many :liked_events,
+        through: :likes,
+        source: :liked_event
         
 
     def self.find_by_credentials(email, password)

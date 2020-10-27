@@ -1,6 +1,11 @@
 # == Schema Information
 #
-
+# Table name: likes
+#
+#  id       :bigint           not null, primary key
+#  user_id  :integer          not null
+#  event_id :integer          not null
+#
 class Like < ApplicationRecord
 
     validates :user_id, :event_id, null: false

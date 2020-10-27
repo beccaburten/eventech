@@ -15,6 +15,8 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  organizer_id      :integer          not null
+#  description       :string
+#  end_date          :datetime         not null
 #
 class Event < ApplicationRecord
 
@@ -40,8 +42,18 @@ class Event < ApplicationRecord
         primary_key: :id,
         foreign_key: :event_id,
         class_name: :Registration 
+
+    has_many :likes,
+        primary_key: :id,
+        foreign_key: :event_id,
+        class_name: :Like 
         
     has_many :attendees,
         through: :registrations,
         source: :attendee
+
+    has_many :likers,
+        through: :likes,
+        source: :liker
+    
 end

@@ -28,7 +28,7 @@ class Api::RegistrationsController < ApplicationController
         if registration.save!
             render :show
         else
-            render @registration.errors.full_messages, status: 422
+            render registration.errors.full_messages, status: 422
         end
     end
 

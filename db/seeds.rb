@@ -103,3 +103,9 @@ Registration.create({user_id: lindsey.id, event_id: ev0.id})
 Registration.create({user_id: rachel.id, event_id: ev6.id})
 Registration.create({user_id: rachel.id, event_id: ev9.id})
 Registration.create({user_id: gabo.id, event_id: ev3.id})
+
+#LIKES
+Like.create({user_id: demo.id, event_id: ev1.id})
+Like.create({user_id: demo.id, event_id: ev2.id})
+Like.create({user_id: demo.id, event_id: ev9.id})
+
