@@ -35,9 +35,9 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :events, only: [:index, :show, :create, :update, :destroy] do
       resources :registrations, only: [:create]
+      resources :likes, only: [:create]
     end
     delete 'registration', to: 'registrations#destroy'
-    # get 'showregistration', to: 'registrations#show'
-    # resources :registrations, only: [:index]
+    delete 'like', to: 'likes#destroy'
   end
 end
