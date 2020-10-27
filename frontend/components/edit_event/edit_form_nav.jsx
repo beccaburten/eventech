@@ -54,9 +54,9 @@ class EditFormNav extends React.Component {
             formData.append(`event[${key}]`, this.state[key])
         })
 
-        for (let pair of formData.entries()) {
-            console.log(pair[0]+ ' - ' + pair[1]); 
-        }
+        // for (let pair of formData.entries()) {
+        //     console.log(pair[0]+ ' - ' + pair[1]); 
+        // }
         debugger;
 
         this.props.updateEvent(formData, this.props.event.id).then((resp) => {

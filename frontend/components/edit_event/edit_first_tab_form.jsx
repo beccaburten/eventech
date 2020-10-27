@@ -26,8 +26,8 @@ class EditFirstTab extends React.Component {
     }
 
     localUpdate(field) {
+        this.props.update(field);
         return (e) => {
-            this.props.update(field);
             if(field === 'category') {
                 const categories = ['Education', 'Career & Networking', 'Tech Talks', 'Virtual Conferences', 'Diversity & Inclusion'];
                 let i = categories.indexOf(e.target.value) + 1;
@@ -39,8 +39,6 @@ class EditFirstTab extends React.Component {
     }
 
     render() {
-        const {event} = this.props;
-        debugger;
         return (
             <div className="event-form">
                 <form onSubmit={this.handleSubmit}>

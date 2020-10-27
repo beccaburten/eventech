@@ -30,7 +30,9 @@ class Api::EventsController < ApplicationController
 
     def update
         @event = Event.find(params[:id])
-        if  @event.user_id == current_user.id && @event.update(event_params)
+        debugger
+        if  (@event.user_id == current_user.id) && (@event.update(event_params))
+            debugger
             render :show
         else
             render @event.errors.full_messages

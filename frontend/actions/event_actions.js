@@ -61,16 +61,16 @@ export const createEvent = (event) => (dispatch) => {
     
     return EventApiUtil.createEvent(event)
         .then(event => dispatch(receiveEvent(event)),
-            errors => {
-                debugger;
-                dispatch(receiveEventErrors(errors.responseJSON))
-            })
+            errors => dispatch(receiveEventErrors(errors.responseJSON)))
 }
 
 export const updateEvent = (formData, id) => (dispatch) => {
     debugger;
     return EventApiUtil.updateEvent(formData, id)
-        .then(event => dispatch(receiveEvent(event)),
+        .then(event => {
+            debugger;
+            return dispatch(receiveEvent(event))
+        },
             errors => dispatch(receiveEventErrors(errors.responseJSON)))
 };
 
