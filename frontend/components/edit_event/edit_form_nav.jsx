@@ -6,7 +6,7 @@ class EditFormNav extends React.Component {
 
     constructor(props) {
         super(props);
-        
+
         this.state = {
             tab: 'first',
             title: this.props.event.title,
@@ -54,14 +54,14 @@ class EditFormNav extends React.Component {
             formData.append(`event[${key}]`, this.state[key])
         })
 
-        // for (let pair of formData.entries()) {
-        //     console.log(pair[0]+ ' - ' + pair[1]); 
-        // }
+        for (let pair of formData.entries()) {
+            console.log(pair[0]+ ' - ' + pair[1]); 
+        }
         debugger;
 
-        this.props.updateEvent(formData, this.props.event.id).then((resp) => {
+        this.props.updateEvent(formData, this.props.eventId).then((resp) => {
             debugger;
-            this.props.history.push(`/events/${this.props.event.id}`)
+            this.props.history.push(`/events/${this.props.eventId}`)
         })
     }
 

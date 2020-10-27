@@ -26,16 +26,17 @@ class EditFirstTab extends React.Component {
     }
 
     localUpdate(field) {
+        debugger;
         this.props.update(field);
-        return (e) => {
-            if(field === 'category') {
-                const categories = ['Education', 'Career & Networking', 'Tech Talks', 'Virtual Conferences', 'Diversity & Inclusion'];
-                let i = categories.indexOf(e.target.value) + 1;
-                this.setState({ category_id: i })
-            } else {
-                this.setState({ [field]: e.target.value })
-            }
-        }
+        // return (e) => {
+        //     if(field === 'category') {
+        //         const categories = ['Education', 'Career & Networking', 'Tech Talks', 'Virtual Conferences', 'Diversity & Inclusion'];
+        //         let i = categories.indexOf(e.target.value) + 1;
+        //         this.setState({ category_id: i })
+        //     } else {
+        //         this.setState({ [field]: e.target.value })
+        //     }
+        // }
     }
 
     render() {
@@ -49,7 +50,7 @@ class EditFirstTab extends React.Component {
                         <br></br>
                         <div className="outer-selector">Event Title
                             {/* <input className="text-input" id="title" type="text" onChange={this.props.update('title')} value={this.state.title} required /> */}
-                            <input className="text-input" id="title" type="text" onChange={this.localUpdate('title')} value={this.state.title} required />
+                            <input className="text-input" id="title" type="text" onChange={this.localUpdate('title')} defaultValue={this.state.title} required />
                         </div>
                         <div className="outer-selector">
                             <select name="category" id="category" defaultValue={this.identifyCategory()} onChange={this.localUpdate('category')} required >
@@ -68,7 +69,7 @@ class EditFirstTab extends React.Component {
                         <h2><i className="fas fa-desktop"></i> Location</h2>
                         <h3>Help people discover more of your events and let attendees know where to show up.</h3>
                         <div className="outer-selector"> Event URL 
-                            <input className="text-input" id="url" type="url" value={this.state.url} onChange={this.localUpdate('url')} />
+                            <input className="text-input" id="url" type="url" defaultValue={this.state.url} onChange={this.localUpdate('url')} />
                         </div>
                     </div>
 
@@ -79,7 +80,7 @@ class EditFirstTab extends React.Component {
                         {/* <label htmlFor="date">Event Starts</label> */}
                         <div className="time-flex">
                             <div className="outer-selector"> Event Starts
-                                <input className="time-selector" id="date" type="date" value={this.state.date.slice(0,10)} onChange={this.localUpdate('date')} required />
+                                <input className="time-selector" id="date" type="date" defaultValue={this.state.date.slice(0,10)} onChange={this.localUpdate('date')} required />
                             </div>
                             <br></br>
                             <div className="outer-selector"> Start Time
@@ -138,7 +139,7 @@ class EditFirstTab extends React.Component {
                         <br></br>
                         <div className="time-flex">
                             <div className="outer-selector"> Event Ends
-                                <input className="time-selector" id="end_date" type="date" value={this.state.end_date.slice(0,10)} onChange={this.localUpdate('end_date')} required />
+                                <input className="time-selector" id="end_date" type="date" defaultValue={this.state.end_date.slice(0,10)} onChange={this.localUpdate('end_date')} required />
                             </div>
                             <br></br>
                             <div className="outer-selector"> End Time

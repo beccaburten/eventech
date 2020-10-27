@@ -11,7 +11,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
     return ({
-        updateEvent: (event) => dispatch(updateEvent(event)),
+        updateEvent: (event, id) => dispatch(updateEvent(event, id)),
         fetchEvent: (eventId) => dispatch(fetchEvent(eventId)),
     })
 }

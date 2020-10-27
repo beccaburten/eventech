@@ -32,7 +32,7 @@ class EditSecondTab extends React.Component {
                     <h3>Add more details to your event like your schedule, sponsors, or featured guests.</h3>
                     
                     <div className="outer-desc-selector"> Description
-                            <textarea className="text-input" value={this.state.description} onChange={this.localUpdate('description')} />
+                            <textarea className="text-input" defaultValue={this.state.description} onChange={this.localUpdate('description')} />
                     </div>
 
                     <button onClick={handleEdit}>Publish</button>
