@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SecondTab extends React.Component {
+class EditSecondTab extends React.Component {
 
     constructor(props) {
         super(props);
@@ -8,24 +8,18 @@ class SecondTab extends React.Component {
             description: this.props.event.description,
             photo: this.props.event.photo
         }
-        this.localUpdate = this.localUpdate.bind(this);
+        // this.localUpdate = this.localUpdate.bind(this);
     }
 
     localUpdate(field) {
         return (e) => {
             this.props.update(field);
-            if(field === 'category') {
-                const categories = ['Education', 'Career & Networking', 'Tech Talks', 'Virtual Conferences', 'Diversity & Inclusion'];
-                let i = categories.indexOf(e.target.value) + 1;
-                this.setState({ category_id: i })
-            } else {
-                this.setState({ [field]: e.target.value })
-            }
+            this.setState({ [field]: e.target.value });
         }
     }
 
     render() {
-        const {event} = this.props;
+        const { handleEdit } = this.props;
         return (
             <div className="event-form">
                 <form>
@@ -38,10 +32,10 @@ class SecondTab extends React.Component {
                     <h3>Add more details to your event like your schedule, sponsors, or featured guests.</h3>
                     
                     <div className="outer-desc-selector"> Description
-                            <textarea className="text-input" value={this.state.description} onChange={this.localUpdate('description')} />
+                            <textarea className="text-input" defaultValue={this.state.description} onChange={this.props.update('description')} />
                     </div>
 
-                    <button onClick={this.props.handleUpdate}>Publish</button>
+                    <button onClick={handleEdit}>Publish</button>
                 </form>
 
             </div>
@@ -52,4 +46,4 @@ class SecondTab extends React.Component {
 
 }
 
-export default SecondTab;
+export default EditSecondTab;

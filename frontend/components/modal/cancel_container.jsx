@@ -7,7 +7,7 @@ import { closeModal } from '../../actions/modal_actions';
 import CancelOrder from './cancel_order.jsx';
 
 const mSTP = (state, ownProps) => {
-     ;
+    
     const user_id = state.session.id;
     return ({
         user: state.entities.users[user_id], user_id,

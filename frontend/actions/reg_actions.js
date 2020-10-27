@@ -50,7 +50,7 @@ const receiveErrors = errors => ({
 // );
 
 // export const fetchRegistration = (regId) => dispatch => {
-//      ;
+//     
 //     return RegistrationApiUtil.fetchRegistration(regId)
 //         .then(registration => dispatch(fetchTicket(registration)))
 // }
@@ -66,7 +66,7 @@ export const registerUser = (event_id) => dispatch => {
 
 //ids is hash with both user and event registration
 export const unregisterUser = (ids) => dispatch => {
-     ;
+    
     return RegistrationApiUtil.unregisterUser(ids)
         .then((unregistration) => dispatch(deleteReg(unregistration)))
 };

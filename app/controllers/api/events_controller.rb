@@ -14,6 +14,7 @@ class Api::EventsController < ApplicationController
             render :show
         else
             render @event.errors.full_messages
+            # render json: ['Event create unsuccessful']
         end
     end
 
@@ -29,7 +30,10 @@ class Api::EventsController < ApplicationController
 
     def update
         @event = Event.find(params[:id])
-        if  @event.user_id == current_user.id && @event.update(event_params)
+        debugger
+        # if  (@event.organizer_id == current_user.id) && (@event.update(event_params))
+        if @event.update(event_params)
+            debugger
             render :show
         else
             render @event.errors.full_messages

@@ -37,7 +37,7 @@ class EventShow extends React.Component {
         const { event, organizer, currentUserId } = this.props;
         if (!organizer) return null;
         if (!event) return null;
-         ;
+        
 
         return (
             <div className="event-show-container">
@@ -62,11 +62,11 @@ class EventShow extends React.Component {
                         <i className="far fa-heart"></i>
                         { currentUserId === event.organizer_id ? 
                             <div className="edit-delete-event">
-                                <button onClick={this.handleEdit}>Edit</button>
-                                <button onClick={this.handleDelete}>Delete</button>
+                                <button className="e-d-buttons" onClick={this.handleEdit}>Edit</button>
+                                <button className="e-d-buttons" onClick={this.handleDelete}>Delete</button>
                             </div>
                         :
-                            <button onClick={this.handleClick}>Register</button>
+                            <button className="register-button" onClick={this.handleClick}>Register</button>
                         }
                     </div>
                     <div className="es-body">

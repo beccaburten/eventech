@@ -1,60 +1,71 @@
 import React from 'react';
-import FirstTab from './edit_first_tab_form';
-import SecondTab from './edit_second_tab_form';
+import EditFirstTab from './edit_first_tab_form';
+import EditSecondTab from './edit_second_tab_form';
 
 class EditFormNav extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = this.props.event ? {
-            tab: 'first',
-            title: this.props.event.title,
-            category_id: this.props.event.category_id,
-            description: this.props.event.description,
-            url: this.props.event.url,
-            date: this.props.event.date,
-            start_time: this.props.event.start_time,
-            end_time: this.props.event.end_time,
-            organizer_id: this.props.event.organizer_id,
-            registration_type: "Free",
-            photo: this.props.event.photo
-        } : {tab: 'first'}
-        debugger;
-        this.handleUpdate = this.handleUpdate.bind(this);
+
+        // this.state = {
+        //     tab: 'first',
+        //     title: props.event.title,
+        //     category_id: props.event.category_id,
+        //     description: props.event.description,
+        //     url: props.event.url,
+        //     date: props.event.date,
+        //     end_date: props.event.end_date,
+        //     start_time: props.event.start_time,
+        //     end_time: props.event.end_time,
+        //     organizer_id: props.event.organizer_id,
+        //     registration_type: "Free",
+        //     photo: props.event.photoUrl
+        // }
+
+         this.state = {
+            tab: 'first'
+        }
+        
+        this.handleEdit = this.handleEdit.bind(this);
         this.switchTab = this.switchTab.bind(this);
         this.update = this.update.bind(this);
         this.uploadFile = this.uploadFile.bind(this);
     }
 
     componentDidMount() {
-        debugger;
         this.props.fetchEvent(this.props.eventId);
-        this.setState({
-            tab: 'first',
-            title: this.props.event.title,
-            category_id: this.props.event.category_id,
-            description: this.props.event.description,
-            url: this.props.event.url,
-            date: this.props.event.date,
-            start_time: this.props.event.start_time,
-            end_time: this.props.event.end_time,
-            organizer_id: this.props.event.organizer_id,
-            registration_type: "Free",
-            photo: this.props.event.photo
-        })
+        // this.setState({
+        //     tab: 'first',
+        //     title: this.props.event.title,
+        //     category_id: this.props.event.category_id,
+        //     description: this.props.event.description,
+        //     url: this.props.event.url,
+        //     date: this.props.event.date,
+        //     end_date: this.props.event.end_date,
+        //     start_time: this.props.event.start_time,
+        //     end_time: this.props.event.end_time,
+        //     organizer_id: this.props.event.organizer_id,
+        //     registration_type: "Free",
+        //     photo: this.props.event.photo
+        // })
     }
 
 
-    handleUpdate(e) {
+    handleEdit(e) {
         e.preventDefault();
         const formData = new FormData();
         Object.keys(this.state).map(key => {
             formData.append(`event[${key}]`, this.state[key])
         })
+
+        for (let pair of formData.entries()) {
+            console.log(pair[0]+ ' - ' + pair[1]); 
+        }
         debugger;
-        this.props.updateEvent(formData).then((resp) => {
+
+        this.props.updateEvent(formData, this.props.eventId).then((resp) => {
             debugger;
-            this.props.history.push(`/events/${Object.values(resp.event)[0].id}`)
+            this.props.history.push(`/events/${this.props.eventId}`)
         })
     }
 
@@ -65,6 +76,7 @@ class EditFormNav extends React.Component {
                 let i = categories.indexOf(e.target.value) + 1;
                 this.setState({ category_id: i })
             } else {
+                console.log("parent update")
                 this.setState({ [field]: e.target.value })
             }
         }
@@ -77,14 +89,13 @@ class EditFormNav extends React.Component {
 
     switchTab(target) {
         return (e) => {
-            e.preventDefault;
+            e.preventDefault();
             this.setState({ tab: target})
         }
     }
 
     render() {
         const {event} = this.props;
-        debugger;
         if (!event) {
             return null
         } else {
@@ -96,7 +107,7 @@ class EditFormNav extends React.Component {
                             <li className={this.state.tab === 'second' ? 'selected' : null} onClick={this.switchTab('second')}>Details</li>
                         </ul>
                         <div className="tab-content">
-                            {this.state.tab === 'first' ? <FirstTab update={this.update} switchTab={this.switchTab} event={event} /> : <SecondTab update={this.update} handleUpdate={this.handleUpdate} uploadFile={this.uploadFile} event={event} />}
+                            {this.state.tab === 'first' ? <EditFirstTab update={this.update} switchTab={this.switchTab} event={event} /> : <EditSecondTab update={this.update} handleEdit={this.handleEdit} uploadFile={this.uploadFile} event={event} />}
                         </div>
                     </div>
                 </div>

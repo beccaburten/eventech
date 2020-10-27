@@ -57,16 +57,21 @@ export const fetchEvent = (eventId) => (dispatch) => {
 
 
 export const createEvent = (event) => (dispatch) => {
+    debugger;
+    
     return EventApiUtil.createEvent(event)
         .then(event => dispatch(receiveEvent(event)),
             errors => dispatch(receiveEventErrors(errors.responseJSON)))
 }
 
-export const updateEvent = (event) => (dispatch) => {
-    return EventApiUtil.updateEvent(event)
-        .then(event => dispatch(receiveEvent(event)),
+export const updateEvent = (formData, id) => (dispatch) => {
+    debugger;
+    return EventApiUtil.updateEvent(formData, id)
+        .then(event => {
+            debugger;
+            return dispatch(receiveEvent(event))
+        },
             errors => dispatch(receiveEventErrors(errors.responseJSON)))
-        //.then(successcallbackarg1, failcallbackarg2)
 };
 
 export const destroyEvent = (eventId) => (dispatch) => {

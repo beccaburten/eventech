@@ -14,6 +14,7 @@ class CreateFormNav extends React.Component {
             url: "",
             date: "",
             start_time: "12:00",
+            end_date: "",
             end_time: "12:00",
             organizer_id: this.props.event.organizer_id,
             registration_type: "Free",
@@ -31,6 +32,7 @@ class CreateFormNav extends React.Component {
         Object.keys(this.state).map(key => {
             formData.append(`event[${key}]`, this.state[key])
         })
+        console.log(formData);
         this.props.createEvent(formData).then((resp) => {
             debugger;
             this.props.history.push(`/events/${Object.values(resp.event)[0].id}`)
@@ -56,7 +58,7 @@ class CreateFormNav extends React.Component {
 
     switchTab(target) {
         return (e) => {
-            e.preventDefault;
+            e.preventDefault();
             this.setState({ tab: target})
         }
     }

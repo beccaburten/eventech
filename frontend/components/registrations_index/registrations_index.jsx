@@ -11,12 +11,12 @@ class RegistrationsIndex extends React.Component {
     }
 
     render() {
-         ;
+        
         const { attendingEvents, user} = this.props;
         if (!user) return null;
         if (attendingEvents.some((event) => typeof event === 'undefined')) return null;
 
-         ;
+        
         return (
             <div className="registration-index-container">
                 <header className="reg-indx-header">

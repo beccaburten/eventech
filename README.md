@@ -13,6 +13,7 @@
 - HTML/CSS
 - PostgreSQL
 - Amazon Web Services (AWS S3)
+- FormData API
 - Heroku
 
 ## Highlights

@@ -12,14 +12,6 @@ export const fetchEvent = (eventId) => {
     })
 };
 
-// export const createEvent = (event) => {
-//     return $.ajax({
-//         method: "POST",
-//         url: '/api/events',
-//         data: { event }
-//     })
-// }
-
 export const createEvent = (formData) => {
     return $.ajax({
         method: "POST",
@@ -30,13 +22,16 @@ export const createEvent = (formData) => {
     })
 }
 
-export const updateEvent = (event) => (
-    $.ajax({
+export const updateEvent = (formData, eventId) => {
+    debugger;
+    return $.ajax({
         method: "PATCH",
-        url: `/api/events/${event.id}`,
-        data: { event }
+        url: `/api/events/${eventId}`,
+        data: formData,
+        contentType: false,
+        processData: false
     })
-);
+};
 
 export const destroyEvent = (eventId) => (
     $.ajax({
