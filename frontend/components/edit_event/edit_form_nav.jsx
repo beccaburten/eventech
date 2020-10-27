@@ -7,19 +7,23 @@ class EditFormNav extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            tab: 'first',
-            title: this.props.event.title,
-            category_id: this.props.event.category_id,
-            description: this.props.event.description,
-            url: this.props.event.url,
-            date: this.props.event.date,
-            end_date: this.props.event.end_date,
-            start_time: this.props.event.start_time,
-            end_time: this.props.event.end_time,
-            organizer_id: this.props.event.organizer_id,
-            registration_type: "Free",
-            photo: this.props.event.photo
+        // this.state = {
+        //     tab: 'first',
+        //     title: props.event.title,
+        //     category_id: props.event.category_id,
+        //     description: props.event.description,
+        //     url: props.event.url,
+        //     date: props.event.date,
+        //     end_date: props.event.end_date,
+        //     start_time: props.event.start_time,
+        //     end_time: props.event.end_time,
+        //     organizer_id: props.event.organizer_id,
+        //     registration_type: "Free",
+        //     photo: props.event.photoUrl
+        // }
+
+         this.state = {
+            tab: 'first'
         }
         
         this.handleEdit = this.handleEdit.bind(this);
@@ -30,20 +34,20 @@ class EditFormNav extends React.Component {
 
     componentDidMount() {
         this.props.fetchEvent(this.props.eventId);
-        this.setState({
-            tab: 'first',
-            title: this.props.event.title,
-            category_id: this.props.event.category_id,
-            description: this.props.event.description,
-            url: this.props.event.url,
-            date: this.props.event.date,
-            end_date: this.props.event.end_date,
-            start_time: this.props.event.start_time,
-            end_time: this.props.event.end_time,
-            organizer_id: this.props.event.organizer_id,
-            registration_type: "Free",
-            photo: this.props.event.photo
-        })
+        // this.setState({
+        //     tab: 'first',
+        //     title: this.props.event.title,
+        //     category_id: this.props.event.category_id,
+        //     description: this.props.event.description,
+        //     url: this.props.event.url,
+        //     date: this.props.event.date,
+        //     end_date: this.props.event.end_date,
+        //     start_time: this.props.event.start_time,
+        //     end_time: this.props.event.end_time,
+        //     organizer_id: this.props.event.organizer_id,
+        //     registration_type: "Free",
+        //     photo: this.props.event.photo
+        // })
     }
 
 
@@ -72,6 +76,7 @@ class EditFormNav extends React.Component {
                 let i = categories.indexOf(e.target.value) + 1;
                 this.setState({ category_id: i })
             } else {
+                console.log("parent update")
                 this.setState({ [field]: e.target.value })
             }
         }
