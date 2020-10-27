@@ -67,11 +67,11 @@ export const createEvent = (event) => (dispatch) => {
             })
 }
 
-export const updateEvent = (event) => (dispatch) => {
-    return EventApiUtil.updateEvent(event)
+export const updateEvent = (formData, id) => (dispatch) => {
+    debugger;
+    return EventApiUtil.updateEvent(formData, id)
         .then(event => dispatch(receiveEvent(event)),
             errors => dispatch(receiveEventErrors(errors.responseJSON)))
-        //.then(successcallbackarg1, failcallbackarg2)
 };
 
 export const destroyEvent = (eventId) => (dispatch) => {

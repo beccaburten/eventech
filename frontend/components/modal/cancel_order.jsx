@@ -14,7 +14,7 @@ class CancelOrder extends React.Component {
     handleUnregister(e) {
         e.preventDefault();
         const { event_id, user_id } = this.props;
-         ;
+        
         this.props.unregisterUser({ user_id: user_id, event_id: event_id});
         this.props.closeModal();
         this.props.history.push(`/u/${user_id}`)
@@ -26,7 +26,7 @@ class CancelOrder extends React.Component {
     }
 
     render() {
-        //  ;
+        // 
         return (
             <div className="cancel-order-modal"> 
                 {/* <div className="cancel-close-modal" onClick={this.handleClose}><i className="fas fa-times"></i></div> */}

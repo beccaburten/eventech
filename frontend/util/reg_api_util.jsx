@@ -6,7 +6,7 @@
 // };
 
 // export const fetchRegistration = (regId) => {
-//      ;
+//     
 //     return $.ajax({
 //         method: "GET",
 //         url: `/api/registrations/${regId}`
@@ -22,7 +22,7 @@ export const registerUser = (event_id) => {
 }
 
 export const unregisterUser = (ids) => {
-     ;
+    
     return $.ajax({
         method: "DELETE",
         url: `/api/registration`,

@@ -32,7 +32,7 @@ export const formatDate = (date) => {
 };
 
 export const formatTime = (time) => {
-     ;
+    
     const obj = new Date(time);
     let hour = obj.getHours();
     let min = obj.getMinutes();

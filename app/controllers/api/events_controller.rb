@@ -13,8 +13,8 @@ class Api::EventsController < ApplicationController
             # redirect_to '/api/events', status: 303
             render :show
         else
-            # render @event.errors.full_messages
-            render json: ['Event create unsuccessful']
+            render @event.errors.full_messages
+            # render json: ['Event create unsuccessful']
         end
     end
 

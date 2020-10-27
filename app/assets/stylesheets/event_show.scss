@@ -104,7 +104,7 @@ h2 .show-date {
     // border-bottom: 2px solid #DBDAE3;
 }
 
-.es-register button {
+.register-button {
     border: 0;
     outline: none;
     padding: 15px 0px 15px 0px;
@@ -117,10 +117,29 @@ h2 .show-date {
     width: 320px;
     margin: 10px;
     &:hover {
+        cursor: pointer;
         background-color: #17a85d;
         transition: background-color 0.5s;
     }
+}
 
+.e-d-buttons {
+    border: 0;
+    outline: none;
+    padding: 15px 0px 15px 0px;
+    background-color: #0E8548;
+    transition: background-color 0.5s;
+    border-radius: 4px;
+    font-weight: 400;
+    color: white;
+    font-size: 16px;
+    width: 170px;
+    margin: 10px;
+    &:hover {
+        cursor: pointer;
+        background-color: #17a85d;
+        transition: background-color 0.5s;
+    }
 }
 
 .es-register > .fa-heart {
