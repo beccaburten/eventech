@@ -10,7 +10,8 @@ const mSTP = (state, ownProps) => {
     // 
     const currentUserId = state.session.id;
     const eventId = ownProps.match.params.eventId;
-    const likedEvents = state.entities.users[currentUserId].likedEvents;
+    let likedEvents;
+    currentUserId ? likedEvents = state.entities.users[currentUserId].likedEvents : likedEvents = [];
     if (state.entities.events[eventId]) {
         return ({ event: state.entities.events[eventId], 
             organizer: state.entities.users[state.entities.events[eventId].organizer_id],

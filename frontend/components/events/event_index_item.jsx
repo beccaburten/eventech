@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { formatDate, formatTime } from '../../util/format_util'
+import {withRouter} from 'react-router-dom';
 
-class EventIndexItem extends React.Component {
+class EventItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = { liked: null }
@@ -12,9 +13,13 @@ class EventIndexItem extends React.Component {
 
     handleLike(e) {
         e.preventDefault();
-        this.setState({ liked: true });
-        const { event } = this.props;
-        this.props.createLike(event.id);
+        if (this.props.currentUserId) {
+            this.setState({ liked: true });
+            const { event } = this.props;
+            this.props.createLike(event.id);
+        } else {
+            this.props.history.push('/signin')
+        }
     }
 
     handleUnlike(e) {
@@ -27,7 +32,7 @@ class EventIndexItem extends React.Component {
 
     render() {
         const{event, likedEvents} = this.props;
-        if (typeof event === undefined) return null
+        if (typeof event === null) return null
         
         return (
             <Link to={`/events/${this.props.eventId}`} className="grid-item">
@@ -50,4 +55,4 @@ class EventIndexItem extends React.Component {
     }
 }
 
-export default EventIndexItem;
+export const EventIndexItem = withRouter(EventItem);

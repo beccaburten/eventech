@@ -6,7 +6,8 @@ import EventsIndex from './events_index';
 
 const mSTP = (state) => {
     const currentUserId = state.session.id;
-    const likedEvents = state.entities.users[currentUserId].likedEvents;
+    let likedEvents;
+    currentUserId ? likedEvents = state.entities.users[currentUserId].likedEvents : likedEvents = [];
     
     return {
     currentUserId, likedEvents,

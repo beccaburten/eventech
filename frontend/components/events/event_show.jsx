@@ -37,10 +37,14 @@ class EventShow extends React.Component {
     }
 
     handleLike(e) {
-        e.preventDefault();
-        this.setState({ liked: true });
-        const { event } = this.props;
-        this.props.createLike(event.id);
+        if (this.props.currentUserId) {
+            e.preventDefault();
+            this.setState({ liked: true });
+            const { event } = this.props;
+            this.props.createLike(event.id);
+        } else {
+            this.props.history.push('/signin');
+        }
     }
 
     handleUnlike(e) {
