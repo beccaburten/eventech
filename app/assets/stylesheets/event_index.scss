@@ -6,8 +6,8 @@
     display: flex;
     flex-wrap: wrap;
     flex: 0 1 200px;
-    width: inherit;
-    // justify-content: center;
+    width: fit-content;
+    justify-content: space-between;
     align-content: flex-start;
     padding-bottom: 75px; 
     margin-left: 25px; 
