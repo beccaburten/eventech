@@ -4,7 +4,7 @@ import EventIndexItem from './event_index_item';
 class EventsIndex extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { category: '' }
+        this.state = { category_id: 0 }
         this.filter = this.filter.bind(this)
     }
 
@@ -16,15 +16,20 @@ class EventsIndex extends React.Component {
         $('.filter-list li').removeClass('selected');
         debugger;
         $(`#${category}`).addClass('selected');
-        this.setState({category: category}); //categories will be abbrevs
+        const categories = {all: 0, ed: 1, cn: 2, tt: 3, vc: 4, di: 5};
+        this.setState({category_id: categories[category]}); 
     }
-
-    //  const categories = ['Education', 'Career & Networking', 'Tech Talks', 'Virtual Conferences', 'Diversity & Inclusion'];
-    //             let i = categories.indexOf(e.target.value) + 1;
-    //             this.setState({ category_id: i })
 
     render() {
         const {events, createLike, destroyLike, currentUserId, likedEvents} = this.props;
+
+        let filteredEvents;
+        if (this.state.category_id !== 0) {
+            filteredEvents = events.filter(ev => ev.category_id === this.state.category_id);
+        } else {
+            filteredEvents = events;
+        }
+
         return (
         <div className="splash">
             <div className="splash-banner">
@@ -48,9 +53,12 @@ class EventsIndex extends React.Component {
                 </ul>
             </div>
             <div id="jump-to-events" className="grid-container">
-                {events.map((event,i) => (
-                    <EventIndexItem key={`${i}`} event={event} eventId={event.id} createLike={createLike} destroyLike={destroyLike} currentUserId={currentUserId} likedEvents={likedEvents} />
-                ))
+                { filteredEvents.length > 0 ?
+                    filteredEvents.map((event,i) => (
+                        <EventIndexItem key={`${i}`} event={event} eventId={event.id} createLike={createLike} destroyLike={destroyLike} currentUserId={currentUserId} likedEvents={likedEvents} />
+                    ))
+                    :
+                    <p>No upcoming events in this category, check back soon!</p>
                 }
             </div>
         </div>

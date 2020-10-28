@@ -7,9 +7,10 @@
     flex-wrap: wrap;
     flex: 0 1 200px;
     width: inherit;
-    justify-content: center;
+    // justify-content: center;
     align-content: flex-start;
-    padding-bottom: 75px;  
+    padding-bottom: 75px; 
+    margin-left: 25px; 
 }
 
 .grid-item {
