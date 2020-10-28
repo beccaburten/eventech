@@ -7,7 +7,7 @@
     flex-wrap: wrap;
     flex: 0 1 200px;
     width: fit-content;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-content: flex-start;
     padding-bottom: 75px; 
     margin-left: 25px; 
@@ -16,7 +16,6 @@
 .grid-item {
     color: inherit;
     text-decoration: inherit;
-
     margin: 20px;
     font-family: 'Roboto', sans-serif;
     width: 250px;
@@ -24,8 +23,6 @@
     text-align: center;
     transition: box-shadow 0.5s;
     box-shadow: 0 3px 30px 10px rgba(0, 0, 0, .05);
-    // flex: 1 1 20em;
-
     position: relative;
 
     &:hover {
