@@ -142,7 +142,7 @@ h2 .show-date {
     }
 }
 
-.es-register > .fa-heart {
+.es-register > .far.fa-heart {
     display: block;
     font-size: 26px;
     color: #4B4D63;
@@ -153,6 +153,25 @@ h2 .show-date {
     transition: background-color 0.5s;
     &:hover {
         cursor: pointer;
+        transition: background-color 0.5s;
+        background-color: #F8F7FA;
+    }
+}
+
+.es-register > .fas.fa-heart  {
+    display: block;
+    font-size: 26px;
+    color: #D1410c;
+    transition: color 0.5s ease-in-out;
+    padding: 12px 10px 0px 10px;
+    height: 38px;
+    margin: 10px 10px 10px 20px;
+    border-radius: 50%;
+    transition: background-color 0.5s;
+    &:hover {
+        cursor: pointer;
+        color: #f55b23;
+        transition: color 0.5s ease-in-out;
         transition: background-color 0.5s;
         background-color: #F8F7FA;
     }

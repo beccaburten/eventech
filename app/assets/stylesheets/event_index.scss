@@ -61,7 +61,7 @@
     color: #39364F;
 }
 
-.grid-item > .fa-heart {
+.grid-item > .far.fa-heart {
     display: block;
     color: #4B4D63;
     height: 20px;
@@ -84,6 +84,30 @@
    }
 }
 
+.grid-item > .fas.fa-heart  {
+    display: block;
+    color: #D1410c;
+    transition: color 0.5s ease-in-out;
+    height: 20px;
+    z-index: 1;
+    padding: 10px 10px 5px 10px;
+    margin-right: 5px;
+    border: 2px solid #DBDAE3;
+    border-radius: 50%;
+    transition: background-color 0.5s;
+    position: absolute;
+    top: 44%;
+    right: 0;
+    background-color: white;
+
+    &:hover {
+        cursor: pointer;
+        color: #f55b23;
+        transition: color 0.5s ease-in-out;
+        transition: background-color 0.5s;
+        background-color: #F8F7FA;
+   }
+}
 
 // using CSS Grid instead of flex wrap
 // .grid-container {
