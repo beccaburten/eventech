@@ -32,9 +32,9 @@ export const formatDate = (date) => {
 };
 
 export const formatTime = (time) => {
-    
-    const obj = new Date(time);
-    let hour = obj.getHours();
+
+    const obj = new Date(time); // Tue Oct 27 2020 22:00:00 GMT-0700 (Pacific Daylight Time)
+    let hour = (obj.getHours() + 7) % 24;
     let min = obj.getMinutes();
     let ampm;
     if (hour >= 12) {
@@ -47,7 +47,6 @@ export const formatTime = (time) => {
     // const timezone = obj.get???();
     return `${hour}:${min} ${ampm}`;
 }
-
 
 export const showPageMonth = (date) => {
     const obj = new Date(date);
