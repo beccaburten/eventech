@@ -1,0 +1,53 @@
+.filter-banner {
+  width: 95vw;
+  margin: auto;
+}
+
+.filter-banner h1 {
+    display: flex;
+    color: #39364F;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: .5px;
+    line-height: 40px;
+    margin: auto;
+    padding-left: 50px;
+}
+
+#online-events {
+    margin: 0px 0px 0px 10px;
+    color: #3D65FF;
+    border-bottom: solid 2px gainsboro;
+}
+
+.filter-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.filter-list li {
+    color: #6F7287;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 12px;
+    border-bottom: solid 2px transparent;
+    &:hover {
+        cursor: pointer;
+        border-bottom: solid 2px #1E0A3C;
+        color: #1E0A3C;
+    }
+}
+
+.filter-list .selected {
+    color: #3D65FF;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 12px;
+    border-bottom: solid 2px #3D65FF;
+    &:hover {
+        cursor: pointer;
+        border-bottom: solid 2px #3D65FF;
+        color: #3D65FF;
+    }
+}
