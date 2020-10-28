@@ -12,7 +12,7 @@ export default (state = {}, action) => {
         case RECEIVE_CURRENT_USER:
             return Object.assign(nextState, { [action.currentUser.id]: action.currentUser });
         case RECEIVE_EVENT:
-            debugger;
+            
             return Object.assign(nextState, { [action.organizer.id]: action.organizer });
         
         case RECEIVE_REGISTRATION:
@@ -28,13 +28,13 @@ export default (state = {}, action) => {
         case RECEIVE_LIKE:
             userToUpdate = state[action.like.user_id]
             userToUpdate.likedEvents.push(action.like.event_id) 
-            debugger;
+            
             return Object.assign(nextState, { [userToUpdate.id]: userToUpdate })
         case DELETE_LIKE:
             userToUpdate = state[action.unlike.user_id]
             updatedEvents = userToUpdate.likedEvents.filter((eventId) => eventId !== action.unlike.event_id)
             userToUpdate.likedEvents = updatedEvents;
-            debugger;
+            
             return Object.assign(nextState, { [userToUpdate.id]: userToUpdate })
 
         default:

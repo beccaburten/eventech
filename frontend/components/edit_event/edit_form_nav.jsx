@@ -61,10 +61,10 @@ class EditFormNav extends React.Component {
         for (let pair of formData.entries()) {
             console.log(pair[0]+ ' - ' + pair[1]); 
         }
-        debugger;
+        
 
         this.props.updateEvent(formData, this.props.eventId).then((resp) => {
-            debugger;
+            
             this.props.history.push(`/events/${this.props.eventId}`)
         })
     }

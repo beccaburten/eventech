@@ -15,7 +15,7 @@ export default (state = {}, action) => {
             return Object.assign(nextState, action.event);
         case DELETE_EVENT:
             delete nextState[action.eventId];
-            debugger;
+            
             return nextState;
         case RECEIVE_REGISTRATION:
             eventToUpdate = state[action.registration.event_id]

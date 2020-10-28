@@ -16,13 +16,23 @@ class EventsIndex extends React.Component {
 
     render() {
         const {events, createLike, destroyLike, currentUserId, likedEvents} = this.props;
-        debugger;
         return (
-        <div className="grid-container">
-            {events.map((event,i) => (
-                <EventIndexItem key={`${i}`} event={event} eventId={event.id} createLike={createLike} destroyLike={destroyLike} currentUserId={currentUserId} likedEvents={likedEvents} />
-            ))
-            }
+        <div className="splash">
+            <div className="splash-banner">
+                <img src={window.splashBanner} />
+                <div className="splash-text">
+                    <h3>Bring the internetwork to your personal network.</h3>
+                    <h1>Free tech events online: </h1>
+                    <a href="#grid-container">Browse events <i className="fas fa-arrow-right"></i></a>
+                    {/* <button>Browse events <i className="fas fa-arrow-right"></i></button> */}
+                </div>
+            </div>
+            <div className="grid-container">
+                {events.map((event,i) => (
+                    <EventIndexItem key={`${i}`} event={event} eventId={event.id} createLike={createLike} destroyLike={destroyLike} currentUserId={currentUserId} likedEvents={likedEvents} />
+                ))
+                }
+            </div>
         </div>
         )
     }

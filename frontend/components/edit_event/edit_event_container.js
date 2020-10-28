@@ -4,7 +4,7 @@ import { updateEvent, fetchEvent } from '../../actions/event_actions';
 import EditFormNav from './edit_form_nav';
 
 const mSTP = (state, ownProps) => { 
-    debugger;
+    
     const eventId = ownProps.match.params.event_id; 
     return ({ event: state.entities.events[eventId], eventId})
 }

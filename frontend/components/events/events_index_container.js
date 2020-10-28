@@ -7,7 +7,7 @@ import EventsIndex from './events_index';
 const mSTP = (state) => {
     const currentUserId = state.session.id;
     const likedEvents = state.entities.users[currentUserId].likedEvents;
-    debugger;
+    
     return {
     currentUserId, likedEvents,
     events: Object.values(state.entities.events)

@@ -34,7 +34,7 @@ class CreateFormNav extends React.Component {
         })
         console.log(formData);
         this.props.createEvent(formData).then((resp) => {
-            debugger;
+            
             this.props.history.push(`/events/${Object.values(resp.event)[0].id}`)
         })
     }

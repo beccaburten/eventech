@@ -9,7 +9,7 @@ const mSTP = (state) => {
     const currentUserId = state.session.id
     const user = state.entities.users[currentUserId];
     const likedEventsIds = user.likedEvents;
-    debugger;
+    
     const likedEvents = likedEventsIds.map((id) => state.entities.events[id])
     return ({ user, currentUserId, likedEvents })
 };
