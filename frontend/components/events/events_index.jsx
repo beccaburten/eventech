@@ -14,7 +14,6 @@ class EventsIndex extends React.Component {
 
     filter(category) {
         $('.filter-list li').removeClass('selected');
-        debugger;
         $(`#${category}`).addClass('selected');
         const categories = {all: 0, ed: 1, cn: 2, tt: 3, vc: 4, di: 5};
         this.setState({category_id: categories[category]}); 
