@@ -5,7 +5,8 @@ class EventsIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = { category_id: 0 }
-        this.filter = this.filter.bind(this)
+        this.filter = this.filter.bind(this);
+        this.scroll = this.scroll.bind(this);
     }
 
     componentDidMount() {
@@ -17,6 +18,12 @@ class EventsIndex extends React.Component {
         $(`#${category}`).addClass('selected');
         const categories = {all: 0, ed: 1, cn: 2, tt: 3, vc: 4, di: 5};
         this.setState({category_id: categories[category]}); 
+    }
+
+    scroll(e) {
+        e.preventDefault();
+        let index = document.getElementById("jump-to-events");
+        index.scrollIntoView({behavior: 'smooth', block: 'start'});
     }
 
     render() {
@@ -36,11 +43,11 @@ class EventsIndex extends React.Component {
                 <div className="splash-text">
                     <h3>Bring the internetwork to your personal network.</h3>
                     <h1>Free virtual tech events: </h1>
-                    <a href="#jump-to-events">Browse events <i className="fas fa-arrow-right"></i></a>
+                    <a onClick={this.scroll}>Browse events <i className="fas fa-arrow-right"></i></a>
                     {/* <button>Browse events <i className="fas fa-arrow-right"></i></button> */}
                 </div>
             </div>
-            <div className="filter-banner">
+            <div id="jump-to-events" className="filter-banner">
                 <h1>Popular in <p id="online-events">Online Events</p></h1>
                 <ul className="filter-list">
                     <li className= "selected" id="all" onClick={()=> this.filter('all')}>All</li>
@@ -51,7 +58,7 @@ class EventsIndex extends React.Component {
                     <li id="di" onClick={()=> this.filter('di')}>Diversity & Inclusion</li>
                 </ul>
             </div>
-            <div id="jump-to-events" className="grid-container">
+            <div className="grid-container">
                 { filteredEvents.length > 0 ?
                     filteredEvents.map((event,i) => (
                         <EventIndexItem key={`${i}`} event={event} eventId={event.id} createLike={createLike} destroyLike={destroyLike} currentUserId={currentUserId} likedEvents={likedEvents} />
