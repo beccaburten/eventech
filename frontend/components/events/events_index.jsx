@@ -15,11 +15,12 @@ class EventsIndex extends React.Component {
     // }
 
     render() {
-        const {events} = this.props;
+        const {events, createLike, destroyLike, currentUserId, likedEvents} = this.props;
+        debugger;
         return (
         <div className="grid-container">
             {events.map((event,i) => (
-                <EventIndexItem key={`${i}`} event={event} eventId={event.id} />
+                <EventIndexItem key={`${i}`} event={event} eventId={event.id} createLike={createLike} destroyLike={destroyLike} currentUserId={currentUserId} likedEvents={likedEvents} />
             ))
             }
         </div>

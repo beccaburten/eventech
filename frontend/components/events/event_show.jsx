@@ -5,9 +5,12 @@ import { useHistory } from 'react-router-dom';
 class EventShow extends React.Component {
     constructor(props) {
         super(props);
+        this.state = { liked: null }
         this.handleClick = this.handleClick.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
+        this.handleLike = this.handleLike.bind(this);
+        this.handleUnlike = this.handleUnlike.bind(this);
     }
 
     componentDidMount() {
@@ -33,11 +36,24 @@ class EventShow extends React.Component {
         this.props.destroyEvent(this.props.event.id).then(() => this.props.history.push('/'))
     }
 
+    handleLike(e) {
+        e.preventDefault();
+        this.setState({ liked: true });
+        const { event } = this.props;
+        this.props.createLike(event.id);
+    }
+
+    handleUnlike(e) {
+        e.preventDefault();
+        this.setState({ liked: false });
+        const { event, currentUserId } = this.props;
+        this.props.destroyLike({user_id: currentUserId, event_id: event.id})
+    }
+
     render() {
-        const { event, organizer, currentUserId } = this.props;
+        const { event, organizer, currentUserId, likedEvents } = this.props;
         if (!organizer) return null;
         if (!event) return null;
-        
 
         return (
             <div className="event-show-container">
@@ -59,7 +75,15 @@ class EventShow extends React.Component {
                         </div>
                     </div>
                     <div className="es-register">
-                        <i className="far fa-heart"></i>
+                        
+                        {
+                            this.state.liked || likedEvents.includes(event.id) 
+                            ?
+                            <i className="fas fa-heart" onClick={this.handleUnlike}></i>
+                            :
+                            <i className="far fa-heart" onClick={this.handleLike}></i>
+                        }
+
                         { currentUserId === event.organizer_id ? 
                             <div className="edit-delete-event">
                                 <button className="e-d-buttons" onClick={this.handleEdit}>Edit</button>

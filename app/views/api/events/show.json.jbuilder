@@ -4,6 +4,7 @@ json.event do
     json.set! evId do
         json.extract! @event, :id, :title, :date, :start_time, :end_date, :end_time, :organizer_id, :category_id, :description, :url 
         json.attendees @event.attendees.pluck(:id)
+        json.likers @event.likers.pluck(:id)
         json.photoUrl url_for(@event.photo) if @event.photo.attached?
     end
 end

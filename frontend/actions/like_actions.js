@@ -25,14 +25,16 @@ const receiveErrors = errors => ({
 
 //like returned is hash with user and event ids
 export const createLike = (event_id) => dispatch => {
+    debugger;
     return LikeApiUtil.likeEvent(event_id).then(
         like => (dispatch(receiveLike(like))),
         err => { dispatch(receiveErrors(err.responseJSON)) }
     )
 };
 
-//ids is hash with both user and event like
+//ids is hash with both user and event id
 export const destroyLike = (ids) => dispatch => {
+    debugger;
     return LikeApiUtil.unlikeEvent(ids)
         .then((unlike) => dispatch(deleteLike(unlike)))
 };

@@ -64,7 +64,6 @@
 .grid-item > .fa-heart {
     display: block;
     color: #4B4D63;
-    font-weight: 500;
     height: 20px;
     z-index: 1;
     padding: 10px 10px 5px 10px;
@@ -79,6 +78,7 @@
     background-color: white;
 
     &:hover {
+        cursor: pointer;
         transition: background-color 0.5s;
         background-color: #F8F7FA;
    }
