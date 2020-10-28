@@ -32,14 +32,14 @@ export const formatDate = (date) => {
 };
 
 export const formatTime = (time) => {
-
-    const obj = new Date(time); // Tue Oct 27 2020 22:00:00 GMT-0700 (Pacific Daylight Time)
-    let hour = (obj.getHours() + 7) % 24;
+    const obj = new Date(time); 
+    let hour = obj.getHours();
+    hour > 24 ? (hour = hour % 24) : (hour = hour);
     let min = obj.getMinutes();
     let ampm;
     if (hour >= 12) {
         ampm = 'PM';
-        hour > 12 ? hour = hour % 12 : hour = hour;
+        hour > 12 ? (hour = hour % 12) : (hour = hour);
     } else {
         ampm = 'AM'
     }

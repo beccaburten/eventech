@@ -32,7 +32,6 @@ class CreateFormNav extends React.Component {
         Object.keys(this.state).map(key => {
             formData.append(`event[${key}]`, this.state[key])
         })
-        console.log(formData);
         this.props.createEvent(formData).then((resp) => {
             
             this.props.history.push(`/events/${Object.values(resp.event)[0].id}`)
@@ -45,6 +44,9 @@ class CreateFormNav extends React.Component {
                 const categories = ['Education', 'Career & Networking', 'Tech Talks', 'Virtual Conferences', 'Diversity & Inclusion'];
                 let i = categories.indexOf(e.target.value) + 1;
                 this.setState({ category_id: i })
+            } else if (field === 'start_time' || field === 'end_time'){
+                let formatTime = '01-01-1970 ' + e.target.value + '-08:00';
+                this.setState({ [field]: formatTime })
             } else {
                 this.setState({ [field]: e.target.value })
             }
@@ -53,7 +55,8 @@ class CreateFormNav extends React.Component {
 
     uploadFile(e) {
         e.preventDefault();
-        this.setState({photo: e.target.files[0]}, () => console.log(this.state))
+        this.setState({photo: e.target.files[0]})
+        // this.setState({photo: e.target.files[0]}, () => console.log(this.state))
     }
 
     switchTab(target) {
