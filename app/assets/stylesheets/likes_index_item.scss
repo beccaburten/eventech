@@ -1,0 +1,46 @@
+.likes-index-item {
+    display: flex;
+    flex-direction: row;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: box-shadow 0.5s;
+    margin: 15px 10px 15px 0px;
+    padding: 10px 10px 30px 10px;
+    width: 90%;
+    &:hover {
+        box-shadow: 0 1px 2px 2px rgba(0, 0, 0, .05);
+        transition: box-shadow 0.5s;
+    }
+}
+
+.like-title {
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: #1F0B3D;
+    font-weight: 400;
+    margin: 0;
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+#likes-index-heart {
+    font-size: 18px;
+    align-self: flex-end;
+    color: #D1410c;
+    transition: color 0.5s ease-in-out;
+    display: block;
+    padding: 12px 10px 0px 10px;
+    height: 28px;
+    border-radius: 50%;
+    transition: background-color 0.5s ease-in-out;
+    &:hover {
+        cursor: pointer;
+        color: #f55b23;
+        transition: color 0.5s ease-in-out;
+        background-color: #EAE9EC;
+        transition: background-color 0.5s ease-in-out;
+    }
+}

@@ -13,6 +13,7 @@ import RegistrationModal from './modal/registration_modal';
 import CancelModal from './modal/cancel_modal';
 import CreateEventContainer from './create_event/create_event_container';
 import EditEventContainer from './edit_event/edit_event_container';
+import LikesIndexContainer from './likes/likes_index_container';
 
 const App = () => (
     <div>
@@ -28,6 +29,7 @@ const App = () => (
                 <Route path='/events/:eventId' component={EventShowContainer} />
                 <ProtectedRoute exact path='/u/:user_id' component={RegistrationsIndexContainer}/>
                 <ProtectedRoute path='/u/:user_id/t/:event_id' component={RegistrationShowContainer} />
+                <ProtectedRoute exact path='/u/:user_id/likes' component={LikesIndexContainer}/>
             </Switch>
         </div>
         <Footer />
