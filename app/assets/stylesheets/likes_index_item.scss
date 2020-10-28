@@ -1,6 +1,7 @@
-.likes-index-item {
+.likes-index-item-outer {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     border-radius: 4px;
     text-decoration: none;
     transition: box-shadow 0.5s;
@@ -11,6 +12,11 @@
         box-shadow: 0 1px 2px 2px rgba(0, 0, 0, .05);
         transition: box-shadow 0.5s;
     }
+}
+
+.likes-index-item-inner {
+    display: flex;
+    flex-direction: row;
 }
 
 .like-title {
