@@ -1,8 +1,6 @@
-![eventech-logo](https://github.com/beccaburten/eventech/blob/master/app/assets/images/eventech.png)
 
 [**Eventech**](https://eventech-hub.herokuapp.com/#/) is an event management and ticketing application that enables users to browse, create, and register for free online virtual events in the tech space, inspired by [Eventbrite](https://www.eventbrite.com). Eventech is built using React and Redux frontend libraries, HTML and CSS, Ruby on Rails backend framework, PostgreSQL database, and AWS S3 for data storage. The site was then deployed with Heroku.
 
-![login](https://github.com/beccaburten/eventech/blob/master/app/assets/gifs/eventech-login.gif)
 
 ## Technologies
 - Ruby on Rails
@@ -28,14 +26,9 @@ Visitors who with to register for, like, or create events will need to sign up o
 
 **Registering & Unregistering for Events**
 
-![register](https://github.com/beccaburten/eventech/blob/master/app/assets/gifs/register.gif)
-![unregister](https://github.com/beccaburten/eventech/blob/master/app/assets/gifs/unregister.gif)
-
 Visitors can visit an event's show page to register or unregister for the event. Alternatively, the Tickets page displays all the user's registered events, with the option to unregister for an individual ticket via the Cancel Order modal. 
 
 **Event CRUD**
-
-![create](https://github.com/beccaburten/eventech/blob/master/app/assets/gifs/create.gif)
 
 To implement event **Create** across two form tabs, I implemented a container component with an update method bound to its local state, passed to two children component forms, which would render the tabs and receive user input to update the parent's state. The second tab reveals the Publish button, which triggers a submission method also bound in the parent component, sending all collected inputs from both forms to the database for validation. 
 
