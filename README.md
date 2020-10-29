@@ -1,8 +1,7 @@
 
 # [**Eventech**](https://eventech-hub.herokuapp.com/#/) 
-![homepage](https://github.com/beccaburten/eventech/blob/master/app/assets/readme/splash.png)
-
 Eventech is an event management and ticketing application that enables users to browse, create, and register for free online virtual events in the tech space, inspired by [Eventbrite](https://www.eventbrite.com). Eventech is built using React and Redux frontend libraries, HTML and CSS, Ruby on Rails backend framework, PostgreSQL database, and AWS S3 for data storage. The site was then deployed with Heroku.
+![homepage](https://github.com/beccaburten/eventech/blob/master/app/assets/readme/splash.png)
 
 
 ## Technologies
@@ -32,7 +31,7 @@ Visitors who with to register for, like, or create events will need to sign up o
 Visitors can visit an event's show page to access a modal where they can register or unregister for the event. Alternatively, the Tickets page displays all the user's registered events, with the option to unregister for an individual ticket via the Cancel Order modal. 
 
 **Event CRUD**
-![create](https://github.com/beccaburten/eventech/blob/master/app/assets/readme/create3MB.gif)
+![create](https://github.com/beccaburten/eventech/blob/master/app/assets/readme/create1.5MB.gif)
 - To implement event **Create** across two form tabs, I implemented a container component with an update method bound to its local state, passed to two children component forms, which would render the tabs and receive user input to update the parent's state. The second tab reveals the Publish button, which triggers a submission method also bound in the parent component, sending all collected inputs from both forms to the database for validation. 
 - The user is then directed to the new event's **Read** page. Where others would see a "Register" option, this user now sees their Edit and **Delete** options. 
 - To **Update** the event, the forms are rendered with the prior information pre-filled into all fields. To accomplish this, the parent container fetches the event by the id in the url params as a prop upon mounting, and passes this event as a prop to the children components. While the parent holds no event information in local state, the children components set local state to the event's current information from the prop. The update method bound to the parent now sets a key-value pair in the parent state with any changed fields, so as only to submit updated information to the database upon submission. 
