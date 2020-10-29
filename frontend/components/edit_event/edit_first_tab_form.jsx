@@ -16,7 +16,7 @@ class EditFirstTab extends React.Component {
             start_time: this.props.event.start_time,
             end_time: this.props.event.end_time,
         }
-        // this.localUpdate = this.localUpdate.bind(this);
+        this.identifyCategory = this.identifyCategory.bind(this);
     }
 
     identifyCategory() {     
@@ -24,19 +24,6 @@ class EditFirstTab extends React.Component {
         let i = this.state.category_id - 1;
         return categories[i]
     }
-
-    // localUpdate(field) {
-    //     this.props.update(field);
-    //     return (e) => {
-    //         if(field === 'category') {
-    //             const categories = ['Education', 'Career & Networking', 'Tech Talks', 'Virtual Conferences', 'Diversity & Inclusion'];
-    //             let i = categories.indexOf(e.target.value) + 1;
-    //             this.setState({ category_id: i })
-    //         } else {
-    //             this.setState({ [field]: e.target.value })
-    //         }
-    //     }
-    // }
 
     render() {
         return (
