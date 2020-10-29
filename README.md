@@ -19,15 +19,15 @@ Eventech is an event management and ticketing application that enables users to 
 ## Highlights
 
 **Events Index & Filtering by Category**
-![filter](https://github.com/beccaburten/eventech/blob/master/app/assets/readme/filter2MB.gif)
+![filter](https://github.com/beccaburten/eventech/blob/master/app/assets/readme/filter1.2MB.gif)
 Visitors can browse events and filter events by category prior to logging in.
 
 **Custom Auth Routing**
-![auth](https://github.com/beccaburten/eventech/blob/master/app/assets/readme/signup.gif)
+![auth](https://github.com/beccaburten/eventech/blob/master/app/assets/readme/signup1MB.gif)
 Visitors who with to register for, like, or create events will need to sign up or log in! He or she will input their e-mail on the main sign-in page, which will trigger a custom auth route to check for e-mail presence in the database and route the visitor to either the login or signup page accordingly. Frontend validations were used for targeted error messages, including improper e-mail format, inaccurate password on login, inacucurate e-mail matching on signup, and missing name or password fields.  
 
 **Registering & Unregistering for Events**
-![reg](https://github.com/beccaburten/eventech/blob/master/app/assets/readme/register3MB.gif)
+![reg](https://github.com/beccaburten/eventech/blob/master/app/assets/readme/register2MB.gif)
 Visitors can visit an event's show page to access a modal where they can register or unregister for the event. Alternatively, the Tickets page displays all the user's registered events, with the option to unregister for an individual ticket via the Cancel Order modal. 
 
 **Event CRUD**
