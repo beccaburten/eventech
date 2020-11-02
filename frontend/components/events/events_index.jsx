@@ -18,6 +18,7 @@ class EventsIndex extends React.Component {
         $(`#${category}`).addClass('selected');
         const categories = {all: 0, ed: 1, cn: 2, tt: 3, vc: 4, di: 5};
         this.setState({category_id: categories[category]}); 
+        this.scroll();
     }
 
     scroll(e) {
