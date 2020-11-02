@@ -62,7 +62,11 @@ class CreateFormNav extends React.Component {
     switchTab(target) {
         return (e) => {
             e.preventDefault();
-            this.setState({ tab: target})
+            if (!!this.state.title && !!this.state.category_id && !!this.state.url && !!this.state.date && !!this.state.end_date) {
+                this.setState({ tab: target })
+            } else {
+                window.alert("All fields are required, please fill them in to continue.")
+            }
         }
     }
 
@@ -78,7 +82,6 @@ class CreateFormNav extends React.Component {
                         {this.state.tab === 'first' ? <FirstTab update={this.update} switchTab={this.switchTab} /> : <SecondTab update={this.update} handleSubmit={this.handleSubmit} uploadFile={this.uploadFile} />}
                     </div>
                 </div>
-                {/* { this.state.tab === 'second' ? <button onClick={this.handleSubmit}>Publish</button> : null } */}
             </div>
         )
     }
