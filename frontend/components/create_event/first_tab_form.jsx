@@ -4,7 +4,7 @@ class FirstTab extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {category: null, title_error: "", category_error: "", url_err: "", time1_err: "", time2_err: ""}
+        this.state = {category: null, title_error: "", category_error: "", url_error: "", date_error: "", end_date_error: ""}
     }
 
     render() {
@@ -19,7 +19,7 @@ class FirstTab extends React.Component {
                         <div className="outer-selector">Event Title
                             <input className="text-input" id="title" type="text" onChange={this.props.update('title')} onBlur={(e) => !e.target.value ? this.setState({title_error: "All fields required"}) : this.setState({title_error: ""})} required />
                         </div>
-                        <p className="errors">{this.state.title_error}</p>
+                        <p id="title_error" className="errors">{this.state.title_error}</p>
 
                         <div className="outer-selector">
                             <select name="category" id="category" defaultValue={'DEFAULT'} onChange={this.props.update('category')} onBlur={(e) => !e.target.value ? this.setState({category_error: "All fields required"}) : this.setState({category_error: ""})} required >
@@ -31,7 +31,7 @@ class FirstTab extends React.Component {
                                 <option value="Diversity & Inclusion">Diversity & Inclusion</option>
                             </select>
                         </div>
-                        <p className="errors">{this.state.category_error}</p>
+                        <p id="category_error" className="errors">{this.state.category_error}</p>
 
                     </div>
 
@@ -39,9 +39,9 @@ class FirstTab extends React.Component {
                         <h2><i className="fas fa-desktop"></i> Location</h2>
                         <h3>Help people discover more of your events and let attendees know where to show up.</h3>
                         <div className="outer-selector"> Event URL 
-                            <input className="text-input" id="url" type="url" onChange={this.props.update('url')} onBlur={(e) => !e.target.value ? this.setState({url_err: "All fields required"}) : this.setState({url_err: ""})} required/>
+                            <input className="text-input" id="url" type="url" onChange={this.props.update('url')} onBlur={(e) => !e.target.value ? this.setState({url_error: "All fields required"}) : this.setState({url_error: ""})} required/>
                         </div>
-                    <p className="errors">{this.state.url_err}</p>
+                    <p id="url_error" className="errors">{this.state.url_error}</p>
 
                     </div>
 
@@ -51,7 +51,7 @@ class FirstTab extends React.Component {
                         <br></br>
                         <div className="time-flex">
                             <div className="outer-selector"> Event Starts
-                                <input className="time-selector" id="date" type="date" onChange={this.props.update('date')} onBlur={(e) => !e.target.value ? this.setState({time1_err: "All fields required"}) : this.setState({time1_err: ""})} required />
+                                <input className="time-selector" id="date" type="date" onChange={this.props.update('date')} onBlur={(e) => !e.target.value ? this.setState({date_error: "All fields required"}) : this.setState({date_error: ""})} required />
                             </div>
                             <br></br>
                             <div className="outer-selector"> Start Time
@@ -107,12 +107,12 @@ class FirstTab extends React.Component {
                                 </select>
                             </div>
                         </div>
-                        <p className="errors">{this.state.time1_err}</p>
+                        <p id="date_error" className="errors">{this.state.date_error}</p>
 
                         <br></br>
                         <div className="time-flex">
                             <div className="outer-selector"> Event Ends
-                                <input className="time-selector" id="end_date" type="date" onChange={this.props.update('end_date')} onBlur={(e) => !e.target.value ? this.setState({time2_err: "All fields required"}) : this.setState({time2_err: ""})} required />
+                                <input className="time-selector" id="end_date" type="date" onChange={this.props.update('end_date')} onBlur={(e) => !e.target.value ? this.setState({end_date_error: "All fields required"}) : this.setState({end_date_error: ""})} required />
                             </div>
                             <br></br>
                             <div className="outer-selector"> End Time
@@ -168,10 +168,10 @@ class FirstTab extends React.Component {
                                 </select>
                             </div>
                         </div>
-                        <p className="errors">{this.state.time2_err}</p>
+                        <p id="end_date_error" className="errors">{this.state.end_date_error}</p>
                     </div>
                     <button onClick={this.props.switchTab('second')}>Save & Continue</button>
-                    {/* <button onClick={Object.values(this.state).every(el => el !== "All fields required") ? this.props.switchTab('second') : this.setState({time2_err: "All fields required"})}>Save & Continue</button> */}
+                    {/* <button onClick={Object.values(this.state).every(el => el !== "All fields required") ? this.props.switchTab('second') : this.setState({end_date_error: "All fields required"})}>Save & Continue</button> */}
                 </form>
             </div>
 

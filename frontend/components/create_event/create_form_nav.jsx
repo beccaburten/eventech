@@ -24,18 +24,23 @@ class CreateFormNav extends React.Component {
         this.switchTab = this.switchTab.bind(this);
         this.update = this.update.bind(this);
         this.uploadFile = this.uploadFile.bind(this);
+        this.errorHandling = this.errorHandling.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
-        Object.keys(this.state).map(key => {
-            formData.append(`event[${key}]`, this.state[key])
-        })
-        this.props.createEvent(formData).then((resp) => {
-            
-            this.props.history.push(`/events/${Object.values(resp.event)[0].id}`)
-        })
+        if (Object.values(this.state).some(val => val === "")) {
+             $("#submit_error").html("Photo and description required.")
+         } else {
+            Object.keys(this.state).map(key => {
+                formData.append(`event[${key}]`, this.state[key])
+            })
+            this.props.createEvent(formData).then((resp) => {
+                
+                this.props.history.push(`/events/${Object.values(resp.event)[0].id}`)
+            })
+         }
     }
 
     update(field) {
@@ -44,11 +49,14 @@ class CreateFormNav extends React.Component {
                 const categories = ['Education', 'Career & Networking', 'Tech Talks', 'Virtual Conferences', 'Diversity & Inclusion'];
                 let i = categories.indexOf(e.target.value) + 1;
                 this.setState({ category_id: i })
+                $("#category_error").html("")
             } else if (field === 'start_time' || field === 'end_time'){
                 let formatTime = '01-01-1970 ' + e.target.value + '-08:00';
                 this.setState({ [field]: formatTime })
             } else {
                 this.setState({ [field]: e.target.value })
+                debugger;
+                $(`#${field}_error`).html("")
             }
         }
     }
@@ -65,9 +73,23 @@ class CreateFormNav extends React.Component {
             if (!!this.state.title && !!this.state.category_id && !!this.state.url && !!this.state.date && !!this.state.end_date) {
                 this.setState({ tab: target })
             } else {
-                window.alert("All fields are required, please fill them in to continue.")
+                // window.alert("All fields are required, please fill them in to continue.")
+                const categories = [this.state.title, this.state.category_id, this.state.url, this.state.date, this.state.end_date]
+                categories.map((el, i) => {
+                    debugger;
+                    !el ? this.errorHandling(i) : el
+                })
             }
         }
+    }
+
+    errorHandling(idx) {
+        //category = this.state.title
+        //id = title_error
+        debugger;
+        let errors = ["title_error", "category_error", "url_error", "date_error", "end_date_error"]
+        let err = document.getElementById(`${errors[idx]}`) 
+        err.innerHTML = "All fields required."
     }
 
     render() {

@@ -4,6 +4,7 @@ class SecondTab extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {submit_error: ""}
     }
     render() {
         return (
@@ -20,7 +21,7 @@ class SecondTab extends React.Component {
                     <div className="outer-desc-selector"> Description
                             <textarea className="text-input" onChange={this.props.update('description')} />
                     </div>
-
+                    <p id="submit_error" className="errors">{this.state.tsubmit_error}</p>
                     <button onClick={this.props.handleSubmit}>Publish</button>
                 </form>
 
