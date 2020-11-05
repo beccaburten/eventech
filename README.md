@@ -40,7 +40,7 @@ Visitors can register or unregister for an event by accessing the modal on the e
 
 ![create](https://github.com/beccaburten/eventech/blob/master/app/assets/readme/create1.5MB.gif)
 
-- To properly set the **Create** form across two tabs, I implemented a container component with an update method bound to its local state, and passed it to each child component tab. The Publish button triggers a submission method also bound in the parent component, sending all collected inputs from both forms to the database for validation. 
+- To properly set the **Create** form across two tabs, I implemented a container component with an update method bound to its local state, and passed it to each child component tab. Frontend error messages optimize speed for validations, and ensure proper input to the backend. The Publish button triggers a submission method also bound in the parent component, sending all collected inputs from both forms to the database (with a spinning loader, for helpful UI). 
 - Upon publishing, the user is directed to the new event's **Read** page where they see the option to Edit or **Delete** the event. 
 - To **Update** the event, the forms are rendered with the current values pre-filled into all fields. To accomplish this, the parent container maps the event to props, and passes it as a prop to the children components. The children components set local state to the event's current information from the prop, and use the bound update method set key-value pairs of any changed fields in the parent's local state. This method results in only updated information being submitted to the database upon Publish. 
 
