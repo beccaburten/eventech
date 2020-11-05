@@ -22,7 +22,8 @@ class SecondTab extends React.Component {
                             <textarea className="text-input" onChange={this.props.update('description')} />
                     </div>
                     <p id="submit_error" className="errors">{this.state.tsubmit_error}</p>
-                    <button onClick={this.props.handleSubmit}>Publish</button>
+     
+                    <button id="publish" onClick={this.props.handleSubmit}>Publish<div id="loader"></div></button>
                 </form>
 
             </div>

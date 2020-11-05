@@ -36,8 +36,10 @@ class CreateFormNav extends React.Component {
             Object.keys(this.state).map(key => {
                 formData.append(`event[${key}]`, this.state[key])
             })
+            let load = document.getElementById("loader");
+            load.classList.add("loader");
+            debugger;
             this.props.createEvent(formData).then((resp) => {
-                
                 this.props.history.push(`/events/${Object.values(resp.event)[0].id}`)
             })
          }
