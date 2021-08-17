@@ -48,7 +48,7 @@ Visitors can register or unregister for an event by accessing the modal on the e
 - User authentication built with frontend React validations for immediate error feedback, and backend Rails database constraints with secure BCrypt password hashing
 - Users can browse event feed and navigate to event Read pages prior to login
 - Users can filter events by category or see all events
-- Logged in users can create, edit, and elete events (full CRUD)
+- Logged in users can create, edit, and delete events (full CRUD)
 - Logged in users can register for events, and see these events on their Tickets index page. They can navigate to an individual ticket to unregister, or unregister from the Event's show page
 - Logged in users can like or unlike events from the events index or event show page, and can see their liked events on their Like index page, where they can also unlike any events and see them disappear
 - Optimized with cloud-based image storage using Rails ActiveStorage and Amazon Web Services S3
